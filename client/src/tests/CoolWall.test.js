@@ -1,12 +1,10 @@
 import React from "react";
-import Enzyme, { shallow } from "enzyme";
-import EnzymeAdapter from "enzyme-adapter-react-16";
+import { shallow } from "enzyme";
+
 import CoolWall from "../components/CoolWall";
 
-Enzyme.configure({ adapter: new EnzymeAdapter() });
-
 /**
- * Factory function to create a ShallowWrapper for the App component.
+ * Factory function to create a ShallowWrapper for the CoolWall component.
  * @function setup
  * @param {object} props - component props specific to this setup.
  * @param {object} state - initial state for setup.
@@ -36,4 +34,19 @@ test("renders technology voting component", () => {
   const wrapper = setup();
   const techvoteComponent = findByTestAttr(wrapper, "techvote-component");
   expect(techvoteComponent.length).toBe(1);
+});
+test("renders cool component", () => {
+  const wrapper = setup();
+  const coolComponent = findByTestAttr(wrapper, "cool-component");
+  expect(coolComponent.length).toBe(1);
+});
+test("renders uncool component", () => {
+  const wrapper = setup();
+  const uncoolComponent = findByTestAttr(wrapper, "uncool-component");
+  expect(uncoolComponent.length).toBe(1);
+});
+test("renders subzero component", () => {
+  const wrapper = setup();
+  const subzeroComponent = findByTestAttr(wrapper, "subzero-component");
+  expect(subzeroComponent.length).toBe(1);
 });

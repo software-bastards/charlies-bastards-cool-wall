@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import TechVote from "./TechVote";
+import Uncool from "./Uncool";
+import Cool from "./Cool";
+import Subzero from "./Subzero";
 import "../stylesheets/global.scss";
 import "../stylesheets/global.css";
 import "../stylesheets/CoolWall.scss";
@@ -27,9 +30,15 @@ class CoolWall extends Component {
               <TechVote data-test="techvote-component" />
             </div>
             <div className="coolwall--displaytrend">
-              <div className="coolwall--uncool"></div>
-              <div className="coolwall--cool"></div>
-              <div className="coolwall--subzero"></div>
+              <div className="coolwall--uncool">
+                <Uncool />
+              </div>
+              <div className="coolwall--cool">
+                <Cool />
+              </div>
+              <div className="coolwall--subzero">
+                <Subzero />
+              </div>
             </div>
           </div>
         </div>

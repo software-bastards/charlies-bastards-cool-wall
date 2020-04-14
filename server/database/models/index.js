@@ -4,10 +4,10 @@ const Sequelize = require("sequelize");
 
 const connector = new Sequelize(envVars.name, envVars.user, envVars.password, {
   host: envVars.host,
-  dialect: envVars.dialect
+  dialect: envVars.dialect,
 });
 
-const authenticate = async connector => {
+const authenticate = async (connector) => {
   try {
     await connector.authenticate();
     console.log(`Connection to db was good`);
@@ -23,8 +23,6 @@ const db = {};
 db.Sequelize = Sequelize;
 db.connector = connector;
 db.tech_list = require("./tech_list.model")(Sequelize, connector);
-db.vote_table = require('./vote_table.model')(Sequelize, connector);
-
-
+db.vote_table = require("./vote_table.model")(Sequelize, connector);
 
 module.exports = db;

@@ -1,0 +1,30 @@
+@import "../stylesheets/global.scss";
+
+.displayforvote--scroll {
+  font-size: 18px;
+  background-color: white;
+  margin: 2%;
+  box-shadow: $box-shadow-dark-blue;
+  min-height: 70px;
+  display: flex;
+  align-items: center;
+  padding-left: 2%;
+  border-radius: $border-radius;
+  position: relative;
+}
+.technology--name {
+  padding-right: 10%;
+  font-size: 18px;
+  font-weight: $Roboto-bold;
+}
+
+.radio--buttons {
+  float: right;
+}
+
+.visa .cool .subzero {
+  padding: 2%;
+}
+label {
+  font-size: 14px;
+}

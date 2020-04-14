@@ -24,9 +24,13 @@ class CoolWall extends Component {
           </div>
           <div className="coolwall--right_wrapper">
             <div className="coolwall--techvote_wrapper">
+<<<<<<< HEAD
               <div className="coolwall--displayforvote">
                 <TechVote data-test="techvote-component" />
               </div>
+=======
+              <TechVote data-test="techvote-component" />
+>>>>>>> b869d012f0a3ecb6c77a71fc723bbe7355173d2a
             </div>
             <div className="coolwall--displaytrend">
               <div className="coolwall--uncool"></div>

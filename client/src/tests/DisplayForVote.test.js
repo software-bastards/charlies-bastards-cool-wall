@@ -29,7 +29,7 @@ const findByTestAttr = (wrapper, val) => {
 };
 const technology = {
   id: 1,
-  name: "Laveral"
+  name: "Laveral",
 };
 
 test("renders without error", () => {

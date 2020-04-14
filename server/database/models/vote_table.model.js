@@ -4,12 +4,12 @@ module.exports = (Sequelize, connector) => {
     {
       tech_id: {
         type: Sequelize.INTEGER,
-        allowNull: false
+        allowNull: false,
       },
       vote_type: {
         type: Sequelize.STRING,
-        allowNull: false
-      }
+        allowNull: false,
+      },
     },
     { freezeTableName: true, timestamps: true }
   );

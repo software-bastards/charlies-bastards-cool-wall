@@ -29,8 +29,13 @@ const findByTestAttr = (wrapper, val) => {
 };
 test("renders without error", () => {
   const wrapper = setup();
+<<<<<<< HEAD
   const appComponent = findByTestAttr(wrapper, "component-votelist");
   expect(appComponent.length).toBe(1);
+=======
+  const techvoteComponent = findByTestAttr(wrapper, "component-techvote");
+  expect(techvoteComponent.length).toBe(1);
+>>>>>>> b869d012f0a3ecb6c77a71fc723bbe7355173d2a
 });
 test("should call componentDidMount once", () => {
   const componentDidMountSpy = spyOn(TechVote.prototype, "componentDidMount");
@@ -42,6 +47,7 @@ describe("display the technologies to vote", () => {
   const tech_list = [
     {
       id: 1,
+<<<<<<< HEAD
       name: "Laveral"
     },
     {
@@ -52,6 +58,18 @@ describe("display the technologies to vote", () => {
       id: 3,
       name: "Angular"
     }
+=======
+      name: "Laveral",
+    },
+    {
+      id: 2,
+      name: "React",
+    },
+    {
+      id: 3,
+      name: "Angular",
+    },
+>>>>>>> b869d012f0a3ecb6c77a71fc723bbe7355173d2a
   ];
   test("render correct number of technology", () => {
     const wrapper = setup(null, { tech_list });

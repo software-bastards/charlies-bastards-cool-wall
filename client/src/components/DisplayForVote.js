@@ -1,10 +1,17 @@
 import React from "react";
+<<<<<<< HEAD
 import "../stylesheets/global.scss";
 import "../stylesheets/global.css";
 import "../stylesheets/DisplayForVote.scss";
 
 function DisplayForVote({ technology, storeVote }) {
   const handleOptionChange = e => {
+=======
+import "../stylesheets/DisplayForVote.scss";
+
+function DisplayForVote({ technology, storeVote }) {
+  const handleOptionChange = (e) => {
+>>>>>>> b869d012f0a3ecb6c77a71fc723bbe7355173d2a
     storeVote(technology, e.target.value);
   };
   return (
@@ -36,6 +43,7 @@ function DisplayForVote({ technology, storeVote }) {
   );
 }
 export default DisplayForVote;
+<<<<<<< HEAD
 
 /*   <div className="displayforvote--scroll">
       <div className="technology--name"> {technology.name}</div>
@@ -54,3 +62,5 @@ export default DisplayForVote;
       </form>
     </div>
     */
+=======
+>>>>>>> b869d012f0a3ecb6c77a71fc723bbe7355173d2a

@@ -1,7 +1,10 @@
 import React from "react";
 import Enzyme, { shallow } from "enzyme";
 import EnzymeAdapter from "enzyme-adapter-react-16";
+<<<<<<< HEAD
 import VoteList from "../components/CoolWall";
+=======
+>>>>>>> b869d012f0a3ecb6c77a71fc723bbe7355173d2a
 import CoolWall from "../components/CoolWall";
 
 Enzyme.configure({ adapter: new EnzymeAdapter() });

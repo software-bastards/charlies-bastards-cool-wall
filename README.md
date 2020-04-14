@@ -1,1 +1,0 @@
-# Charlies Bastards - Cool Wall

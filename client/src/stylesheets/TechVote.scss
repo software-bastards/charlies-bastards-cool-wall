@@ -16,7 +16,10 @@
   margin: 2%;
   height: 20vh;
   width: 100%;
+<<<<<<< HEAD
   box-shadow: inset 0px -10px 20px #aab0be, inset 0px 10px 20px #aab0be;
+=======
+>>>>>>> b869d012f0a3ecb6c77a71fc723bbe7355173d2a
 
   &::after {
     content: "";
@@ -31,7 +34,11 @@
     width: 100%;
     z-index: 10;
     mix-blend-mode: multiply;
+<<<<<<< HEAD
     z-index: 10;
+=======
+    z-index: 9;
+>>>>>>> b869d012f0a3ecb6c77a71fc723bbe7355173d2a
     box-shadow: inset 0px -10px 20px #aab0be, inset 0px 10px 20px #aab0be;
   }
 }

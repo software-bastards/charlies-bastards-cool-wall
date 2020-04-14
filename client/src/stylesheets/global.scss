@@ -1,0 +1,63 @@
+/* COLORS */
+$dark-grey: #282b39;
+$light-blue: #b7c9f7;
+$dark-blue: #5d6486;
+$light-grey: #f5f6fa;
+$blue: #145cc6;
+$red: #ff0013;
+$yellow: #ffb000;
+
+/* FONT FAMILY */
+$font-Roboto: "Roboto";
+$font-SpaceMono: "Space Mono";
+
+/* FONT WEIGHTS */
+$Roboto-regular: 400;
+$Roboto-bold: 700;
+
+/* BORDER */
+$border: 0.5px solid $dark-blue;
+$border-radius: 10px;
+
+/* BOX */
+$box-shadow-grey: 0px 4px 4px $dark-grey;
+$box-shadow-dark-blue: 0px 4px 4px $dark-blue;
+$box-shadow-red: 0px 4px 4px $red;
+$box-shadow-blue: 0px 4px 4px $blue;
+$box-shadow-yellow: 0px 4px 4px $yellow;
+
+/* BODY */
+body {
+  background-color: $light-grey;
+  color: $dark-blue;
+  height: 100vh;
+}
+
+#root {
+  height: 100vh;
+}
+
+/* BUTTONS */
+.button--light_blue {
+  width: 100px;
+  height: 50px;
+  background-color: $light-blue;
+  color: $dark-blue;
+  box-shadow: $box-shadow-dark-blue;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  border-radius: $border-radius;
+  justify-content: center;
+  &:hover {
+    color: $light-blue;
+    background-color: $dark-blue;
+  }
+}
+
+/* App Wrapper */
+
+.app--wrapper {
+  height: 100vh;
+}

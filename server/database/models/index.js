@@ -25,4 +25,12 @@ db.connector = connector;
 db.tech_list = require("./tech_list.model")(Sequelize, connector);
 db.vote_table = require("./vote_table.model")(Sequelize, connector);
 
+db.tech_list.hasMany(db.vote_table, {
+  as: "vote_table",
+});
+db.vote_table.belongsTo(db.tech_list, {
+  as: "tech_list",
+  foreignKey: "tech_id",
+});
+
 module.exports = db;

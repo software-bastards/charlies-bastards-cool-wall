@@ -1,20 +1,3 @@
-<<<<<<< HEAD
-var createError = require("http-errors");
-var express = require("express");
-var path = require("path");
-var cookieParser = require("cookie-parser");
-var logger = require("morgan");
-const db = require("./database/models/index.js");
-
-var indexRouter = require("./routes/index");
-var usersRouter = require("./routes/users");
-var techlistRouter = require("./routes/techlist");
-const submitvoteRouter = require("./routes/submitvote");
-
-var app = express();
-
-// view engine setup
-=======
 const createError = require("http-errors");
 const express = require("express");
 const path = require("path");
@@ -32,7 +15,6 @@ const app = express();
 //connect db
 db.connector.sync();
 
->>>>>>> b869d012f0a3ecb6c77a71fc723bbe7355173d2a
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "jade");
 

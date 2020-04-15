@@ -35,18 +35,11 @@ test("renders technology voting component", () => {
   const techvoteComponent = findByTestAttr(wrapper, "techvote-component");
   expect(techvoteComponent.length).toBe(1);
 });
-test("renders cool component", () => {
+test("renders displaytrend component", () => {
   const wrapper = setup();
-  const coolComponent = findByTestAttr(wrapper, "cool-component");
-  expect(coolComponent.length).toBe(1);
-});
-test("renders uncool component", () => {
-  const wrapper = setup();
-  const uncoolComponent = findByTestAttr(wrapper, "uncool-component");
-  expect(uncoolComponent.length).toBe(1);
-});
-test("renders subzero component", () => {
-  const wrapper = setup();
-  const subzeroComponent = findByTestAttr(wrapper, "subzero-component");
-  expect(subzeroComponent.length).toBe(1);
+  const displaytrendComponent = findByTestAttr(
+    wrapper,
+    "displaytrend-component"
+  );
+  expect(displaytrendComponent.length).toBe(1);
 });

@@ -23,8 +23,8 @@ router.get("/", function (req, res, next) {
       group: ["tech_id"],
       raw: true,
     })
-    .then((user) => {
-      res.send(user);
+    .then((votes) => {
+      res.send(votes);
     })
     .catch((err) => console.error(err));
 });

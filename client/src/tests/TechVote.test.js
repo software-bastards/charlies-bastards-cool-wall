@@ -65,7 +65,7 @@ describe("display the technologies to vote", () => {
   });
 });
 
-describe(" storeVote function sets correct state for vote_list", () => {
+describe("storeVote function sets correct state for vote_list", () => {
   let wrapper;
   let vote_list = [];
 
@@ -110,7 +110,7 @@ describe(" storeVote function sets correct state for vote_list", () => {
   });
 });
 
-test("handleSubmit calls handlePostVoteData", async () => {
+test("submit button calls the post function that posts into the db", async () => {
   const wrapper = setup();
   const resolvePromise = () => Promise.resolve("success");
   wrapper.handlePostVoteData = jest.fn(resolvePromise);

@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import TechVote from "./TechVote";
+import DisplayTrend from "./DisplayTrend";
+
 import "../stylesheets/global.scss";
 import "../stylesheets/global.css";
 import "../stylesheets/CoolWall.scss";
@@ -28,7 +30,11 @@ class CoolWall extends Component {
               <TechVote data-test="techvote-component" />
             </div>
             <div className="coolwall--displaytrend">
+<<<<<<< HEAD
               <DisplayTrend />
+=======
+              <DisplayTrend data-test="displaytrend-component" />
+>>>>>>> 059db9a00f3063fc42090cc9b4919a4a80ef72ad
             </div>
           </div>
         </div>

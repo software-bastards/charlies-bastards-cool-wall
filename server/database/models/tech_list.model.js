@@ -4,8 +4,8 @@ module.exports = (Sequelize, connector) => {
     {
       name: {
         type: Sequelize.STRING,
-        allowNull: false
-      }
+        allowNull: false,
+      },
     },
     { freezeTableName: true, timestamps: false }
   );

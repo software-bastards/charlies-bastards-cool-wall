@@ -12,6 +12,7 @@ class TechVote extends Component {
     vote_list: [],
     flash: "",
   };
+
   componentDidMount() {
     handleFetchTechnologyList()
       .then((results) =>
@@ -19,6 +20,7 @@ class TechVote extends Component {
       )
       .catch((err) => console.error(err));
   }
+
   storeVote = (technology, vote_type) => {
     this.setState({
       vote_list: [
@@ -32,17 +34,19 @@ class TechVote extends Component {
       ],
     });
   };
-  handleVoteSubmit = (e) => {
+
+  handleVoteSubmit = () => {
     handlePostVoteData(this.state.vote_list)
       .then((response) => {
         this.setState({ flash: response.data.message });
-        console.log(this.state.flash);
       })
       .catch((err) => this.setState({ flash: err.flash }));
   };
+
   render() {
     return (
       <div data-test="component-techvote" className="techvote--wrapper">
+        {this.state.flash ? <p>{this.state.flash}</p> : null}
         <div className="techvote--displayforvote">
           {this.state.tech_list.map((tech) => (
             <div key={tech.id}>

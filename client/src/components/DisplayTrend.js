@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import handleFetchCombinedVotes from "../helper/handleFetchCombinedVotes";
 import SubZero from "./SubZero";
+import Cool from "./Cool";
 
 class DisplayTrend extends Component {
   state = {

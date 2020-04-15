@@ -7,11 +7,20 @@ const db = require("./database/models/index.js");
 
 //GET ROUTES
 const indexRouter = require("./routes/index");
-const usersRouter = require("./routes/users");
+
+//GET routes
 const techlistRouter = require("./routes/techlist");
+<<<<<<< HEAD
 const combinedvotesRouter = require("./routes/combinedvotes");
 
 // POST ROUTES
+=======
+const votetableRouter = require("./routes/votetable");
+const coolvotesRouter = require("./routes/coolvotes");
+const combinedvotesRouter = require("./routes/combinedvotes");
+
+//POST routes
+>>>>>>> 059db9a00f3063fc42090cc9b4919a4a80ef72ad
 const submitvoteRouter = require("./routes/submitvote");
 
 const app = express();
@@ -20,7 +29,6 @@ const app = express();
 db.connector.sync();
 
 app.set("views", path.join(__dirname, "views"));
-app.set("view engine", "jade");
 
 app.use(logger("dev"));
 app.use(express.json());
@@ -29,9 +37,14 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
-app.use("/api/users", usersRouter);
+
 app.use("/techlist", techlistRouter);
+app.use("/votetable", votetableRouter);
 app.use("/submitvote", submitvoteRouter);
+<<<<<<< HEAD
+=======
+app.use("/coolvotes", coolvotesRouter);
+>>>>>>> 059db9a00f3063fc42090cc9b4919a4a80ef72ad
 app.use("/combinedvotes", combinedvotesRouter);
 
 // catch 404 and forward to error handler

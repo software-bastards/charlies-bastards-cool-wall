@@ -56,11 +56,15 @@ class DisplayTrend extends Component {
   render() {
     return (
       <div data-test="component-displaytrend">
-        <div className="coolwall--uncool">
+        <div className="coolwall--uncool"></div>
+        <div className="coolwall--cool">
+          {" "}
           <Cool cool_technology={this.state.cool_technology} />
         </div>
-        <div className="coolwall--cool"></div>
-        <div className="coolwall--subzero"></div>
+        <div className="coolwall--subzero">
+          {" "}
+          <SubZero subzero_technology={this.state.subzero_technology} />
+        </div>
       </div>
     );
   }

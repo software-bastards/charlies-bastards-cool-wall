@@ -53,10 +53,6 @@
   "devDependencies": {
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
-<<<<<<< HEAD
-    "install": "^0.13.0",
-=======
->>>>>>> b869d012f0a3ecb6c77a71fc723bbe7355173d2a
     "jest-enzyme": "^7.1.2",
     "moxios": "^0.4.0"
   }

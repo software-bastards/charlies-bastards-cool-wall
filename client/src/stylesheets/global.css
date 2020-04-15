@@ -6,12 +6,15 @@ body {
 #root {
   height: 100vh;
 }
+.app--wrapper {
+  height: 100vh;
+}
 .button--light_blue {
-  width: 100px;
+  width: 130px;
   height: 50px;
   background-color: #b7c9f7;
   color: #5d6486;
-  box-shadow: 0px 4px 4px #5d6486;
+  box-shadow: 0px 4px 0px #5d6486;
   font-size: 14px;
   display: flex;
   align-items: center;
@@ -22,7 +25,4 @@ body {
 .button--light_blue:hover {
   color: #b7c9f7;
   background-color: #5d6486;
-}
-.app--wrapper {
-  height: 100vh;
 }

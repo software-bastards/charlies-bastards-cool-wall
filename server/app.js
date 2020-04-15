@@ -5,9 +5,13 @@ const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const db = require("./database/models/index.js");
 
+//GET ROUTES
 const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
 const techlistRouter = require("./routes/techlist");
+const combinedvotesRouter = require("./routes/combinedvotes");
+
+// POST ROUTES
 const submitvoteRouter = require("./routes/submitvote");
 
 const app = express();
@@ -24,33 +28,19 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
-<<<<<<< HEAD
-app.use("/api", indexRouter);
-=======
 app.use("/", indexRouter);
->>>>>>> b869d012f0a3ecb6c77a71fc723bbe7355173d2a
 app.use("/api/users", usersRouter);
 app.use("/techlist", techlistRouter);
 app.use("/submitvote", submitvoteRouter);
+app.use("/combinedvotes", combinedvotesRouter);
 
-<<<<<<< HEAD
-db.connector.sync();
-
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-=======
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
->>>>>>> b869d012f0a3ecb6c77a71fc723bbe7355173d2a
   next(createError(404));
 });
 
 // error handler
-<<<<<<< HEAD
-app.use(function(err, req, res, next) {
-=======
 app.use(function (err, req, res, next) {
->>>>>>> b869d012f0a3ecb6c77a71fc723bbe7355173d2a
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get("env") === "development" ? err : {};

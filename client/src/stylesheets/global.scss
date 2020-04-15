@@ -20,19 +20,11 @@ $border: 0.5px solid $dark-blue;
 $border-radius: 10px;
 
 /* BOX */
-<<<<<<< HEAD
-$box-shadow-grey: 0px 4px 4px $dark-grey;
-$box-shadow-dark-blue: 0px 4px 4px $dark-blue;
-$box-shadow-red: 0px 4px 4px $red;
-$box-shadow-blue: 0px 4px 4px $blue;
-$box-shadow-yellow: 0px 4px 4px $yellow;
-=======
 $box-shadow-grey: 0px 4px 0px $dark-grey;
 $box-shadow-dark-blue: 0px 4px 0px $dark-blue;
 $box-shadow-red: 0px 4px 0px $red;
 $box-shadow-blue: 0px 4px 0px $blue;
 $box-shadow-yellow: 0px 4px 0px $yellow;
->>>>>>> b869d012f0a3ecb6c77a71fc723bbe7355173d2a
 
 /* BODY */
 body {
@@ -40,16 +32,6 @@ body {
   color: $dark-blue;
   height: 100vh;
 }
-<<<<<<< HEAD
-
-#root {
-  height: 100vh;
-}
-
-/* BUTTONS */
-.button--light_blue {
-  width: 100px;
-=======
 #root {
   height: 100vh;
 }
@@ -61,7 +43,6 @@ body {
 /* BUTTONS */
 .button--light_blue {
   width: 130px;
->>>>>>> b869d012f0a3ecb6c77a71fc723bbe7355173d2a
   height: 50px;
   background-color: $light-blue;
   color: $dark-blue;
@@ -78,12 +59,4 @@ body {
   }
 }
 
-<<<<<<< HEAD
-/* App Wrapper */
-
-.app--wrapper {
-  height: 100vh;
-}
-=======
 /* RADIO BUTTONS */
->>>>>>> b869d012f0a3ecb6c77a71fc723bbe7355173d2a

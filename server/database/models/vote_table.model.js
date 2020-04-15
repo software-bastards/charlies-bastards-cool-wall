@@ -4,6 +4,10 @@ module.exports = (Sequelize, connector) => {
     {
       tech_id: {
         type: Sequelize.INTEGER,
+        references: {
+          model: "tech_list",
+          key: "id",
+        },
         allowNull: false,
       },
       vote_type: {

@@ -12,60 +12,6 @@
   border-radius: $border-radius;
   position: relative;
 }
-<<<<<<< HEAD
-
-/* Styling the Radio Buttons 
-
-.cc-selector input {
-  margin: 0;
-  padding: 4%;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-}
-.visa {
-  background-image: url(../images/uncool.svg);
-}
-.cool {
-  background-image: url(../images/cool.svg);
-}
-
-.subzero {
-  background-image: url(../images/subzero.svg);
-}
-
-.cc-selector input:active + .drinkcard-cc {
-  opacity: 1;
-}
-.cc-selector input:checked + .drinkcard-cc {
-  -webkit-filter: none;
-  -moz-filter: none;
-  filter: none;
-}
-.drinkcard-cc {
-  cursor: pointer;
-  background-size: contain;
-  background-repeat: no-repeat;
-  display: inline-block;
-  width: 50px;
-  height: 50px;
-  -webkit-transition: all 100ms ease-in;
-  -moz-transition: all 100ms ease-in;
-  transition: all 100ms ease-in;
-  -webkit-filter: brightness(1.8) grayscale(1) opacity(1);
-  -moz-filter: brightness(1.8) grayscale(1) opacity(1);
-  filter: brightness(1.8) grayscale(1) opacity(1);
-}
-.drinkcard-cc:hover {
-  -webkit-filter: brightness(1.8) opacity(1);
-  -moz-filter: brightness(1.8) opacity(1);
-  filter: brightness(1.8) opacity(1);
-}
-*/
-/* Styling the positioning within the div */
-
-=======
->>>>>>> b869d012f0a3ecb6c77a71fc723bbe7355173d2a
 .technology--name {
   padding-right: 10%;
   font-size: 18px;
@@ -79,10 +25,6 @@
 .visa .cool .subzero {
   padding: 2%;
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> b869d012f0a3ecb6c77a71fc723bbe7355173d2a
 label {
   font-size: 14px;
 }

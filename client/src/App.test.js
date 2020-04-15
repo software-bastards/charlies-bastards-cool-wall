@@ -32,11 +32,8 @@ test("renders without error", () => {
   const appComponent = findByTestAttr(wrapper, "component-app");
   expect(appComponent.length).toBe(1);
 });
-<<<<<<< HEAD
-=======
 test("renders coolwall component", () => {
   const wrapper = setup();
   const coolwallComponent = findByTestAttr(wrapper, "coolwall-component");
   expect(coolwallComponent.length).toBe(1);
 });
->>>>>>> b869d012f0a3ecb6c77a71fc723bbe7355173d2a

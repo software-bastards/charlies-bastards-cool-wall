@@ -28,7 +28,6 @@ router.get("/", function (req, res, next) {
           "subzero_votes",
         ],
       ],
-
       include: [
         {
           model: tech_list,
@@ -37,7 +36,6 @@ router.get("/", function (req, res, next) {
           include: [],
         },
       ],
-
       group: ["tech_id"],
     })
     .then((votes) => {

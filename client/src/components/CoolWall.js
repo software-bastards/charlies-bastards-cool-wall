@@ -6,6 +6,7 @@ import "../stylesheets/global.scss";
 import "../stylesheets/global.css";
 import "../stylesheets/CoolWall.scss";
 import Logo from "../images/logo.svg";
+import DisplayTrend from "./DisplayTrend";
 
 class CoolWall extends Component {
   render() {
@@ -29,7 +30,7 @@ class CoolWall extends Component {
               <TechVote data-test="techvote-component" />
             </div>
             <div className="coolwall--displaytrend">
-              <DisplayTrend data-test="displaytrend-component" />
+              <DisplayTrend />
             </div>
           </div>
         </div>

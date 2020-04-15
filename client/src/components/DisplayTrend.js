@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import handleFetchCombinedVotes from "../helper/handleFetchCombinedVotes";
 import Cool from "./Cool";
+import SubZero from "./SubZero";
 
 class DisplayTrend extends Component {
   state = {
@@ -9,14 +10,12 @@ class DisplayTrend extends Component {
     uncool_technology: [],
     subzero_technology: [],
   };
-
   componentDidMount() {
     handleFetchCombinedVotes()
       .then((results) => {
         this.setState({
           combined_votes: [...this.state.combined_votes, ...results],
         });
-
         this.resolveVote(this.state.combined_votes);
       })
       .catch((err) => console.error(err));

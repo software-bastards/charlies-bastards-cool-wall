@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+.env
+=======
 #env variables - sensitive data
 .env
 node_modules
+>>>>>>> b869d012f0a3ecb6c77a71fc723bbe7355173d2a

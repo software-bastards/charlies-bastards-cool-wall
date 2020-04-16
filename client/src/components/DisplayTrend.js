@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import handleFetchCombinedVotes from "../helper/handleFetchCombinedVotes";
+import Cool from "./Cool";
 import SubZero from "./SubZero";
 import UnCool from "./UnCool";
 

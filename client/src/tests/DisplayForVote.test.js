@@ -1,12 +1,10 @@
 import React from "react";
-import Enzyme, { shallow } from "enzyme";
-import EnzymeAdapter from "enzyme-adapter-react-16";
+import { shallow } from "enzyme";
+
 import DisplayForVote from "../components/DisplayForVote";
 
-Enzyme.configure({ adapter: new EnzymeAdapter() });
-
 /**
- * Factory function to create a ShallowWrapper for the App component.
+ * Factory function to create a ShallowWrapper for the DisplayForVote component.
  * @function setup
  * @param {object} props - component props specific to this setup.
 

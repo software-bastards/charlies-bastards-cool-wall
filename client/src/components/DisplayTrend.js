@@ -53,12 +53,16 @@ componentDidMount() {
   };
   render() {
       return(
-        <div className="coolwall--displaytrend">
-        <div className="coolwall--uncool">
+        <div data-test="component-displaytrend" className="displaytrend--wrapper">
+        <div className="displaytrend--row" data-test="component-uncool">
         <UnCool uncool_technology={this.state.uncool_technology} />
         </div>
-        <div className="coolwall--cool">cool</div>
-        <div className="coolwall--subzero">subzero</div>
+        <div className="displaytrend--row" data-test="component-cool">
+
+        </div>
+        <div className="displaytrend--row" data-test="component-subzero">
+        <SubZero subzero_technology={this.state.subzero_technology} />
+        </div>
       </div>
       );
     }

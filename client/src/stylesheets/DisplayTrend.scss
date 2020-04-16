@@ -1,0 +1,17 @@
+@import "../stylesheets/global.scss";
+
+.displaytrend--wrapper {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.displaytrend--row{
+    flex-grow: 1;
+    width: calc(100% / 3);
+    box-shadow: $box-shadow-dark-blue;
+    border: $border;
+    border-radius: $border-radius;
+    margin-top: 2%;
+    margin-bottom: 2%
+}

@@ -9,6 +9,9 @@ const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
 const techlistRouter = require("./routes/techlist");
 const submitvoteRouter = require("./routes/submitvote");
+const uncoolvotesRouter = require("./routes/combinedvotes");
+
+const combinedvotesRouter = require('./routes/combinedvotes')
 
 const app = express();
 
@@ -28,6 +31,8 @@ app.use("/", indexRouter);
 app.use("/api/users", usersRouter);
 app.use("/techlist", techlistRouter);
 app.use("/submitvote", submitvoteRouter);
+app.use("/uncoolvotes", uncoolvotesRouter);
+app.use('/combinedvotes', combinedvotesRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

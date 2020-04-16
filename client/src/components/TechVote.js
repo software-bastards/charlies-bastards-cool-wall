@@ -13,13 +13,14 @@ class TechVote extends Component {
     flash: "",
   };
 
-  componentDidMount() {
-    handleFetchTechnologyList()
-      .then((results) =>
-        this.setState({ tech_list: [...this.state.tech_list, ...results] })
-      )
-      .catch((err) => console.error(err));
-  }
+  componentDidMount = async () => {
+    try {
+      const results = await handleFetchTechnologyList();
+      this.setState({ tech_list: [...this.state.tech_list, ...results] });
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   storeVote = (technology, vote_type) => {
     this.setState({

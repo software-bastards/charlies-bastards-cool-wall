@@ -18,15 +18,15 @@ function Cool({ cool_technology }) {
         <div key={index}>
           {technology.tech_list.name}
           <ProgressBar
-            percentage={calculatePercent(technology, technology.uncool_votes)}
+            percent={calculatePercent(technology, technology.uncool_votes)}
             color={yellow}
           />
           <ProgressBar
-            percentage={calculatePercent(technology, technology.cool_votes)}
+            percent={calculatePercent(technology, technology.cool_votes)}
             color={red}
           />
           <ProgressBar
-            percentage={calculatePercent(technology, technology.subzero_votes)}
+            percent={calculatePercent(technology, technology.subzero_votes)}
             color={blue}
           />
         </div>

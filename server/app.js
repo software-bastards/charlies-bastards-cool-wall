@@ -10,17 +10,11 @@ const indexRouter = require("./routes/index");
 
 //GET routes
 const techlistRouter = require("./routes/techlist");
-<<<<<<< HEAD
-const combinedvotesRouter = require("./routes/combinedvotes");
-
-// POST ROUTES
-=======
 const votetableRouter = require("./routes/votetable");
 const coolvotesRouter = require("./routes/coolvotes");
 const combinedvotesRouter = require("./routes/combinedvotes");
 
 //POST routes
->>>>>>> 059db9a00f3063fc42090cc9b4919a4a80ef72ad
 const submitvoteRouter = require("./routes/submitvote");
 
 const app = express();
@@ -41,10 +35,6 @@ app.use("/", indexRouter);
 app.use("/techlist", techlistRouter);
 app.use("/votetable", votetableRouter);
 app.use("/submitvote", submitvoteRouter);
-<<<<<<< HEAD
-=======
-app.use("/coolvotes", coolvotesRouter);
->>>>>>> 059db9a00f3063fc42090cc9b4919a4a80ef72ad
 app.use("/combinedvotes", combinedvotesRouter);
 
 // catch 404 and forward to error handler

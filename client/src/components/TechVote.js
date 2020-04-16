@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import handleFetchServerData from "../helper/handleFetchServerData";
+import handleFetchTechnologyList from "../helper/handleFetchTechnologyList";
 import handlePostVoteData from "../helper/handlePostVoteData";
 import DisplayForVote from "./DisplayForVote";
 import "../stylesheets/global.scss";
@@ -13,7 +13,7 @@ class TechVote extends Component {
     flash: "",
   };
   componentDidMount() {
-    handleFetchServerData()
+    handleFetchTechnologyList()
       .then((results) =>
         this.setState({ tech_list: [...this.state.tech_list, ...results] })
       )

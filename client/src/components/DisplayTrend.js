@@ -1,23 +1,23 @@
-import React, { Component } from 'react';
-import handleFetchCombinedVotes from '../helper/handleFetchCombinedVotes';
+import React, { Component } from "react";
+import handleFetchCombinedVotes from "../helper/handleFetchCombinedVotes";
+import SubZero from "./SubZero";
 import UnCool from "./UnCool";
 
 class DisplayTrend extends Component {
-state = {
+  state = {
     combined_votes: [],
     cool_technology: [],
     uncool_technology: [],
-    subzero_technology: []
-};
-
-
-componentDidMount() {
+    subzero_technology: [],
+  };
+  componentDidMount() {
     handleFetchCombinedVotes()
-      .then((results) =>{this.setState({ combined_votes: [...this.state.combined_votes, ...results] 
+      .then((results) => {
+        this.setState({
+          combined_votes: [...this.state.combined_votes, ...results],
         });
-      
-      this.resolveVote(this.state.combined_votes) }        
-      )
+        this.resolveVote(this.state.combined_votes);
+      })
       .catch((err) => console.error(err));
   }
 
@@ -47,15 +47,17 @@ componentDidMount() {
         vote.subzero_votes > vote.cool_votes
       ) {
         this.setState({
-          subzero_technology: [...this.state.subzero_technology, vote] });
-        }
-      });
+          subzero_technology: [...this.state.subzero_technology, vote],
+        });
+      }
+    });
   };
+
   render() {
-      return(
-        <div data-test="component-displaytrend" className="displaytrend--wrapper">
+    return (
+      <div data-test="component-displaytrend" className="displaytrend--wrapper">
         <div className="displaytrend--row" data-test="component-uncool">
-        <UnCool uncool_technology={this.state.uncool_technology} />
+        <UnCool />
         </div>
         <div className="displaytrend--row" data-test="component-cool">
 
@@ -64,12 +66,7 @@ componentDidMount() {
         <SubZero subzero_technology={this.state.subzero_technology} />
         </div>
       </div>
-      );
-    }
-  
+    );
+  }
 }
-
-
-
-
 export default DisplayTrend;

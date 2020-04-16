@@ -9,10 +9,24 @@ router.get("/", function (req, res, next) {
   vote_table
     .findAll({
       attributes: [
-        [sequelize.literal(`SUM(case when vote_table.vote_type="uncool" then 1 else 0 end)` ), "uncool_votes"],
-        [sequelize.literal(`SUM(case when vote_table.vote_type="subzero" then 1 else 0 end)` ), "subzero_votes"],
-        [sequelize.literal(`SUM(case when vote_table.vote_type="cool" then 1 else 0 end)` ), "cool_votes"],
-
+        [
+          sequelize.literal(
+            `SUM(case when vote_table.vote_type="cool" then 1 else 0 end)`
+          ),
+          "cool_votes",
+        ],
+        [
+          sequelize.literal(
+            `SUM(case when vote_table.vote_type="uncool" then 1 else 0 end)`
+          ),
+          "uncool_votes",
+        ],
+        [
+          sequelize.literal(
+            `SUM(case when vote_table.vote_type="subzero" then 1 else 0 end)`
+          ),
+          "subzero_votes",
+        ],
       ],
       include: [
         {
@@ -22,9 +36,7 @@ router.get("/", function (req, res, next) {
           include: [],
         },
       ],
-     
       group: ["tech_id"],
-     
     })
     .then((votes) => {
       res.send(votes);
@@ -34,4 +46,4 @@ router.get("/", function (req, res, next) {
 
 module.exports = router;
 
-/**select tech_list.name, count(vote_table.tech_id) from vote_table join tech_list on tech_list.id = vote_table.tech_id where vote_table.vote_type = 'cool' group by vote_table.tech_id; */
+/*select sum(case when vote_table.vote_type="cool" then 1 else 0 end) as coolvotes, sum(case when vote_table.vote_type="uncool" then 1 else 0 end) as uncoolvotes, sum(case when vote_table.vote_type="subzero" then 1 else 0 end) as subzerovotes, tech_list.name from vote_table join tech_list on vote_table.tech_id=tech_list.id group by vote_table.tech_id; */

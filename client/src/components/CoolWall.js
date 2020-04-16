@@ -27,7 +27,10 @@ class CoolWall extends Component {
             <div className="coolwall--techvote_wrapper">
               <TechVote data-test="techvote-component" />
             </div>
-            <div className="coolwall--displaytrend">
+            <div
+              className="coolwall--displaytrend"
+              data-test="displaytrend-component"
+            >
               <DisplayTrend />
             </div>
           </div>

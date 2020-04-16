@@ -2,6 +2,10 @@ import React from "react";
 import { shallow } from "enzyme";
 import TechVote from "../components/TechVote";
 
+import handleFetchTechnologyList from "../helper/handleFetchTechnologyList";
+const axios = require("axios");
+jest.mock("axios");
+
 /**
  * Factory function to create a ShallowWrapper for the TechVote component.
  * @function setup
@@ -31,10 +35,44 @@ test("renders without error", () => {
   expect(techvoteComponent.length).toBe(1);
 });
 
-test("should call componentDidMount once", () => {
-  const componentDidMountSpy = spyOn(TechVote.prototype, "componentDidMount");
-  const wrapper = setup();
-  expect(componentDidMountSpy).toHaveBeenCalledTimes(1);
+describe("componentDidMount calls the axios handler and sets state", () => {
+  beforeEach(() => {
+    axios.get.mockReset();
+  });
+
+  afterEach(() => {
+    jest.clearAllTimers();
+  });
+
+  test("axios handler returns data and state is updated", async () => {
+    const tech_list = [
+      {
+        id: 1,
+        name: "Laveral",
+      },
+      {
+        id: 2,
+        name: "React",
+      },
+    ];
+    axios.get.mockResolvedValue({
+      data: [
+        {
+          id: 1,
+          name: "Laveral",
+        },
+        {
+          id: 2,
+          name: "React",
+        },
+      ],
+    });
+
+    const wrapper = shallow(<TechVote />);
+    await handleFetchTechnologyList();
+    console.log(wrapper.state("tech_list"));
+    expect(wrapper.state("tech_list")).toStrictEqual(tech_list);
+  });
 });
 
 describe("display the technologies to vote", () => {

@@ -42,56 +42,56 @@ test("should call componentDidMount once", () => {
   expect(componentDidMountSpy).toHaveBeenCalledTimes(1);
 });
 
-describe("function that resolves the votes into cool, uncool and subzero category", () => {
-  const combined_votes = [
-    {
-      cool_votes: "12",
-      uncool_votes: "1",
-      subzero_votes: "4",
-      tech_list: {
-        name: "Express",
-      },
-    },
-    {
-      cool_votes: "2",
-      uncool_votes: "7",
-      subzero_votes: "5",
-      tech_list: {
-        name: "JQuery",
-      },
-    },
-    {
-      cool_votes: "2",
-      uncool_votes: "3",
-      subzero_votes: "6",
-      tech_list: {
-        name: "React",
-      },
-    },
-  ];
-  let wrapper;
-  let cool_technologies;
-  let uncool_technologies;
-  let subzero_technologies;
-  beforeEach = () => {
-    cool_technologies = "";
-    uncool_technologies = "";
-    subzero_technologies = "";
-  };
+// describe("function that resolves the votes into cool, uncool and subzero category", () => {
+//   const combined_votes = [
+//     {
+//       cool_votes: "12",
+//       uncool_votes: "1",
+//       subzero_votes: "4",
+//       tech_list: {
+//         name: "Express",
+//       },
+//     },
+//     {
+//       cool_votes: "2",
+//       uncool_votes: "7",
+//       subzero_votes: "5",
+//       tech_list: {
+//         name: "JQuery",
+//       },
+//     },
+//     {
+//       cool_votes: "2",
+//       uncool_votes: "3",
+//       subzero_votes: "6",
+//       tech_list: {
+//         name: "React",
+//       },
+//     },
+//   ];
+//   let wrapper;
+//   let cool_technologies;
+//   let uncool_technologies;
+//   let subzero_technologies;
+//   beforeEach = () => {
+//     cool_technologies = "";
+//     uncool_technologies = "";
+//     subzero_technologies = "";
+//   };
 
-  // test("function that is called to resolve the votes, calls setState", () => {
-  //   wrapper = setup(null, {
-  //     combined_votes,
-  //     cool_technologies,
-  //     uncool_technologies,
-  //     subzero_technologies,
-  //   });
-  //   jest.useFakeTimers();
-  //   setTimeout(() => {
-  //     // expect(wrapper.update().state("cool_technologies").length).toBe(1);
-  //     wrapper.update();
-  //     console.log(wrapper.state("cool_technologies"));
-  //   }, 1500);
-  //   jest.runAllTimers();
-  // });
-});
+// test("function that is called to resolve the votes, calls setState", () => {
+//   wrapper = setup(null, {
+//     combined_votes,
+//     cool_technologies,
+//     uncool_technologies,
+//     subzero_technologies,
+//   });
+//   jest.useFakeTimers();
+//   setTimeout(() => {
+//     // expect(wrapper.update().state("cool_technologies").length).toBe(1);
+//     wrapper.update();
+//     console.log(wrapper.state("cool_technologies"));
+//   }, 1500);
+//   jest.runAllTimers();
+// });
+//});

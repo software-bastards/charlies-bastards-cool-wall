@@ -6,7 +6,6 @@ import "../stylesheets/global.scss";
 import "../stylesheets/global.css";
 import "../stylesheets/CoolWall.scss";
 import Logo from "../images/logo.svg";
-import DisplayTrend from "./DisplayTrend";
 
 class CoolWall extends Component {
   render() {

@@ -35,7 +35,10 @@ app.use("/", indexRouter);
 app.use("/techlist", techlistRouter);
 app.use("/votetable", votetableRouter);
 app.use("/submitvote", submitvoteRouter);
+<<<<<<< HEAD
 app.use("/coolvotes", coolvotesRouter);
+=======
+>>>>>>> 110bb2586c772e63c6bffe3b0f4202eade896df1
 app.use("/combinedvotes", combinedvotesRouter);
 
 // catch 404 and forward to error handler

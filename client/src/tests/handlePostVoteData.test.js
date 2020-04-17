@@ -10,15 +10,14 @@ describe("moxios tests", () => {
   });
 
   test("Returns a promise ", async () => {
-    const response = "Successful";
-
+    const successful = "Successful";
     const resolvePromise = () => Promise.resolve(successful);
     moxios.wait(() => {
       const request = moxios.requests.mostRecent();
       expect(request.config.method).toBe("post");
       request.respondWith({
         status: 200,
-        response: response,
+        response: successful,
       });
     });
 

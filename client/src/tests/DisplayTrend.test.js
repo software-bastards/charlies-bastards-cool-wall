@@ -1,7 +1,10 @@
 import React from "react";
 import { shallow } from "enzyme";
-
 import DisplayTrend from "../components/DisplayTrend";
+import handleFetchCombinedVotes from "../helper/handleFetchCombinedVotes";
+
+const axios = require("axios");
+jest.mock("axios");
 
 /**
  * Factory function to create a ShallowWrapper for the DisplayTrend component.
@@ -25,6 +28,7 @@ const setup = (props = {}, state = null) => {
 const findByTestAttr = (wrapper, val) => {
   return wrapper.find(`[data-test="${val}"]`);
 };
+
 test("renders without error", () => {
   const wrapper = setup();
   const displaytrendComponent = findByTestAttr(
@@ -33,65 +37,111 @@ test("renders without error", () => {
   );
   expect(displaytrendComponent.length).toBe(1);
 });
-test("should call componentDidMount once", () => {
-  const componentDidMountSpy = spyOn(
-    DisplayTrend.prototype,
-    "componentDidMount"
-  );
-  const wrapper = setup();
-  expect(componentDidMountSpy).toHaveBeenCalledTimes(1);
+
+describe("componentDidMount calls the axios handler and sets state ", () => {
+  const mock_votes = [
+    {
+      cool_votes: 4,
+      subzero_votes: 7,
+      tech_list: { name: "Express" },
+      uncool_votes: 6,
+    },
+    {
+      cool_votes: 7,
+      subzero_votes: 5,
+      tech_list: { name: "React" },
+      uncool_votes: 1,
+    },
+    {
+      cool_votes: 5,
+      subzero_votes: 5,
+      tech_list: { name: "JQuery" },
+      uncool_votes: 6,
+    },
+  ];
+  beforeEach(() => {
+    axios.get.mockReset();
+  });
+
+  afterEach(() => {
+    jest.clearAllTimers();
+  });
+
+  test("axios handler returns data and combined Votes state is updated", async () => {
+    axios.get.mockResolvedValue({
+      data: [
+        {
+          cool_votes: 4,
+          subzero_votes: 7,
+          tech_list: { name: "Express" },
+          uncool_votes: 6,
+        },
+        {
+          cool_votes: 7,
+          subzero_votes: 5,
+          tech_list: { name: "React" },
+          uncool_votes: 1,
+        },
+        {
+          cool_votes: 5,
+          subzero_votes: 5,
+          tech_list: { name: "JQuery" },
+          uncool_votes: 6,
+        },
+      ],
+    });
+
+    const wrapper = shallow(<DisplayTrend />);
+    await handleFetchCombinedVotes();
+    expect(wrapper.state("combined_votes")).toStrictEqual(mock_votes);
+  });
+
+  test("componentDidMount calls resolveVotes and state is updated", async () => {
+    axios.get.mockResolvedValue({
+      data: [
+        {
+          cool_votes: 4,
+          subzero_votes: 7,
+          tech_list: { name: "Express" },
+          uncool_votes: 6,
+        },
+        {
+          cool_votes: 7,
+          subzero_votes: 5,
+          tech_list: { name: "React" },
+          uncool_votes: 1,
+        },
+        {
+          cool_votes: 5,
+          subzero_votes: 5,
+          tech_list: { name: "JQuery" },
+          uncool_votes: 6,
+        },
+      ],
+    });
+
+    const wrapper = shallow(<DisplayTrend />);
+    await handleFetchCombinedVotes();
+    expect(wrapper.state("cool_technology")).toBeTruthy();
+    expect(wrapper.state("uncool_technology")).toBeTruthy();
+    expect(wrapper.state("subzero_technology")).toBeTruthy();
+  });
 });
 
-// describe("function that resolves the votes into cool, uncool and subzero category", () => {
-//   const combined_votes = [
-//     {
-//       cool_votes: "12",
-//       uncool_votes: "1",
-//       subzero_votes: "4",
-//       tech_list: {
-//         name: "Express",
-//       },
-//     },
-//     {
-//       cool_votes: "2",
-//       uncool_votes: "7",
-//       subzero_votes: "5",
-//       tech_list: {
-//         name: "JQuery",
-//       },
-//     },
-//     {
-//       cool_votes: "2",
-//       uncool_votes: "3",
-//       subzero_votes: "6",
-//       tech_list: {
-//         name: "React",
-//       },
-//     },
-//   ];
-//   let wrapper;
-//   let cool_technologies;
-//   let uncool_technologies;
-//   let subzero_technologies;
-//   beforeEach = () => {
-//     cool_technologies = "";
-//     uncool_technologies = "";
-//     subzero_technologies = "";
-//   };
+test("renders cool component", () => {
+  const wrapper = setup();
+  const coolComponent = findByTestAttr(wrapper, "component-cool");
+  expect(coolComponent.length).toBe(1);
+});
 
-// test("function that is called to resolve the votes, calls setState", () => {
-//   wrapper = setup(null, {
-//     combined_votes,
-//     cool_technologies,
-//     uncool_technologies,
-//     subzero_technologies,
-//   });
-//   jest.useFakeTimers();
-//   setTimeout(() => {
-//     // expect(wrapper.update().state("cool_technologies").length).toBe(1);
-//     wrapper.update();
-//     console.log(wrapper.state("cool_technologies"));
-//   }, 1500);
-//   jest.runAllTimers();
-// });
-//});
+test("renders uncool component", () => {
+  const wrapper = setup();
+  const uncoolComponent = findByTestAttr(wrapper, "component-uncool");
+  expect(uncoolComponent.length).toBe(1);
+});
+
+test("renders subzero component", () => {
+  const wrapper = setup();
+  const subzeroComponent = findByTestAttr(wrapper, "component-subzero");
+  expect(subzeroComponent.length).toBe(1);
+});

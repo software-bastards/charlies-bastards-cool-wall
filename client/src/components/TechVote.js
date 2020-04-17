@@ -47,7 +47,8 @@ class TechVote extends Component {
   render() {
     return (
       <div data-test="component-techvote" className="techvote--wrapper">
-        {this.state.flash ? <p>{this.state.flash}</p> : null}
+        {/* {this.state.flash ? <p>{this.state.flash}</p> : null} */}
+
         <div className="techvote--displayforvote">
           {this.state.tech_list.map((tech) => (
             <div key={tech.id}>
@@ -59,6 +60,7 @@ class TechVote extends Component {
             </div>
           ))}
         </div>
+
         <div className="techvote--submit">
           <button
             onClick={this.handleVoteSubmit}

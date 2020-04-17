@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import handleFetchCombinedVotes from "../helper/handleFetchCombinedVotes";
 import Cool from "./Cool";
 import SubZero from "./SubZero";
+import "../stylesheets/DisplayTrend.scss";
 
 class DisplayTrend extends Component {
   state = {
@@ -10,16 +11,18 @@ class DisplayTrend extends Component {
     uncool_technology: [],
     subzero_technology: [],
   };
-  componentDidMount() {
-    handleFetchCombinedVotes()
-      .then((results) => {
-        this.setState({
-          combined_votes: [...this.state.combined_votes, ...results],
-        });
-        this.resolveVote(this.state.combined_votes);
-      })
-      .catch((err) => console.error(err));
-  }
+
+  componentDidMount = async () => {
+    try {
+      const results = await handleFetchCombinedVotes();
+      this.setState({
+        combined_votes: [...this.state.combined_votes, ...results],
+      });
+      this.resolveVote(this.state.combined_votes);
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   resolveVote = (combined_votes) => {
     combined_votes.forEach((vote) => {
@@ -55,15 +58,26 @@ class DisplayTrend extends Component {
 
   render() {
     return (
-      <div data-test="component-displaytrend">
-        <div className="coolwall--uncool"></div>
-        <div className="coolwall--cool">
-          {" "}
-          <Cool cool_technology={this.state.cool_technology} />
+      <div data-test="component-displaytrend" className="displaytrend--wrapper">
+        <div className="displaytrend--row" data-test="component-uncool">
+          <Cool
+            cool_technology={this.state.cool_technology}
+            data-test="component-cool"
+          />
         </div>
-        <div className="coolwall--subzero">
+        <div className="displaytrend--row">
           {" "}
-          <SubZero subzero_technology={this.state.subzero_technology} />
+          <Cool
+            cool_technology={this.state.cool_technology}
+            data-test="component-cool"
+          />
+        </div>
+        <div className="displaytrend--row">
+          {" "}
+          <SubZero
+            subzero_technology={this.state.subzero_technology}
+            data-test="component-subzero"
+          />
         </div>
       </div>
     );

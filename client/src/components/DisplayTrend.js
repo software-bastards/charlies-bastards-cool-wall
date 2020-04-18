@@ -60,7 +60,7 @@ class DisplayTrend extends Component {
   render() {
     return (
       <div data-test="component-displaytrend" className="displaytrend--wrapper">
-        <div className="displaytrend--row" data-test="component-uncool">
+        <div className="displaytrend--row">
           <UnCool
             uncool_technology={this.state.uncool_technology}
             data-test="component-uncool"

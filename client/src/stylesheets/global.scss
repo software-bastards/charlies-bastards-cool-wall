@@ -47,12 +47,12 @@ body {
 
 /* BUTTONS */
 .button--light_blue {
-  width: 130px;
-  height: 50px;
+  width: 100px;
+  height: 40px;
   background-color: $light-blue;
   color: $dark-blue;
   box-shadow: $box-shadow-dark-blue;
-  font-size: 14px;
+  font-size: 12px;
   display: flex;
   align-items: center;
   text-align: center;
@@ -61,6 +61,7 @@ body {
   &:hover {
     color: $light-blue;
     background-color: $dark-blue;
+    transition: 0.5s;
   }
 }
 

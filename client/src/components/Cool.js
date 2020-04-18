@@ -7,7 +7,7 @@ const red = "#ff0013";
 const yellow = "#ffb000";
 function Cool({ cool_technology }) {
   return (
-    <div>
+    <div data-test="component-cool" className="cool--wrapper">
       <h1>cool</h1>
       {cool_technology.map((technology, index) => (
         <div key={index}>

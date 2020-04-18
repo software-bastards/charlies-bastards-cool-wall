@@ -1,6 +1,7 @@
 import React from "react";
 import ProgressBar from "./ProgressBar";
 import calculateProgressBarPercent from "../helper/calculateProgressBarPercent";
+import "../stylesheets/SubZero.scss;";
 
 const blue = "#145cc6";
 const red = "#ff0013";

@@ -18,7 +18,7 @@ const combinedvotesRouter = require("./routes/combinedvotes");
 const submitvoteRouter = require("./routes/submitvote");
 const uncoolvotesRouter = require("./routes/combinedvotes");
 
-const combinedvotesRouter = require('./routes/combinedvotes')
+
 
 const app = express();
 

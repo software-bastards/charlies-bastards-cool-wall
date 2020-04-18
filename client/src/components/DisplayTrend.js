@@ -3,6 +3,7 @@ import handleFetchCombinedVotes from "../helper/handleFetchCombinedVotes";
 import Cool from "./Cool";
 import SubZero from "./SubZero";
 import UnCool from "./UnCool";
+import "../stylesheets/DisplayTrend.scss";
 
 class DisplayTrend extends Component {
   state = {
@@ -61,6 +62,7 @@ class DisplayTrend extends Component {
         <UnCool />
         </div>
         <div className="displaytrend--row" data-test="component-cool">
+        <Cool />
 
         </div>
         <div className="displaytrend--row" data-test="component-subzero">

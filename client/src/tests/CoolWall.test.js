@@ -25,16 +25,19 @@ const setup = (props = {}, state = null) => {
 const findByTestAttr = (wrapper, val) => {
   return wrapper.find(`[data-test="${val}"]`);
 };
+
 test("renders without error", () => {
   const wrapper = setup();
   const coolwallComponent = findByTestAttr(wrapper, "component-coolwall");
   expect(coolwallComponent.length).toBe(1);
 });
+
 test("renders technology voting component", () => {
   const wrapper = setup();
   const techvoteComponent = findByTestAttr(wrapper, "techvote-component");
   expect(techvoteComponent.length).toBe(1);
 });
+
 test("renders displaytrend component", () => {
   const wrapper = setup();
   const displaytrendComponent = findByTestAttr(

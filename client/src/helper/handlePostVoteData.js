@@ -2,7 +2,7 @@ import Axios from "axios";
 
 /**
  * @method handlePostVoteData posts the votes into the database
- * @param {Array<tech_id: Number, vote_type: String} vote_list
+ * @param {Array<tech_id: Number, vote_type: String>} vote_list
  * @returns {String} - a response message if the post was successful or not
  */
 

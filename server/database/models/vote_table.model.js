@@ -6,7 +6,6 @@ module.exports = (Sequelize, connector) => {
         type: Sequelize.INTEGER,
         references: {
           model: "tech_list",
-
           key: "id",
         },
         allowNull: false,

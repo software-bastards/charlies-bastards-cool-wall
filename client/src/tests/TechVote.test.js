@@ -1,8 +1,8 @@
 import React from "react";
 import { shallow } from "enzyme";
 import TechVote from "../components/TechVote";
-
 import handleFetchTechnologyList from "../helper/handleFetchTechnologyList";
+
 const axios = require("axios");
 jest.mock("axios");
 
@@ -70,7 +70,6 @@ describe("componentDidMount calls the axios handler and sets state", () => {
 
     const wrapper = shallow(<TechVote />);
     await handleFetchTechnologyList();
-    console.log(wrapper.state("tech_list"));
     expect(wrapper.state("tech_list")).toStrictEqual(tech_list);
   });
 });
@@ -96,6 +95,7 @@ describe("display the technologies to vote", () => {
     const displayvoteComponent = findByTestAttr(wrapper, "displayvote-section");
     expect(displayvoteComponent.length).toBe(tech_list.length);
   });
+
   test("renders a submit button", () => {
     const wrapper = setup();
     const submitButton = findByTestAttr(wrapper, "submit-button");
@@ -106,7 +106,6 @@ describe("display the technologies to vote", () => {
 describe("storeVote function sets correct state for vote_list", () => {
   let wrapper;
   let vote_list = [];
-
   const technology = {
     id: 1,
     name: "React",
@@ -121,7 +120,7 @@ describe("storeVote function sets correct state for vote_list", () => {
     expect(wrapper.state("vote_list")).toEqual(vote);
   });
 
-  test("Changing the vote type for a technology", () => {
+  test("Changing the vote type for the same technology", () => {
     const changeVote = [{ tech_id: technology.id, vote_type: "uncool" }];
     wrapper = setup(null, { vote_list });
     wrapper.instance().storeVote(technology, "uncool");
@@ -148,12 +147,11 @@ describe("storeVote function sets correct state for vote_list", () => {
   });
 });
 
-test("submit button calls the post function that posts into the db", async () => {
+test("submit button calls the post function that posts into the database", async () => {
   const wrapper = setup();
   const resolvePromise = () => Promise.resolve("success");
   wrapper.handlePostVoteData = jest.fn(resolvePromise);
   wrapper.instance().handleVoteSubmit();
   await wrapper.handlePostVoteData();
-
   expect(wrapper.handlePostVoteData).toHaveBeenCalledTimes(1);
 });

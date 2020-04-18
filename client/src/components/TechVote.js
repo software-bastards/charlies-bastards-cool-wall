@@ -47,23 +47,18 @@ class TechVote extends Component {
   render() {
     return (
       <div data-test="component-techvote" className="techvote--wrapper">
-        {this.state.flash ? <p>{this.state.flash}</p> : null}
-        <div className="techvote--displayforvote_outer">
-          <div className="techvote--shadow_top"></div>
-          <div className="techvote--displayforvote_inner">
-            {this.state.tech_list.map((tech) => (
-              <div key={tech.id}>
-                <DisplayForVote
-                  data-test="displayvote-section"
-                  technology={tech}
-                  storeVote={this.storeVote}
-                />
-              </div>
-            ))}
-          </div>
-
-          <div className="techvote--shadow_bottom"></div>
+        <div className="techvote--displayforvote">
+          {this.state.tech_list.map((tech) => (
+            <div key={tech.id}>
+              <DisplayForVote
+                data-test="displayvote-section"
+                technology={tech}
+                storeVote={this.storeVote}
+              />
+            </div>
+          ))}
         </div>
+
         <div className="techvote--submit">
           <button
             onClick={this.handleVoteSubmit}

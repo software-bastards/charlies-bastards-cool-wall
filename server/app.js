@@ -10,15 +10,10 @@ const indexRouter = require("./routes/index");
 
 //GET routes
 const techlistRouter = require("./routes/techlist");
-const votetableRouter = require("./routes/votetable");
-const coolvotesRouter = require("./routes/coolvotes");
 const combinedvotesRouter = require("./routes/combinedvotes");
 
 //POST routes
 const submitvoteRouter = require("./routes/submitvote");
-const uncoolvotesRouter = require("./routes/combinedvotes");
-
-
 
 const app = express();
 
@@ -36,10 +31,9 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/", indexRouter);
 
 app.use("/techlist", techlistRouter);
-app.use("/votetable", votetableRouter);
-app.use("/submitvote", submitvoteRouter);
-app.use("/coolvotes", coolvotesRouter);
 app.use("/combinedvotes", combinedvotesRouter);
+
+app.use("/submitvote", submitvoteRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

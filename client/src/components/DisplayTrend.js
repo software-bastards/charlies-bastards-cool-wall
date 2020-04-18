@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import handleFetchCombinedVotes from "../helper/handleFetchCombinedVotes";
 import Cool from "./Cool";
 import SubZero from "./SubZero";
+import UnCool from "./UnCool";
 import "../stylesheets/DisplayTrend.scss";
 
 class DisplayTrend extends Component {
@@ -59,10 +60,10 @@ class DisplayTrend extends Component {
   render() {
     return (
       <div data-test="component-displaytrend" className="displaytrend--wrapper">
-        <div className="displaytrend--row" data-test="component-uncool">
-          <Cool
-            cool_technology={this.state.cool_technology}
-            data-test="component-cool"
+        <div className="displaytrend--row">
+          <UnCool
+            uncool_technology={this.state.uncool_technology}
+            data-test="component-uncool"
           />
         </div>
         <div className="displaytrend--row">

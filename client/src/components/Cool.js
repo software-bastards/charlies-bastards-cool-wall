@@ -13,7 +13,7 @@ function Cool({ cool_technology }) {
         <img className="cool--icon" src={CoolIcon} alt="Logo Cool" />
         <h1 className="cool--h1">Cool</h1>
       </div>
-      <h1>cool</h1>
+
       {cool_technology.map((technology, index) => (
         <div key={index} data-test="technology-section">
           {technology.tech_list.name}

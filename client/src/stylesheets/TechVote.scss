@@ -9,12 +9,14 @@
   box-shadow: $box-shadow-dark-blue;
 }
 
-.techvote--displayforvote_outer {
+.techvote--displayforvote {
+  position: relative;
+  overflow-y: scroll;
   border-radius: $border-radius;
   margin: 2%;
   height: 20vh;
   width: 100%;
-  /*
+
   &::after {
     content: "";
     display: block;
@@ -30,37 +32,9 @@
     mix-blend-mode: multiply;
     z-index: 9;
     box-shadow: inset 0px -10px 20px #aab0be, inset 0px 10px 20px #aab0be;
-  }*/
+  }
 }
 
 .techvote--submit {
   padding-right: 2%;
-}
-
-.techvote--shadow_top {
-  position: relative;
-  margin: 2%;
-  height: 20px;
-  width: 100%;
-  z-index: 9;
-  box-shadow: 0px 10px 10px -10px $dark-blue inset;
-  border-radius: $border-radius;
-}
-
-.techvote--shadow_bottom {
-  position: relative;
-  margin: 2%;
-  height: 20px;
-  width: 100%;
-  z-index: 9;
-  box-shadow: 0px -10px 10px -10px $dark-blue inset;
-  border-radius: $border-radius;
-  mix-blend-mode: multiply;
-}
-
-.techvote--displayforvote_inner {
-  height: calc(20vh - 60px);
-  max-width: 100%;
-  overflow: auto;
-  margin: 0 auto;
 }

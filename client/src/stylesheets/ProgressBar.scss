@@ -8,20 +8,37 @@ $blue: #145cc6;
 $red: #ff0013;
 $yellow: #ffb000;
 
-.progress-bar {
+.progress--bar {
   position: relative;
-  height: 20px;
-  width: 350px;
+  height: 15px;
+  width: 100%;
   border-radius: 50px;
   border: 1px solid $dark-grey;
+  background-color: $dark-grey;
+  margin: $margin-sm;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 .filler {
   background: $blue;
-  height: 100%;
+  height: 90%;
   border-radius: inherit;
 <<<<<<< HEAD
 }
+<<<<<<< HEAD
 =======
-}
+
 >>>>>>> e072b80f6bc2445696b3f449b14e2a29cf067695
+=======
+
+.progress--bar_name {
+  font-size: 11px;
+  font-weight: $Roboto-bold;
+  width: calc(100% / 3);
+  margin-left: $margin-sm;
+}
+>>>>>>> 110bb2586c772e63c6bffe3b0f4202eade896df1

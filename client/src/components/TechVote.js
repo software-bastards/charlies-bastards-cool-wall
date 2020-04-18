@@ -12,13 +12,16 @@ class TechVote extends Component {
     vote_list: [],
     flash: "",
   };
-  componentDidMount() {
-    handleFetchTechnologyList()
-      .then((results) =>
-        this.setState({ tech_list: [...this.state.tech_list, ...results] })
-      )
-      .catch((err) => console.error(err));
-  }
+
+  componentDidMount = async () => {
+    try {
+      const results = await handleFetchTechnologyList();
+      this.setState({ tech_list: [...this.state.tech_list, ...results] });
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   storeVote = (technology, vote_type) => {
     this.setState({
       vote_list: [
@@ -32,27 +35,34 @@ class TechVote extends Component {
       ],
     });
   };
-  handleVoteSubmit = (e) => {
+
+  handleVoteSubmit = () => {
     handlePostVoteData(this.state.vote_list)
       .then((response) => {
         this.setState({ flash: response.data.message });
-        console.log(this.state.flash);
       })
       .catch((err) => this.setState({ flash: err.flash }));
   };
+
   render() {
     return (
       <div data-test="component-techvote" className="techvote--wrapper">
-        <div className="techvote--displayforvote">
-          {this.state.tech_list.map((tech) => (
-            <div key={tech.id}>
-              <DisplayForVote
-                data-test="displayvote-section"
-                technology={tech}
-                storeVote={this.storeVote}
-              />
-            </div>
-          ))}
+        {this.state.flash ? <p>{this.state.flash}</p> : null}
+        <div className="techvote--displayforvote_outer">
+          <div className="techvote--shadow_top"></div>
+          <div className="techvote--displayforvote_inner">
+            {this.state.tech_list.map((tech) => (
+              <div key={tech.id}>
+                <DisplayForVote
+                  data-test="displayvote-section"
+                  technology={tech}
+                  storeVote={this.storeVote}
+                />
+              </div>
+            ))}
+          </div>
+
+          <div className="techvote--shadow_bottom"></div>
         </div>
         <div className="techvote--submit">
           <button

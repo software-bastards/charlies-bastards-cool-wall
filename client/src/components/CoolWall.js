@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import TechVote from "./TechVote";
+import DisplayTrend from "./DisplayTrend";
+
 import "../stylesheets/global.scss";
 import "../stylesheets/global.css";
 import "../stylesheets/CoolWall.scss";
 import Logo from "../images/logo.svg";
-import DisplayTrend from "./DisplayTrend";
 
 class CoolWall extends Component {
   render() {

@@ -7,11 +7,14 @@ const db = require("./database/models/index.js");
 
 //GET ROUTES
 const indexRouter = require("./routes/index");
-const usersRouter = require("./routes/users");
+
+//GET routes
 const techlistRouter = require("./routes/techlist");
+const votetableRouter = require("./routes/votetable");
+const coolvotesRouter = require("./routes/coolvotes");
 const combinedvotesRouter = require("./routes/combinedvotes");
 
-// POST ROUTES
+//POST routes
 const submitvoteRouter = require("./routes/submitvote");
 const uncoolvotesRouter = require("./routes/combinedvotes");
 
@@ -23,7 +26,6 @@ const app = express();
 db.connector.sync();
 
 app.set("views", path.join(__dirname, "views"));
-app.set("view engine", "jade");
 
 app.use(logger("dev"));
 app.use(express.json());
@@ -32,8 +34,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
-app.use("/api/users", usersRouter);
+
 app.use("/techlist", techlistRouter);
+app.use("/votetable", votetableRouter);
 app.use("/submitvote", submitvoteRouter);
 app.use("/combinedvotes", combinedvotesRouter);
 

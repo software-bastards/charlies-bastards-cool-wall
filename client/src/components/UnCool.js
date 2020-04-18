@@ -1,7 +1,7 @@
 import React from "react";
 import ProgressBar from "./ProgressBar";
 import calculateProgressBarPercent from "../helper/calculateProgressBarPercent";
-
+import "../stylesheets/UnCool.scss";
 
 
 const blue = "#145cc6";
@@ -12,8 +12,8 @@ const yellow = "#ffb000";
 function UnCool ({ uncool_technology }) {
   return (
     <div data-test="component-uncool" className="uncool--wrapper">
-      <div className="uncool--head"> </div>
-      <h1>SubZero</h1>
+      <div className="uncool--head"> <h1 className="uncool--h1">SubZero</h1> </div>
+     
       {uncool_technology.map((technology, index) => (
         <div key={index}>
           {technology.tech_list.name}

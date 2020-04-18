@@ -14,7 +14,7 @@ body {
   height: 50px;
   background-color: #b7c9f7;
   color: #5d6486;
-  box-shadow: 0px 4px 0px #5d6486;
+  box-shadow: 0px 4px 4px #5d6486;
   font-size: 14px;
   display: flex;
   align-items: center;

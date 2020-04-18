@@ -10,6 +10,7 @@ $yellow: #ffb000;
 /* FONT FAMILY */
 $font-Roboto: "Roboto";
 $font-SpaceMono: "Space Mono";
+$font-size-h1: 1.3rem;
 
 /* FONT WEIGHTS */
 $Roboto-regular: 400;
@@ -20,14 +21,14 @@ $border: 0.5px solid $dark-blue;
 $border-radius: 10px;
 
 /* BOX */
-$box-shadow-grey: 0px 4px 0px $dark-grey;
-$box-shadow-dark-blue: 0px 4px 0px $dark-blue;
+$box-shadow-grey: 0px 4px 4px $dark-grey;
+$box-shadow-dark-blue: 0px 4px 4px $dark-blue;
 $box-shadow-red: 0px 4px 0px $red;
 $box-shadow-blue: 0px 4px 0px $blue;
 $box-shadow-yellow: 0px 4px 0px $yellow;
 
-/*  MARGIN */
-$margin : 10px;
+/* MARGIN */
+$margin: 10px;
 $margin-sm: 5px;
 
 /* BODY */

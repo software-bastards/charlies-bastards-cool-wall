@@ -6,6 +6,7 @@ import "../stylesheets/global.scss";
 import "../stylesheets/global.css";
 import "../stylesheets/CoolWall.scss";
 
+
 class CoolWall extends Component {
   render() {
     return (

@@ -5,14 +5,7 @@ import Logo from "../images/logo.svg";
 import "../stylesheets/global.scss";
 import "../stylesheets/global.css";
 import "../stylesheets/CoolWall.scss";
-<<<<<<< HEAD
-=======
-import Logo from "../images/logo.svg";
-<<<<<<< HEAD
->>>>>>> feature-subzero
-=======
-import DisplayTrend from './DisplayTrend';
->>>>>>> 4aabe3c0a9c6a71a071a75fe0fe4b8dcf794ae2d
+import "../stylesheets/CoolWall.css";
 
 class CoolWall extends Component {
   render() {
@@ -35,16 +28,7 @@ class CoolWall extends Component {
             <div className="coolwall--techvote_wrapper">
               <TechVote data-test="techvote-component" />
             </div>
-<<<<<<< HEAD
-            <div
-              className="coolwall--displaytrend"
-              data-test="displaytrend-component"
-            >
-              <DisplayTrend />
-            </div>
-=======
             <DisplayTrend />
->>>>>>> 4aabe3c0a9c6a71a071a75fe0fe4b8dcf794ae2d
           </div>
         </div>
       </div>

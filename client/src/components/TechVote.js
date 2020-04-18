@@ -5,6 +5,7 @@ import DisplayForVote from "./DisplayForVote";
 import "../stylesheets/global.scss";
 import "../stylesheets/global.css";
 import "../stylesheets/TechVote.scss";
+import "../stylesheets/TechVote.css";
 
 class TechVote extends Component {
   state = {

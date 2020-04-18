@@ -1,5 +1,6 @@
 import React from "react";
 import "../stylesheets/DisplayForVote.scss";
+import "../stylesheets/DisplayForVote.css";
 
 function DisplayForVote({ technology, storeVote }) {
   const handleOptionChange = (e) => {

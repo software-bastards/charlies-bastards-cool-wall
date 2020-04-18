@@ -13,17 +13,16 @@ class CoolWall extends Component {
         <div className="coolwall--left">
           <div className="coolwall--left_white">
             <img className="coolwall--logo" src={Logo} alt="Logo CoolWall" />
-            <p className="coolwall--copyright">@softwarebastards</p>
           </div>
           <div className="coolwall--left_grey"></div>
+          <p className="coolwall--copyright">@softwarebastards</p>
         </div>
         <div className="coolwall--right">
-          <div className="coolwall--right_top">
-            <p className="right--top_p">
-              Vote and submit what's hot and what's not!
-            </p>
-          </div>
+          <div className="coolwall--right_top"></div>
           <div className="coolwall--right_wrapper">
+            <p className="right--top_p">
+              Vote and submit what’s hot and what’s not!
+            </p>
             <div className="coolwall--techvote_wrapper">
               <TechVote data-test="techvote-component" />
             </div>

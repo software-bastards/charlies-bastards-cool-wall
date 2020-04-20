@@ -1,12 +1,12 @@
 import React from "react";
 import "../stylesheets/DisplayForVote.scss";
-
+import "../stylesheets/DisplayForVote.css";
 import Cool from "../images/cool.svg";
 import UnCool from "../images/uncool.svg";
 import SubZero from "../images/subzero.svg";
 
-function DisplayForVote({ technology, storeVote, borderStyle }) {
-    const handleClickUncool = (e) => {
+function DisplayForVote({ technology, storeVote }) {
+  const handleClickUncool = (e) => {
     storeVote(technology, "uncool");
   };
   const handleClickCool = (e) => {
@@ -26,25 +26,31 @@ function DisplayForVote({ technology, storeVote, borderStyle }) {
         <img
           src={UnCool}
           alt="uncool logo"
-          className={ technology.borderForSelectedVote === "uncool" 
-          ? "displayforvote--images uncool"
-          : "displayforvote--images" }
+          className={
+            technology.borderForSelectedVote === "uncool"
+              ? "displayforvote--images uncool"
+              : "displayforvote--images"
+          }
           onClick={handleClickUncool}
         />
         <img
           src={Cool}
           alt="cool logo"
-          className={ technology.borderForSelectedVote === "cool" 
-          ? "displayforvote--images cool"
-          : "displayforvote--images" }
+          className={
+            technology.borderForSelectedVote === "cool"
+              ? "displayforvote--images cool"
+              : "displayforvote--images"
+          }
           onClick={handleClickCool}
         />
         <img
           src={SubZero}
           alt="subzero logo"
-          className={ technology.borderForSelectedVote === "subzero" 
-          ? "displayforvote--images subzero"
-          : "displayforvote--images" }
+          className={
+            technology.borderForSelectedVote === "subzero"
+              ? "displayforvote--images subzero"
+              : "displayforvote--images"
+          }
           onClick={handleClickSubZero}
         />
       </div>

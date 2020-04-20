@@ -46,25 +46,13 @@ describe("componentDidMount calls the axios handler and sets state", () => {
 
   test("axios handler returns data and state is updated", async () => {
     const tech_list = [
-      {
-        id: 1,
-        name: "Laveral",
-      },
-      {
-        id: 2,
-        name: "React",
-      },
+      { borderForSelectedVote: "none", id: 1, name: "Laveral" },
+      { borderForSelectedVote: "none", id: 2, name: "React" },
     ];
     axios.get.mockResolvedValue({
       data: [
-        {
-          id: 1,
-          name: "Laveral",
-        },
-        {
-          id: 2,
-          name: "React",
-        },
+        { borderForSelectedVote: "none", id: 1, name: "Laveral" },
+        { borderForSelectedVote: "none", id: 2, name: "React" },
       ],
     });
 
@@ -76,18 +64,9 @@ describe("componentDidMount calls the axios handler and sets state", () => {
 
 describe("display the technologies to vote", () => {
   const tech_list = [
-    {
-      id: 1,
-      name: "Laveral",
-    },
-    {
-      id: 2,
-      name: "React",
-    },
-    {
-      id: 3,
-      name: "Angular",
-    },
+    { borderForSelectedVote: "none", id: 1, name: "Laveral" },
+    { borderForSelectedVote: "none", id: 2, name: "React" },
+    { borderForSelectedVote: "none", id: 3, name: "Angular" },
   ];
 
   test("render correct number of technology", () => {
@@ -106,10 +85,7 @@ describe("display the technologies to vote", () => {
 describe("storeVote function sets correct state for vote_list", () => {
   let wrapper;
   let vote_list = [];
-  const technology = {
-    id: 1,
-    name: "React",
-  };
+  const technology = { borderForSelectedVote: "none", id: 1, name: "React" };
   const mockvote_type = "cool";
   const vote = [{ tech_id: technology.id, vote_type: mockvote_type }];
 
@@ -133,6 +109,7 @@ describe("storeVote function sets correct state for vote_list", () => {
     wrapper.instance().storeVote(technology, mockvote_type);
     wrapper.update();
     const anotherTechnology = {
+      borderForSelectedVote: "none",
       id: 3,
       name: "Laveral",
     };

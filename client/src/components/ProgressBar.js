@@ -3,7 +3,7 @@ import "../stylesheets/ProgressBar.scss";
 
 const ProgressBar = (props) => {
   return (
-    <div className="progress--bar">
+    <div className="progress--bar" data-test="component-progressbar">
       <div className="progress--bar_name" style={{ color: `${props.color}` }}>
         {props.name}
       </div>

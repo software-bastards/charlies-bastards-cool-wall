@@ -53,7 +53,6 @@ function SubZero({ subzero_technology }) {
           </div>
         </div>
       ))}
-      ,
     </div>
   );
 }

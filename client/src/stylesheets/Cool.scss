@@ -10,6 +10,7 @@
   font-family: $font-SpaceMono;
   padding: 0 3% 0 3%;
 }
+
 .cool--head {
   display: flex;
   flex-direction: row;
@@ -20,4 +21,49 @@
   border-radius: $border-radius;
   box-shadow: $box-shadow-red;
   margin: $margin;
+}
+
+.cool--technology_wrap {
+  border-radius: $border-radius;
+  box-shadow: $box-shadow-red;
+  margin: $margin;
+  border: $border;
+  display: flex;
+}
+
+.cool--technology_name {
+  font-size: 0.7rem;
+  color: $dark-blue;
+  margin-left: 5px;
+}
+
+.subzero--logo_wrap {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  margin: $margin;
+}
+
+.vue--logo {
+  width: 50px;
+  height: 50px;
+  padding: $margin;
+  border-radius: $border-radius;
+  border: $border;
+}
+
+.cool--technology_flex {
+  flex-grow: 2;
+}
+
+@media screen and (max-width: 1100px) {
+  .cool--technology_flex {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .cool--logo_wrap {
+    width: 30%;
+  }
 }

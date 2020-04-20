@@ -3,6 +3,8 @@ import ProgressBar from "./ProgressBar";
 import calculateProgressBarPercent from "../helper/calculateProgressBarPercent";
 import CoolIcon from "../images/cool.svg";
 import "../stylesheets/Cool.scss";
+import VueLogo from "../images/vue.svg";
+
 const blue = "#145cc6";
 const red = "#ff0013";
 const yellow = "#ffb000";
@@ -15,35 +17,46 @@ function Cool({ cool_technology }) {
       </div>
 
       {cool_technology.map((technology, index) => (
-        <div key={index} data-test="technology-section">
-          {technology.tech_list.name}
-          <ProgressBar
-            percent={calculateProgressBarPercent(
-              technology,
-              technology.uncool_votes
-            )}
-            color={yellow}
-            name="UnCool"
-            data-test="uncool-progressbar"
-          />
-          <ProgressBar
-            percent={calculateProgressBarPercent(
-              technology,
-              technology.cool_votes
-            )}
-            color={red}
-            name="Cool"
-            data-test="cool-progressbar"
-          />
-          <ProgressBar
-            percent={calculateProgressBarPercent(
-              technology,
-              technology.subzero_votes
-            )}
-            color={blue}
-            name="SubZero"
-            data-test="subzero-progressbar"
-          />
+        <div
+          className="cool--technology_wrap"
+          data-test="technology-section"
+          key={index}
+        >
+          <div className="cool--logo_wrap">
+            <img className="vue--logo" src={VueLogo} alt="Vue Logo" />
+          </div>
+          <div className="cool--technology_flex">
+            <h3 className="cool--technology_name">
+              {technology.tech_list.name}
+            </h3>
+            <ProgressBar
+              percent={calculateProgressBarPercent(
+                technology,
+                technology.uncool_votes
+              )}
+              color={yellow}
+              name="UnCool"
+              data-test="uncool-progressbar"
+            />
+            <ProgressBar
+              percent={calculateProgressBarPercent(
+                technology,
+                technology.cool_votes
+              )}
+              color={red}
+              name="Cool"
+              data-test="cool-progressbar"
+            />
+            <ProgressBar
+              percent={calculateProgressBarPercent(
+                technology,
+                technology.subzero_votes
+              )}
+              color={blue}
+              name="SubZero"
+              data-test="subzero-progressbar"
+            />
+          </div>
         </div>
       ))}
     </div>

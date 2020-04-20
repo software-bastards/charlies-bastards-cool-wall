@@ -68,9 +68,9 @@ class DisplayTrend extends Component {
         </div>
         <div className="displaytrend--row">
           {" "}
-          <SubZero
-            subzero_technology={this.state.subzero_technology}
-            data-test="component-subzero"
+          <Cool
+            cool_technology={this.state.cool_technology}
+            data-test="component-cool"
           />
         </div>
         <div className="displaytrend--row">

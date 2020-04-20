@@ -64,6 +64,7 @@ class TechVote extends Component {
     return (
       <div data-test="component-techvote" className="techvote--wrapper">
         <div className="techvote--displayforvote">
+          <div className="techvote--displayforvote_shadow"></div>
           {this.state.tech_list.map((tech) => (
             <div key={tech.id}>
               <DisplayForVote

@@ -13,6 +13,12 @@
   }
 }
 
+@media screen and (max-width: 500px) {
+  .techvote--wrapper {
+    flex-direction: column;
+  }
+}
+
 .techvote--displayforvote {
   position: relative;
   overflow-y: scroll;
@@ -20,25 +26,24 @@
   margin: 2%;
   height: 20vh;
   width: 100%;
-
-  &::after {
-    content: "";
-    display: block;
-    position: absolute;
-    overflow: visible;
-    pointer-events: none;
-    background: none !important;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    z-index: 10;
-    mix-blend-mode: multiply;
-    z-index: 9;
-    box-shadow: inset 0px -10px 20px #aab0be, inset 0px 10px 20px #aab0be;
-  }
+  box-shadow: inset 0px -10px 20px #aab0be, inset 0px 10px 20px #aab0be;
 }
 
 .techvote--submit {
   padding-right: 2%;
+}
+
+.techvote--displayforvote_shadow {
+  display: block;
+  position: absolute;
+  overflow: visible;
+  pointer-events: none;
+  background: none !important;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+  mix-blend-mode: multiply;
+  z-index: 9;
 }

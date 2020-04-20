@@ -1,10 +1,25 @@
 import React from "react";
 import "../stylesheets/DisplayForVote.scss";
-import "../stylesheets/DisplayForVote.css";
+import Cool from "../images/cool.svg";
+import UnCool from "../images/uncool.svg";
+import SubZero from "../images/subzero.svg";
 
-function DisplayForVote({ technology, storeVote }) {
-  const handleOptionChange = (e) => {
-    storeVote(technology, e.target.value);
+function DisplayForVote({ technology, storeVote, borderStyle }) {
+  let border = "";
+  if (borderStyle === 0) {
+    border = "none";
+  } else {
+    border = "red";
+  }
+
+  const handleClickUncool = (e) => {
+    storeVote(technology, "uncool");
+  };
+  const handleClickCool = (e) => {
+    storeVote(technology, "cool");
+  };
+  const handleClickSubZero = (e) => {
+    storeVote(technology, "subzero");
   };
   return (
     <div
@@ -13,24 +28,38 @@ function DisplayForVote({ technology, storeVote }) {
     >
       <div className="technology--name"> {technology.name}</div>
 
-      <form
-        className="cc-selector radio--buttons"
-        onChange={handleOptionChange}
-      >
-        <input type="hidden" value="null" />
-        <input type="radio" id="uncool" name="voting" value="uncool" />
-        <label className=" visa drinkcard-cc" htmlFor="uncool">
-          uncool
-        </label>
-        <input type="radio" id="cool" name="voting" value="cool" />
-        <label className="cool drinkcard-cc" htmlFor="cool">
-          cool
-        </label>
-        <input type="radio" id="subzero" name="voting" value="subzero" />
-        <label className="subzero drinkcard-cc" htmlFor="subzero">
-          subzero
-        </label>
-      </form>
+      <div className="displayforvote--images_wrap">
+        <img
+          src={UnCool}
+          alt="uncool logo"
+          className={
+            technology.borderForSelectedVote === "uncool"
+              ? "displayforvote--images uncool"
+              : "displayforvote--images"
+          }
+          onClick={handleClickUncool}
+        />
+        <img
+          src={Cool}
+          alt="cool logo"
+          className={
+            technology.borderForSelectedVote === "cool"
+              ? "displayforvote--images cool"
+              : "displayforvote--images"
+          }
+          onClick={handleClickCool}
+        />
+        <img
+          src={SubZero}
+          alt="subzero logo"
+          className={
+            technology.borderForSelectedVote === "subzero"
+              ? "displayforvote--images subzero"
+              : "displayforvote--images"
+          }
+          onClick={handleClickSubZero}
+        />
+      </div>
     </div>
   );
 }

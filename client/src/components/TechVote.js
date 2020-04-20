@@ -16,6 +16,9 @@ class TechVote extends Component {
   componentDidMount = async () => {
     try {
       const results = await handleFetchTechnologyList();
+      let newTechList = results.map((item) => {
+        return { ...item, borderForSelectedVote: "none" };
+      });
       this.setState({ tech_list: [...this.state.tech_list, ...results] });
     } catch (err) {
       console.error(err);
@@ -36,6 +39,19 @@ class TechVote extends Component {
     });
   };
 
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.vote_list !== this.state.vote_list) {
+      this.state.vote_list.forEach((vote) => {
+        let techIndex = this.state.tech_list.findIndex(
+          (tech) => tech.id === vote.tech_id
+        );
+        let newState = Object.assign({}, this.state);
+        newState.tech_list[techIndex].borderForSelectedVote = vote.vote_type;
+        this.setState(newState);
+      });
+    }
+  }
+
   handleVoteSubmit = () => {
     handlePostVoteData(this.state.vote_list)
       .then((response) => {
@@ -48,6 +64,7 @@ class TechVote extends Component {
     return (
       <div data-test="component-techvote" className="techvote--wrapper">
         <div className="techvote--displayforvote">
+          <div className="techvote--displayforvote_shadow"></div>
           {this.state.tech_list.map((tech) => (
             <div key={tech.id}>
               <DisplayForVote

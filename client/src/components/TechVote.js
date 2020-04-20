@@ -51,6 +51,19 @@ class TechVote extends Component {
     }
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.vote_list !== this.state.vote_list) {
+      this.state.vote_list.forEach((vote) => {
+        let techIndex = this.state.tech_list.findIndex(
+          (tech) => tech.id === vote.tech_id
+        );
+        let newState = Object.assign({}, this.state);
+        newState.tech_list[techIndex].borderForSelectedVote = vote.vote_type;
+        this.setState(newState);
+      });
+    }
+  }
+
   handleVoteSubmit = () => {
     handlePostVoteData(this.state.vote_list)
       .then((response) => {

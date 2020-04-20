@@ -1,0 +1,24 @@
+@import "../stylesheets/global.scss";
+
+.uncool--icon {
+    width: 2.5rem;
+    padding: 0 3% 0 3%;
+  }
+  
+  .uncool--h1 {
+    font-size: $font-size-h1;
+    font-family: $font-SpaceMono;
+    padding: 0 3% 0 3%;
+  }
+  
+  .uncool--head {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    border: $border;
+    border-radius: $border-radius;
+    box-shadow: $box-shadow-yellow;
+    margin: $margin;
+  }

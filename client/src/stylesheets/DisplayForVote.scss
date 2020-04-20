@@ -18,9 +18,10 @@
   font-weight: $Roboto-bold;
   width: 20%;
 }
+
 @media screen and (max-width: 700px) {
   .technology--name {
-    font-size: 14px;
+    font-size: 12px;
   }
 }
 
@@ -51,6 +52,34 @@
   border-radius: 50%;
   box-shadow: 0px 0px 0px 3px $yellow;
 }
+.subzero {
+  border: 2px solid $blue;
+  border-radius: 50%;
+  box-shadow: 0px 0px 0px 3px $blue;
+}
+
+.displayforvote--images {
+  width: 50px;
+  height: 50px;
+  margin: 5%;
+}
+
+.displayforvote--images_wrap {
+  width: 80%;
+}
+
+.uncool {
+  border: 2px solid $yellow;
+  border-radius: 50%;
+  box-shadow: 0px 0px 0px 3px $yellow;
+}
+
+.cool {
+  border: 2px solid $red;
+  border-radius: 50%;
+  box-shadow: 0px 0px 0px 3px $red;
+}
+
 .subzero {
   border: 2px solid $blue;
   border-radius: 50%;

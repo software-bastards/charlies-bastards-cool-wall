@@ -16,15 +16,47 @@
   padding-right: 10%;
   font-size: 18px;
   font-weight: $Roboto-bold;
+  width: 20%;
 }
 
-.radio--buttons {
-  float: right;
+@media screen and (max-width: 700px) {
+  .technology--name {
+    font-size: 12px;
+  }
 }
 
-.visa .cool .subzero {
-  padding: 2%;
+.displayforvote--images {
+  width: 50px;
+  height: 50px;
+  margin: 5%;
 }
-label {
-  font-size: 14px;
+
+@media screen and (max-width: 700px) {
+  .displayforvote--images {
+    width: 35px;
+    height: 35px;
+    margin: 2%;
+  }
+}
+
+.displayforvote--images_wrap {
+  width: 80%;
+}
+
+.uncool {
+  border: solid 2px $yellow;
+  border-radius: 50%;
+  box-shadow: 0px 0px 0px 3px $yellow;
+}
+
+.cool {
+  border: solid 2px $red;
+  border-radius: 50%;
+  box-shadow: 0px 0px 0px 3px $red;
+}
+
+.subzero {
+  border: solid 2px $blue;
+  border-radius: 50%;
+  box-shadow: 0px 0px 0px 3px $blue;
 }

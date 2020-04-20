@@ -10,8 +10,8 @@ $yellow: #ffb000;
 
 .progress--bar {
   position: relative;
-  height: 10px;
-  width: 90%;
+  height: 15px;
+  width: 95%;
   border-radius: 50px;
   border: 1px solid $dark-grey;
   background-color: $dark-grey;
@@ -31,9 +31,6 @@ $yellow: #ffb000;
   border-radius: inherit;
   margin-left: 55px;
 }
-
-
-
 
 .progress--bar_name {
   font-size: 8px;

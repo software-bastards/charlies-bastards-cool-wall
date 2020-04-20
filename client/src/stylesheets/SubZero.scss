@@ -23,47 +23,6 @@
   margin: $margin;
 }
 
-.subzero--technology_wrap {
-  border-radius: $border-radius;
-  box-shadow: $box-shadow-blue;
-  margin: $margin;
-  border: $border;
-  display: flex;
-}
-
-.subzero--technology_name {
-  font-size: 0.7rem;
-  color: $dark-blue;
-  margin-left: 5px;
-}
-
-.subzero--logo_wrap {
-  display: flex;
-  justify-content: center;
-  align-self: center;
-  margin: $margin;
-}
-
-.vue--logo {
-  width: 50px;
-  height: 50px;
-  padding: $margin;
-  border-radius: $border-radius;
-  border: $border;
-}
-
-.subzero--technology_flex {
-  flex-grow: 2;
-}
-
-@media screen and (max-width: 1100px) {
-  .subzero--technology_flex {
-    width: 50%;
-  }
-}
-
-@media screen and (max-width: 1100px) {
-  .subzero--logo_wrap {
-    width: 30%;
-  }
+.subzero--bar_wrap {
+  width: 100%;
 }

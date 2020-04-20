@@ -17,40 +17,32 @@ function SubZero({ subzero_technology }) {
         <h1 className="subzero--h1">SubZero</h1>
       </div>
       {subzero_technology.map((technology, index) => (
-        <div className="subzero--technology_wrap" key={index}>
-          <div className="subzero--logo_wrap">
-            <img className="vue--logo" src={VueLogo} alt="Vue Logo" />
-          </div>
-          <div className="subzero--technology_flex">
-            <h3 className="subzero--technology_name">
-              {technology.tech_list.name}
-            </h3>
-
-            <ProgressBar
-              percent={calculateProgressBarPercent(
-                technology,
-                technology.uncool_votes
-              )}
-              color={yellow}
-              name="UnCool"
-            />
-            <ProgressBar
-              percent={calculateProgressBarPercent(
-                technology,
-                technology.cool_votes
-              )}
-              color={red}
-              name="Cool"
-            />
-            <ProgressBar
-              percent={calculateProgressBarPercent(
-                technology,
-                technology.subzero_votes
-              )}
-              color={blue}
-              name="Subzero"
-            />
-          </div>
+        <div className="subzero--bar_wrap" key={index}>
+          {technology.tech_list.name}
+          <ProgressBar
+            percent={calculateProgressBarPercent(
+              technology,
+              technology.uncool_votes
+            )}
+            color={yellow}
+            name="UnCool"
+          />
+          <ProgressBar
+            percent={calculateProgressBarPercent(
+              technology,
+              technology.cool_votes
+            )}
+            color={red}
+            name="Cool"
+          />
+          <ProgressBar
+            percent={calculateProgressBarPercent(
+              technology,
+              technology.subzero_votes
+            )}
+            color={blue}
+            name="Subzero"
+          />
         </div>
       ))}
     </div>

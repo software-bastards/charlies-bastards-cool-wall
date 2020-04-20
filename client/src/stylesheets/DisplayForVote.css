@@ -6,6 +6,7 @@
   min-height: 70px;
   display: flex;
   align-items: center;
+
   padding-left: 2%;
   border-radius: 10px;
   position: relative;
@@ -17,7 +18,7 @@
   -moz-appearance: none;
   appearance: none;
 }
-.visa {
+/* .visa {
   background-image: url(../images/uncool.svg);
 }
 .cool {
@@ -25,7 +26,7 @@
 }
 .subzero {
   background-image: url(../images/subzero.svg);
-}
+} */
 .cc-selector input:active + .drinkcard-cc {
   opacity: 1;
 }
@@ -63,4 +64,8 @@
 }
 .visa .cool .subzero {
   padding: 2%;
+}
+img {
+  width: 50px;
+  height: 50px;
 }

@@ -16,7 +16,7 @@ function SubZero({ subzero_technology }) {
         <h1 className="subzero--h1">SubZero</h1>
       </div>
       {subzero_technology.map((technology, index) => (
-        <div key={index}>
+        <div className="subzero--bar_wrap" key={index}>
           {technology.tech_list.name}
           <ProgressBar
             percent={calculateProgressBarPercent(

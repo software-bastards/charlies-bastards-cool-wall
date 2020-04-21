@@ -8,6 +8,7 @@ import VueLogo from "../images/vue.svg";
 const blue = "#145cc6";
 const red = "#ff0013";
 const yellow = "#ffb000";
+
 function Cool({ cool_technology }) {
   return (
     <div data-test="component-cool" className="cool-wrapper">
@@ -15,7 +16,6 @@ function Cool({ cool_technology }) {
         <img className="cool--icon" src={CoolIcon} alt="Logo Cool" />
         <h1 className="cool--h1">Cool</h1>
       </div>
-
       {cool_technology.map((technology, index) => (
         <div
           className="cool--technology_wrap"

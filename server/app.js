@@ -14,6 +14,7 @@ const combinedvotesRouter = require("./routes/combinedvotes");
 
 //POST routes
 const submitvoteRouter = require("./routes/submitvote");
+const adminregisterRouter = require("./routes/admin_register");
 
 const app = express();
 
@@ -32,8 +33,8 @@ app.use("/", indexRouter);
 
 app.use("/techlist", techlistRouter);
 app.use("/combinedvotes", combinedvotesRouter);
-
 app.use("/submitvote", submitvoteRouter);
+app.use("/admin_register", adminregisterRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

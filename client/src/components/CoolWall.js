@@ -3,7 +3,6 @@ import TechVote from "./TechVote";
 import DisplayTrend from "./DisplayTrend";
 import Logo from "../images/logo.svg";
 import "../stylesheets/global.scss";
-
 import "../stylesheets/CoolWall.scss";
 
 class CoolWall extends Component {

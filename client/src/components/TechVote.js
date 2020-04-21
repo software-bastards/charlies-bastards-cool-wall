@@ -3,7 +3,6 @@ import handleFetchTechnologyList from "../helper/handleFetchTechnologyList";
 import handlePostVoteData from "../helper/handlePostVoteData";
 import DisplayForVote from "./DisplayForVote";
 import "../stylesheets/global.scss";
-
 import "../stylesheets/TechVote.scss";
 
 class TechVote extends Component {

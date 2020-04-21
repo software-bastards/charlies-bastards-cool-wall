@@ -27,39 +27,38 @@ function UnCool({ uncool_technology }) {
           </div>
           <div className="uncool--technology_flex">
             <h3 className="uncool--technology_name">
-            {technology.tech_list.name}
-          </h3>
-          <ProgressBar
-            percent={calculateProgressBarPercent(
-              technology,
-              technology.uncool_votes
-            )}
-            color={yellow}
-            name="Uncool"
-            data-test="uncool-progressbar"
-          />
-          <ProgressBar
-            percent={calculateProgressBarPercent(
-              technology,
-              technology.cool_votes
-            )}
-            color={red}
-            name="Cool"
-            data-test="cool-progressbar"
-          />
-          <ProgressBar
-            percent={calculateProgressBarPercent(
-              technology,
-              technology.subzero_votes
-            )}
-            color={blue}
-            name="SubZero"
-            data-test="subzero-progressbar"
-          />
-        </div>
+              {technology.tech_list.name}
+            </h3>
+            <ProgressBar
+              percent={calculateProgressBarPercent(
+                technology,
+                technology.uncool_votes
+              )}
+              color={yellow}
+              name="Uncool"
+              data-test="uncool-progressbar"
+            />
+            <ProgressBar
+              percent={calculateProgressBarPercent(
+                technology,
+                technology.cool_votes
+              )}
+              color={red}
+              name="Cool"
+              data-test="cool-progressbar"
+            />
+            <ProgressBar
+              percent={calculateProgressBarPercent(
+                technology,
+                technology.subzero_votes
+              )}
+              color={blue}
+              name="SubZero"
+              data-test="subzero-progressbar"
+            />
+          </div>
         </div>
       ))}
-      
     </div>
   );
 }

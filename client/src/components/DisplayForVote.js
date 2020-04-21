@@ -1,6 +1,5 @@
 import React from "react";
 import "../stylesheets/DisplayForVote.scss";
-
 import Cool from "../images/cool.svg";
 import UnCool from "../images/uncool.svg";
 import SubZero from "../images/subzero.svg";
@@ -9,12 +8,15 @@ function DisplayForVote({ technology, storeVote }) {
   const handleClickUncool = (e) => {
     storeVote(technology, "uncool");
   };
+
   const handleClickCool = (e) => {
     storeVote(technology, "cool");
   };
+
   const handleClickSubZero = (e) => {
     storeVote(technology, "subzero");
   };
+
   return (
     <div
       className="displayforvote--scroll"

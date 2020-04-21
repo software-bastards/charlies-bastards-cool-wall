@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import CoolWall from "./components/CoolWall";
 
 import "./stylesheets/global.scss";
-import "./stylesheets/global.css";
+
 class App extends Component {
   render() {
     return (

@@ -17,7 +17,11 @@ function SubZero({ subzero_technology }) {
         <h1 className="subzero--h1">SubZero</h1>
       </div>
       {subzero_technology.map((technology, index) => (
-        <div className="subzero--technology_wrap" key={index}>
+        <div
+          className="subzero--technology_wrap"
+          data-test="technology-section"
+          key={index}
+        >
           <div className="subzero--logo_wrap">
             <img className="vue--logo" src={VueLogo} alt="Vue Logo" />
           </div>
@@ -25,7 +29,6 @@ function SubZero({ subzero_technology }) {
             <h3 className="subzero--technology_name">
               {technology.tech_list.name}
             </h3>
-
             <ProgressBar
               percent={calculateProgressBarPercent(
                 technology,
@@ -33,6 +36,7 @@ function SubZero({ subzero_technology }) {
               )}
               color={yellow}
               name="UnCool"
+              data-test="uncool-progressbar"
             />
             <ProgressBar
               percent={calculateProgressBarPercent(
@@ -41,6 +45,7 @@ function SubZero({ subzero_technology }) {
               )}
               color={red}
               name="Cool"
+              data-test="cool-progressbar"
             />
             <ProgressBar
               percent={calculateProgressBarPercent(
@@ -48,7 +53,8 @@ function SubZero({ subzero_technology }) {
                 technology.subzero_votes
               )}
               color={blue}
-              name="Subzero"
+              name="SubZero"
+              data-test="subzero-progressbar"
             />
           </div>
         </div>

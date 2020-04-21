@@ -1,6 +1,6 @@
 import React from "react";
 import "../stylesheets/DisplayForVote.scss";
-import "../stylesheets/DisplayForVote.css";
+
 import Cool from "../images/cool.svg";
 import UnCool from "../images/uncool.svg";
 import SubZero from "../images/subzero.svg";

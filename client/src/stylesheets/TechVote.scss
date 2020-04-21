@@ -26,7 +26,6 @@
   margin: 2%;
   height: 20vh;
   width: 100%;
-  box-shadow: inset 0px -10px 20px #aab0be, inset 0px 10px 20px #aab0be;
 }
 
 .techvote--submit {
@@ -46,4 +45,5 @@
   z-index: 10;
   mix-blend-mode: multiply;
   z-index: 9;
+  box-shadow: inset 0px -10px 20px #aab0be, inset 0px 10px 20px #aab0be;
 }

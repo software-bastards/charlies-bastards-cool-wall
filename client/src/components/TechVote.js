@@ -3,7 +3,6 @@ import handleFetchTechnologyList from "../helper/handleFetchTechnologyList";
 import handlePostVoteData from "../helper/handlePostVoteData";
 import DisplayForVote from "./DisplayForVote";
 import "../stylesheets/global.scss";
-import "../stylesheets/global.css";
 import "../stylesheets/TechVote.scss";
 
 class TechVote extends Component {
@@ -16,10 +15,9 @@ class TechVote extends Component {
   componentDidMount = async () => {
     try {
       const results = await handleFetchTechnologyList();
-      let newTechList = results.map((item) => {
+      const newTechList = results.map((item) => {
         return { ...item, borderForSelectedVote: "none" };
       });
-
       this.setState({ tech_list: [...this.state.tech_list, ...newTechList] });
     } catch (err) {
       console.error(err);

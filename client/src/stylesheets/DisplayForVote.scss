@@ -24,42 +24,33 @@
     font-size: 12px;
   }
 }
- 
 
 .displayforvote--images {
   width: 50px;
   height: 50px;
   margin: 5%;
 }
-
 @media screen and (max-width: 700px) {
   .displayforvote--images {
-    width: 35px;
-    height: 35px;
-    margin: 2%;
+    width: 30px;
+    height: 30px;
   }
 }
-
 .displayforvote--images_wrap {
   width: 80%;
 }
-
-.uncool {
-  border: solid 2px $yellow;
-  border-radius: 50%;
-  box-shadow: 0px 0px 0px 3px $yellow;
-}
-
 .cool {
-  border: solid 2px $red;
+  border: 2px solid $red;
   border-radius: 50%;
   box-shadow: 0px 0px 0px 3px $red;
 }
-
-.subzero {
-  border: solid 2px $blue;
+.none {
+  border: none;
+}
+.uncool {
+  border: 2px solid $yellow;
   border-radius: 50%;
-  box-shadow: 0px 0px 0px 3px $blue;
+  box-shadow: 0px 0px 0px 3px $yellow;
 }
 .subzero {
   border: 2px solid $blue;
@@ -67,12 +58,10 @@
   box-shadow: 0px 0px 0px 3px $blue;
 }
 
-
-
 .displayforvote--images {
   width: 50px;
   height: 50px;
- margin: 5%;
+  margin: 5%;
 }
 
 .displayforvote--images_wrap {
@@ -83,14 +72,12 @@
   border: 2px solid $yellow;
   border-radius: 50%;
   box-shadow: 0px 0px 0px 3px $yellow;
-  
 }
 
 .cool {
   border: 2px solid $red;
   border-radius: 50%;
   box-shadow: 0px 0px 0px 3px $red;
-  
 }
 
 .subzero {

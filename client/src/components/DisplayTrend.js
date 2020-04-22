@@ -31,7 +31,7 @@ class DisplayTrend extends Component {
       vote.uncool_votes = parseInt(vote.uncool_votes);
       vote.subzero_votes = parseInt(vote.subzero_votes);
       if (
-        vote.cool_votes > vote.uncool_votes &&
+        vote.cool_votes >= vote.uncool_votes &&
         vote.cool_votes > vote.subzero_votes
       ) {
         this.setState({
@@ -47,8 +47,8 @@ class DisplayTrend extends Component {
         });
       }
       if (
-        vote.subzero_votes > vote.uncool_votes &&
-        vote.subzero_votes > vote.cool_votes
+        vote.subzero_votes >= vote.uncool_votes &&
+        vote.subzero_votes >= vote.cool_votes
       ) {
         this.setState({
           subzero_technology: [...this.state.subzero_technology, vote],
@@ -67,14 +67,12 @@ class DisplayTrend extends Component {
           />
         </div>
         <div className="displaytrend--row">
-          {" "}
           <Cool
             cool_technology={this.state.cool_technology}
             data-test="component-cool"
           />
         </div>
         <div className="displaytrend--row">
-          {" "}
           <SubZero
             subzero_technology={this.state.subzero_technology}
             data-test="component-subzero"

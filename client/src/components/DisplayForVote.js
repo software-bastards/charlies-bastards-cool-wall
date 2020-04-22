@@ -8,12 +8,15 @@ function DisplayForVote({ technology, storeVote }) {
   const handleClickUncool = (e) => {
     storeVote(technology, "uncool");
   };
+
   const handleClickCool = (e) => {
     storeVote(technology, "cool");
   };
+
   const handleClickSubZero = (e) => {
     storeVote(technology, "subzero");
   };
+
   return (
     <div
       className="displayforvote--scroll"

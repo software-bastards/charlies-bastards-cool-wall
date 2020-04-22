@@ -46,25 +46,13 @@ describe("componentDidMount calls the axios handler and sets state", () => {
 
   test("axios handler returns data and state is updated", async () => {
     const tech_list = [
-      {
-        id: 1,
-        name: "Laveral",
-      },
-      {
-        id: 2,
-        name: "React",
-      },
+      { borderForSelectedVote: "none", id: 1, name: "Laveral" },
+      { borderForSelectedVote: "none", id: 2, name: "React" },
     ];
     axios.get.mockResolvedValue({
       data: [
-        {
-          id: 1,
-          name: "Laveral",
-        },
-        {
-          id: 2,
-          name: "React",
-        },
+        { borderForSelectedVote: "none", id: 1, name: "Laveral" },
+        { borderForSelectedVote: "none", id: 2, name: "React" },
       ],
     });
 
@@ -76,18 +64,9 @@ describe("componentDidMount calls the axios handler and sets state", () => {
 
 describe("display the technologies to vote", () => {
   const tech_list = [
-    {
-      id: 1,
-      name: "Laveral",
-    },
-    {
-      id: 2,
-      name: "React",
-    },
-    {
-      id: 3,
-      name: "Angular",
-    },
+    { borderForSelectedVote: "none", id: 1, name: "Laveral" },
+    { borderForSelectedVote: "none", id: 2, name: "React" },
+    { borderForSelectedVote: "none", id: 3, name: "Angular" },
   ];
 
   test("render correct number of technology", () => {
@@ -104,36 +83,40 @@ describe("display the technologies to vote", () => {
 });
 
 describe("storeVote function sets correct state for vote_list", () => {
+  jest.dontMock("object-assign");
   let wrapper;
   let vote_list = [];
-  const technology = {
-    id: 1,
-    name: "React",
-  };
+  const tech_list = [
+    { borderForSelectedVote: "none", id: 1, name: "React" },
+    { borderForSelectedVote: "none", id: 2, name: "Laveral" },
+  ];
+  const technology = { borderForSelectedVote: "none", id: 1, name: "React" };
   const mockvote_type = "cool";
   const vote = [{ tech_id: technology.id, vote_type: mockvote_type }];
 
   test("choosing a vote for a technology for the first time", () => {
-    wrapper = setup(null, { vote_list });
+    wrapper = setup(null, { tech_list, vote_list });
     wrapper.instance().storeVote(technology, mockvote_type);
     wrapper.update();
+
     expect(wrapper.state("vote_list")).toEqual(vote);
   });
 
   test("Changing the vote type for the same technology", () => {
     const changeVote = [{ tech_id: technology.id, vote_type: "uncool" }];
-    wrapper = setup(null, { vote_list });
+    wrapper = setup(null, { tech_list, vote_list });
     wrapper.instance().storeVote(technology, "uncool");
     wrapper.update();
     expect(wrapper.state("vote_list")).toEqual(changeVote);
   });
 
   test("casting vote for another technology", () => {
-    wrapper = setup(null, { vote_list });
+    wrapper = setup(null, { tech_list, vote_list });
     wrapper.instance().storeVote(technology, mockvote_type);
     wrapper.update();
     const anotherTechnology = {
-      id: 3,
+      borderForSelectedVote: "none",
+      id: 2,
       name: "Laveral",
     };
     const anotherMockvote_type = "subzero";

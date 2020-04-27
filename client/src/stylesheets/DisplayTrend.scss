@@ -1,0 +1,43 @@
+@import "../stylesheets/global.scss";
+
+.displaytrend--wrapper {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.displaytrend--row {
+  flex-grow: 1;
+  width: calc(100% / 3);
+  box-shadow: $box-shadow-dark-blue;
+  background-color: white;
+  border-radius: $border-radius;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  &:nth-child(1) {
+    margin-left: 0%;
+  }
+  &:nth-child(2) {
+    margin-left: 2%;
+    margin-right: 2%;
+  }
+  &:nth-child(3) {
+    margin-right: 0%;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .displaytrend--wrapper {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .displaytrend--row {
+    width: 100%;
+    &:nth-child(2) {
+      margin-left: 0%;
+      margin-right: 0%;
+    }
+  }
+}

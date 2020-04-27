@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-import handleFetchServerData from "../helper/handleFetchServerData";
+import handleFetchTechnologyList from "../helper/handleFetchTechnologyList";
 import handlePostVoteData from "../helper/handlePostVoteData";
 import DisplayForVote from "./DisplayForVote";
 import "../stylesheets/global.scss";
-import "../stylesheets/global.css";
 import "../stylesheets/TechVote.scss";
 
 class TechVote extends Component {
@@ -12,13 +11,19 @@ class TechVote extends Component {
     vote_list: [],
     flash: "",
   };
-  componentDidMount() {
-    handleFetchServerData()
-      .then((results) =>
-        this.setState({ tech_list: [...this.state.tech_list, ...results] })
-      )
-      .catch((err) => console.error(err));
-  }
+
+  componentDidMount = async () => {
+    try {
+      const results = await handleFetchTechnologyList();
+      const newTechList = results.map((item) => {
+        return { ...item, borderForSelectedVote: "none" };
+      });
+      this.setState({ tech_list: [...this.state.tech_list, ...newTechList] });
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   storeVote = (technology, vote_type) => {
     this.setState({
       vote_list: [
@@ -32,18 +37,33 @@ class TechVote extends Component {
       ],
     });
   };
-  handleVoteSubmit = (e) => {
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.vote_list !== this.state.vote_list) {
+      this.state.vote_list.forEach((vote) => {
+        let techIndex = this.state.tech_list.findIndex(
+          (tech) => tech.id === vote.tech_id
+        );
+        let newState = Object.assign({}, this.state);
+        newState.tech_list[techIndex].borderForSelectedVote = vote.vote_type;
+        this.setState(newState);
+      });
+    }
+  }
+
+  handleVoteSubmit = () => {
     handlePostVoteData(this.state.vote_list)
       .then((response) => {
         this.setState({ flash: response.data.message });
-        console.log(this.state.flash);
       })
       .catch((err) => this.setState({ flash: err.flash }));
   };
+
   render() {
     return (
       <div data-test="component-techvote" className="techvote--wrapper">
         <div className="techvote--displayforvote">
+          <div className="techvote--displayforvote_shadow"></div>
           {this.state.tech_list.map((tech) => (
             <div key={tech.id}>
               <DisplayForVote
@@ -54,6 +74,7 @@ class TechVote extends Component {
             </div>
           ))}
         </div>
+
         <div className="techvote--submit">
           <button
             onClick={this.handleVoteSubmit}

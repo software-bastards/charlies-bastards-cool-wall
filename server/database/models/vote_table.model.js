@@ -4,6 +4,7 @@ module.exports = (Sequelize, connector) => {
     {
       tech_id: {
         type: Sequelize.INTEGER,
+
         allowNull: false,
       },
       vote_type: {

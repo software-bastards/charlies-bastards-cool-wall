@@ -1,5 +1,5 @@
-var express = require("express");
-var router = express.Router();
+const express = require("express");
+const router = express.Router();
 const db = require("../database/models");
 const tech_list = db.tech_list;
 
@@ -9,7 +9,7 @@ const tech_list = db.tech_list;
 router.get("/", function (req, res, next) {
   tech_list
     .findAll()
-    .then((user) => res.send(user))
+    .then((technologies) => res.send(technologies))
     .catch((err) => console.error(err));
 });
 

@@ -5,10 +5,16 @@ const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const db = require("./database/models/index.js");
 
+//GET ROUTES
 const indexRouter = require("./routes/index");
-const usersRouter = require("./routes/users");
+
+//GET routes
 const techlistRouter = require("./routes/techlist");
+const combinedvotesRouter = require("./routes/combinedvotes");
+
+//POST routes
 const submitvoteRouter = require("./routes/submitvote");
+const adminregisterRouter = require("./routes/admin_register");
 
 const app = express();
 
@@ -16,7 +22,6 @@ const app = express();
 db.connector.sync();
 
 app.set("views", path.join(__dirname, "views"));
-app.set("view engine", "jade");
 
 app.use(logger("dev"));
 app.use(express.json());
@@ -25,9 +30,11 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
-app.use("/api/users", usersRouter);
+
 app.use("/techlist", techlistRouter);
+app.use("/combinedvotes", combinedvotesRouter);
 app.use("/submitvote", submitvoteRouter);
+app.use("/admin_register", adminregisterRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

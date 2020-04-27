@@ -1,16 +1,16 @@
 import React from "react";
 import { shallow } from "enzyme";
-import DisplayForVote from "../components/DisplayForVote";
+import ProgressBar from "../components/ProgressBar";
 
 /**
- * Factory function to create a ShallowWrapper for the DisplayForVote component.
+ * Factory function to create a ShallowWrapper for the ProgressBar component.
  * @function setup
  * @param {object} props - component props specific to this setup.
 
  * @returns {ShallowWrapper}
  */
 const setup = (props = {}) => {
-  const wrapper = shallow(<DisplayForVote {...props} />);
+  const wrapper = shallow(<ProgressBar {...props} />);
 
   return wrapper;
 };
@@ -24,16 +24,15 @@ const setup = (props = {}) => {
 const findByTestAttr = (wrapper, val) => {
   return wrapper.find(`[data-test="${val}"]`);
 };
-const technology = {
-  id: 1,
-  name: "Laveral",
-};
+const name = "UnCool";
 
 test("renders without error", () => {
-  const wrapper = setup({ technology });
-  const displayForVoteComponent = findByTestAttr(
-    wrapper,
-    "component-displayforvote"
-  );
-  expect(displayForVoteComponent.length).toBe(1);
+  const wrapper = setup();
+  const progressBarComponent = findByTestAttr(wrapper, "component-progressbar");
+  expect(progressBarComponent.length).toBe(1);
+});
+test("renders the vote type name", () => {
+  const wrapper = setup({ name });
+  const progressBarComponent = findByTestAttr(wrapper, "component-progressbar");
+  expect(progressBarComponent.text()).toContain("UnCool");
 });

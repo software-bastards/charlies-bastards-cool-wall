@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import TechVote from "./TechVote";
-import "../stylesheets/global.scss";
-import "../stylesheets/global.css";
-import "../stylesheets/CoolWall.scss";
+import DisplayTrend from "./DisplayTrend";
 import Logo from "../images/logo.svg";
+import "../stylesheets/global.scss";
+import "../stylesheets/CoolWall.scss";
 
 class CoolWall extends Component {
   render() {
@@ -12,24 +12,24 @@ class CoolWall extends Component {
         <div className="coolwall--left">
           <div className="coolwall--left_white">
             <img className="coolwall--logo" src={Logo} alt="Logo CoolWall" />
-            <p className="coolwall--copyright">@softwarebastards</p>
           </div>
           <div className="coolwall--left_grey"></div>
+          <p className="coolwall--copyright">@softwarebastards</p>
         </div>
         <div className="coolwall--right">
-          <div className="coolwall--right_top">
-            <p className="right--top_p">
-              Vote and submit what's hot and what's not!
-            </p>
-          </div>
+          <div className="coolwall--right_top"></div>
           <div className="coolwall--right_wrapper">
+            <p className="right--top_p">
+              Vote and submit what’s hot and what’s not!
+            </p>
             <div className="coolwall--techvote_wrapper">
               <TechVote data-test="techvote-component" />
             </div>
-            <div className="coolwall--displaytrend">
-              <div className="coolwall--uncool"></div>
-              <div className="coolwall--cool"></div>
-              <div className="coolwall--subzero"></div>
+            <div
+              className="coolwall--displaytrend"
+              data-test="displaytrend-component"
+            >
+              <DisplayTrend />
             </div>
           </div>
         </div>

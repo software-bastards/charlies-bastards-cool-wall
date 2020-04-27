@@ -10,21 +10,26 @@ $yellow: #ffb000;
 /* FONT FAMILY */
 $font-Roboto: "Roboto";
 $font-SpaceMono: "Space Mono";
+$font-size-h1: 1.3rem;
 
 /* FONT WEIGHTS */
 $Roboto-regular: 400;
 $Roboto-bold: 700;
 
 /* BORDER */
-$border: 0.5px solid $dark-blue;
+$border: 0.5px solid $light-blue;
 $border-radius: 10px;
 
 /* BOX */
-$box-shadow-grey: 0px 4px 0px $dark-grey;
-$box-shadow-dark-blue: 0px 4px 0px $dark-blue;
+$box-shadow-grey: 0px 4px 4px $dark-grey;
+$box-shadow-dark-blue: 0px 4px 4px $dark-blue;
 $box-shadow-red: 0px 4px 0px $red;
 $box-shadow-blue: 0px 4px 0px $blue;
 $box-shadow-yellow: 0px 4px 0px $yellow;
+
+/* MARGIN */
+$margin: 10px;
+$margin-sm: 5px;
 
 /* BODY */
 body {
@@ -42,12 +47,12 @@ body {
 
 /* BUTTONS */
 .button--light_blue {
-  width: 130px;
-  height: 50px;
+  width: 100px;
+  height: 40px;
   background-color: $light-blue;
   color: $dark-blue;
   box-shadow: $box-shadow-dark-blue;
-  font-size: 14px;
+  font-size: 12px;
   display: flex;
   align-items: center;
   text-align: center;
@@ -56,6 +61,7 @@ body {
   &:hover {
     color: $light-blue;
     background-color: $dark-blue;
+    transition: 0.5s;
   }
 }
 

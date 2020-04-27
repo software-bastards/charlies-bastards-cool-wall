@@ -10,29 +10,14 @@ describe("moxios tests", () => {
   });
 
   test("Returns a promise ", async () => {
-    const vote_list = [
-      {
-        tech_id: 1,
-        vote_type: "cool",
-      },
-      {
-        tech_id: 2,
-        vote_type: "uncool",
-      },
-      {
-        tech_id: 3,
-        vote_type: "subzero",
-      },
-    ];
-    const response = "Successful";
+    const successful = "Successful";
     const resolvePromise = () => Promise.resolve(successful);
     moxios.wait(() => {
       const request = moxios.requests.mostRecent();
-      console.log(request.config.method);
-
+      expect(request.config.method).toBe("post");
       request.respondWith({
         status: 200,
-        response: response,
+        response: successful,
       });
     });
 

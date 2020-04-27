@@ -1,5 +1,5 @@
 import moxios from "moxios";
-import handleFetchServerData from "../helper/handleFetchServerData";
+import handleFetchTechnologyList from "../helper/handleFetchTechnologyList";
 
 describe("moxios tests", () => {
   beforeEach(() => {
@@ -33,6 +33,6 @@ describe("moxios tests", () => {
       });
     });
 
-    await handleFetchServerData(resolvePromise);
+    await handleFetchTechnologyList(resolvePromise);
   });
 });

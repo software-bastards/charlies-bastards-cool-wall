@@ -1,6 +1,5 @@
 import React from "react";
 import { shallow } from "enzyme";
-import Cool from "../components/SubZero";
 import SubZero from "../components/SubZero";
 
 /**

@@ -29,7 +29,7 @@ passport.use(
           const isAdmin = await bcrypt.compare(password, foundAdmin.password);
 
           if (!isAdmin) {
-            done(null, false, { message: "Incorrect password" });
+            return done(null, false, { message: "Incorrect password" });
           }
 
           done(null, foundAdmin.dataValues);

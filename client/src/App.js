@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-import CoolWall from "./components/CoolWall";
-import Dashboard from "./containers/Dashboard";
-import Admin from "./containers/Admin";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-
+import CoolWall from "./components/CoolWall";
+import Admin from "./components/Admin";
+import Dashboard from "./components/Dashboard";
 import "./stylesheets/global.scss";
 
 class App extends Component {
@@ -15,10 +14,10 @@ class App extends Component {
             <Route exact path="/">
               <CoolWall data-test="coolwall-component" />
             </Route>
-            <Route path="/coolwall/admin">
+            <Route path="/admin">
               <Admin data-test="admin-component" />
             </Route>
-            <Route path="/dashboard">
+            <Route exact path="/dashboard">
               <Dashboard data-test="dashboard-component" />
             </Route>
           </Switch>

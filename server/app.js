@@ -4,7 +4,7 @@ const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const db = require("./database/models/index.js");
-require("./auth/index.js");
+require("./auth");
 
 //GET ROUTES
 const indexRouter = require("./routes/index");

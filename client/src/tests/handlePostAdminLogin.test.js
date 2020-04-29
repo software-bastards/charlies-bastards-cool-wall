@@ -1,5 +1,5 @@
 import moxios from "moxios";
-import handlePostAdmin from "../helper/handlePostAdminLogin";
+import handlePostAdminLogin from "../helper/handlePostAdminLogin";
 
 describe("moxios tests", () => {
   beforeEach(() => {
@@ -21,6 +21,6 @@ describe("moxios tests", () => {
       });
     });
 
-    await handlePostVoteData(resolvePromise);
+    await handlePostAdminLogin(resolvePromise);
   });
 });

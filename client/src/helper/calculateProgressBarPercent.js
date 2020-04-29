@@ -1,6 +1,6 @@
 /**
  * @method calculateProgressBarPercent - calculates the percentage of vote_type
- * @param {Array<subzero_votes: Number, cool_votes: Number, uncool_votes: Number, tech_list: {name: String}>, Number} - technology , vote_type
+ * @param {subzero_votes: Number, cool_votes: Number, uncool_votes: Number, tech_list: {name: String}>, Number}  technology  vote_type
  * @returns {Number} - returns the percentage value
  */
 

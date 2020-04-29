@@ -35,7 +35,6 @@ class Admin extends Component {
       email: this.state.email,
       password: this.state.password,
     };
-
     handlePostAdminLogin(adminData)
       .then((response) => {
         if (response.hasOwnProperty("message")) {

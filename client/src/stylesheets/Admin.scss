@@ -41,6 +41,18 @@ input {
   height: 30px;
   border-radius: $border-radius;
   width: 90%;
+  font-size: $Roboto-bold;
+  &::placeholder {
+    color: $dark-blue;
+    margin-left: 10px;
+    font-size: 700;
+  }
+}
+
+input::placeholder {
+  color: $dark-blue;
+  margin-left: 10px;
+  font-size: $Roboto-bold;
 }
 
 .admin--flash {

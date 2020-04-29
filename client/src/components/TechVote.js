@@ -50,6 +50,12 @@ class TechVote extends Component {
         this.setState(newState);
       });
     }
+
+    if (prevState.flash !== this.state.flash) {
+      let newState = Object.assign({}, this.state);
+      newState.tech_list.map((item) => (item.borderForSelectedVote = "none"));
+      this.setState(newState);
+    }
   }
 
   handleVoteSubmit = () => {
@@ -58,6 +64,13 @@ class TechVote extends Component {
         this.setState({ flash: response.data.message });
       })
       .catch((err) => this.setState({ flash: err.flash }));
+  };
+
+  handlePopUpClose = () => {
+    this.setState({
+      flash: "",
+      vote_list: [],
+    });
   };
 
   render() {
@@ -76,7 +89,10 @@ class TechVote extends Component {
               </div>
             ))
           ) : (
-            <div>
+            <div
+              className="techvote--popup_wrap"
+              onClick={this.handlePopUpClose}
+            >
               <p>{this.state.flash}</p>
               <img className="close--button" src={closeIcon} alt="Close" />
             </div>

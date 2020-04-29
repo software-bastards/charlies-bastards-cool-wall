@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import CoolWall from "./components/CoolWall";
-import Admin from "./components/Admin";
-import Dashboard from "./components/Dashboard";
+import Admin from "./containers/Admin";
+import Dashboard from "./containers/Dashboard";
 import "./stylesheets/global.scss";
 
 class App extends Component {

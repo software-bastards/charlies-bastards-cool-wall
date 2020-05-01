@@ -62,9 +62,9 @@ export class TechVote extends Component {
     handlePostVoteData(this.state.vote_list)
       .then((response) => {
         this.setState({ flash: response.data.message });
+        this.props.dispatch(submitvote(this.state.vote_list));
       })
       .catch((err) => this.setState({ flash: err.flash }));
-    this.props.dispatch(submitvote(this.state.vote_list));
   };
 
   render() {

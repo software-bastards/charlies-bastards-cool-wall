@@ -5,6 +5,10 @@ import UnCool from "../images/uncool.svg";
 import SubZero from "../images/subzero.svg";
 
 function DisplayForVote({ technology, storeVote }) {
+  /**
+   * @method handleClickUncool - A function to capture the cool vote on click, calls the storeVote function in the parent
+   * @param
+   */
   const handleClickUncool = (e) => {
     storeVote(technology, "uncool");
   };

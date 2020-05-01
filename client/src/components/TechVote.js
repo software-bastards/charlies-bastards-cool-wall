@@ -5,8 +5,10 @@ import DisplayForVote from "./DisplayForVote";
 import "../stylesheets/global.scss";
 import "../stylesheets/TechVote.scss";
 import closeIcon from "../images/closeIcon.svg";
+import { connect } from "react-redux";
+import { submitvote } from "../actions/submitvote";
 
-class TechVote extends Component {
+export class TechVote extends Component {
   state = {
     tech_list: [],
     vote_list: [],
@@ -20,6 +22,10 @@ class TechVote extends Component {
         return { ...item, borderForSelectedVote: "none" };
       });
       this.setState({ tech_list: [...this.state.tech_list, ...newTechList] });
+      this.props.dispatch({
+        type: "FETCH_TECHLIST",
+        list: newTechList,
+      });
     } catch (err) {
       console.error(err);
     }
@@ -58,6 +64,7 @@ class TechVote extends Component {
         this.setState({ flash: response.data.message });
       })
       .catch((err) => this.setState({ flash: err.flash }));
+    this.props.dispatch(submitvote(this.state.vote_list));
   };
 
   render() {
@@ -96,4 +103,10 @@ class TechVote extends Component {
     );
   }
 }
-export default TechVote;
+const mapStateToProps = (state) => {
+  return {
+    tech_list: state.tech.list,
+  };
+};
+
+export default connect(mapStateToProps)(TechVote);

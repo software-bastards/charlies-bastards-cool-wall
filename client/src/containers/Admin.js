@@ -7,7 +7,7 @@ import "../stylesheets/global.scss";
 import "../stylesheets/CoolWall.scss";
 import "../stylesheets/Admin.scss";
 
-class Admin extends Component {
+export class Admin extends Component {
   state = {
     email: "",
     password: "",

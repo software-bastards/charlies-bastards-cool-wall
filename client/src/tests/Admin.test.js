@@ -1,6 +1,7 @@
 import React from "react";
 import { shallow } from "enzyme";
 import { Admin } from "../containers/Admin";
+//import handlePostAdminLogin from "../helper/handlePostAdminLogin"
 
 /**
  * Factory function to create a ShallowWrapper for the Admin component.
@@ -55,4 +56,13 @@ describe("State controlled input fields", () => {
     inputPassword.simulate("change", mockEvent);
     expect(wrapper.state("password")).toEqual("abc");
   });
+});
+
+test("Submit button calls the post function that posts into the database ", async () => {
+  const wrapper = setup();
+  const resolvePromise = () => Promise.resolve("success");
+  wrapper.handlePostAdminLogin = jest.fn(resolvePromise);
+  wrapper.instance().handleLoginSubmit({ preventDefault() {} });
+  await wrapper.handlePostAdminLogin();
+  expect(wrapper.handlePostAdminLogin).toHaveBeenCalledTimes(1);
 });

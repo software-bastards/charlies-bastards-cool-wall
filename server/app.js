@@ -21,10 +21,6 @@ const dashboardRouter = require("./routes/dashboard");
 const submitvoteRouter = require("./routes/submitvote");
 const adminregisterRouter = require("./routes/admin_register");
 const adminloginRouter = require("./routes/admin_login");
-<<<<<<< HEAD
-const dashboardRouter = require("./routes/dashboard")
-=======
->>>>>>> b5939a3892d7989a8e01b0074a9c68ec5dca3191
 
 const app = express();
 
@@ -32,7 +28,6 @@ const app = express();
 db.connector.sync();
 
 app.set("views", path.join(__dirname, "views"));
-
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -45,13 +40,8 @@ app.use("/techlist", techlistRouter);
 app.use("/combinedvotes", combinedvotesRouter);
 app.use("/submitvote", submitvoteRouter);
 app.use("/admin_register", adminregisterRouter);
-<<<<<<< HEAD
-app.use("/admin_login" , adminloginRouter);
-app.use("/dashboard" , dashboardRouter);
-=======
 app.use("/admin_login", adminloginRouter);
 app.use("/dashboard", dashboardRouter);
->>>>>>> b5939a3892d7989a8e01b0074a9c68ec5dca3191
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

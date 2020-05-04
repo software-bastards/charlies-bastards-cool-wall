@@ -8,3 +8,4 @@ module.exports = {
   name: process.env.DB_NAME,
   dialect: "mysql"
 };
+

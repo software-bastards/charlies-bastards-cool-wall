@@ -1,3 +1,6 @@
+require("dotenv").config();
+require("./auth/index");
+
 const createError = require("http-errors");
 const express = require("express");
 const path = require("path");
@@ -15,6 +18,8 @@ const combinedvotesRouter = require("./routes/combinedvotes");
 //POST routes
 const submitvoteRouter = require("./routes/submitvote");
 const adminregisterRouter = require("./routes/admin_register");
+const adminloginRouter = require("./routes/admin_login");
+const dashboardRouter = require("./routes/dashboard")
 
 const app = express();
 
@@ -35,6 +40,8 @@ app.use("/techlist", techlistRouter);
 app.use("/combinedvotes", combinedvotesRouter);
 app.use("/submitvote", submitvoteRouter);
 app.use("/admin_register", adminregisterRouter);
+app.use("/admin_login" , adminloginRouter);
+app.use("/dashboard" , dashboardRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

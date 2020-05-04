@@ -1,6 +1,7 @@
 import React from "react";
 import { shallow } from "enzyme";
 import { Admin } from "../containers/Admin";
+import { Redirect } from "react-router-dom";
 
 /**
  * Factory function to create a ShallowWrapper for the Admin component.
@@ -32,6 +33,17 @@ test("renders without error", () => {
   expect(adminComponent.length).toBe(1);
 });
 
+describe("Redirects when authenticated", () => {
+  test("redirects when authenticated", () => {
+    const wrapper = setup({ token: true });
+    expect(wrapper.find(Redirect)).toHaveLength(1);
+  });
+  test("does not redirect when not authenticated", () => {
+    const wrapper = setup({ token: false });
+    expect(wrapper.find(Redirect)).toHaveLength(0);
+  });
+});
+
 describe("State controlled input fields", () => {
   let wrapper;
   const email = "";
@@ -55,4 +67,13 @@ describe("State controlled input fields", () => {
     inputPassword.simulate("change", mockEvent);
     expect(wrapper.state("password")).toEqual("abc");
   });
+});
+
+test("Submit button calls the post function that posts into the database ", async () => {
+  const wrapper = setup();
+  const resolvePromise = () => Promise.resolve("success");
+  wrapper.handlePostAdminLogin = jest.fn(resolvePromise);
+  wrapper.instance().handleLoginSubmit({ preventDefault() {} });
+  await wrapper.handlePostAdminLogin();
+  expect(wrapper.handlePostAdminLogin).toHaveBeenCalledTimes(1);
 });

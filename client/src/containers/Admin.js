@@ -49,10 +49,8 @@ export class Admin extends React.Component {
                 email: "",
               });
         } else if (response.hasOwnProperty("token")) {
-          this.props.dispatch({
-            type: "CREATE_SESSION",
-            token: response.token,
-          });
+          this.props.loginSuccess();
+          sessionStorage.setItem("coolwall_admin", response.token);
           this.setState({
             flash: "",
             email: "",
@@ -130,5 +128,7 @@ const mapStateToProps = (state) => {
     token: state.auth.token,
   };
 };
-
-export default connect(mapStateToProps)(Admin);
+const mapDispatchToProps = (dispatch) => ({
+  loginSuccess: () => dispatch({ type: "CREATE_SESSION", token: true }),
+});
+export default connect(mapStateToProps, mapDispatchToProps)(Admin);

@@ -15,22 +15,15 @@ export class Admin extends React.Component {
   };
 
   updateEmailField = (e) => {
-    this.setState({
-      email: e.target.value,
-      flash: "",
-    });
+    this.setState({ email: e.target.value, flash: "" });
   };
 
-  updatePwdField = (e) => {
-    this.setState({
-      password: e.target.value,
-      flash: "",
-    });
+  updatePasswordField = (e) => {
+    this.setState({ password: e.target.value, flash: "" });
   };
 
   handleLoginSubmit = (e) => {
     e.preventDefault();
-
     const adminData = {
       email: this.state.email,
       password: this.state.password,
@@ -128,7 +121,9 @@ const mapStateToProps = (state) => {
     token: state.auth.token,
   };
 };
+
 const mapDispatchToProps = (dispatch) => ({
   loginSuccess: () => dispatch({ type: "CREATE_SESSION", token: true }),
 });
+
 export default connect(mapStateToProps, mapDispatchToProps)(Admin);

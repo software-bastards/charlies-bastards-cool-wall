@@ -10,7 +10,6 @@ router.post("/", (req, res, next) => {
     if (err) {
       return res.status(500).send(err);
     }
-
     if (!admin) {
       return res.status(400).send({ message: info.message });
     }

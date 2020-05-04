@@ -4,6 +4,7 @@ import handlePostVoteData from "../helper/handlePostVoteData";
 import DisplayForVote from "./DisplayForVote";
 import "../stylesheets/global.scss";
 import "../stylesheets/TechVote.scss";
+import closeIcon from "../images/closeIcon.svg";
 
 class TechVote extends Component {
   state = {
@@ -49,6 +50,16 @@ class TechVote extends Component {
         this.setState(newState);
       });
     }
+
+    if(prevState.flash !== this.state.flash) {
+      let newState = Object.assign({})
+    }
+  }
+
+  
+
+  handlePopUpClose = () => {
+    this.setState({ flash: "", vote_list: []});
   }
 
   handleVoteSubmit = () => {
@@ -64,7 +75,7 @@ class TechVote extends Component {
       <div data-test="component-techvote" className="techvote--wrapper">
         <div className="techvote--displayforvote">
           <div className="techvote--displayforvote_shadow"></div>
-          {this.state.tech_list.map((tech) => (
+          {!this.state.flash ? this.state.tech_list.map((tech) => (
             <div key={tech.id}>
               <DisplayForVote
                 data-test="displayvote-section"
@@ -72,7 +83,11 @@ class TechVote extends Component {
                 storeVote={this.storeVote}
               />
             </div>
-          ))}
+          ))   : <div className=""><p>{this.state.flash} </p> 
+                <img className="close--button" src={closeIcon} alt="Close" />
+          </div>
+          } 
+          
         </div>
 
         <div className="techvote--submit">

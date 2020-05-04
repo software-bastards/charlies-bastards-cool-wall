@@ -5,3 +5,4 @@ const allReducers = combineReducers({
   auth: authReducer
 });
 export default allReducers;
+

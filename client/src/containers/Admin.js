@@ -18,7 +18,7 @@ export class Admin extends React.Component {
     this.setState({ email: e.target.value, flash: "" });
   };
 
-  updatePasswordField = (e) => {
+  updatePwdField = (e) => {
     this.setState({ password: e.target.value, flash: "" });
   };
 

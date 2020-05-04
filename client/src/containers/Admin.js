@@ -1,32 +1,36 @@
 import React, { Component } from "react";
 import Logo from "../images/logo.svg";
+import handlePostAdminLogin from "../helper/handlePostAdminLogin";
+import { Redirect } from "react-router-dom";
+import { connect } from "react-redux";
 import "../stylesheets/global.scss";
 import "../stylesheets/CoolWall.scss";
 import "../stylesheets/Admin.scss";
-import handlePostAdminLogin from "../helper/handlePostAdminLogin";
-import { connect } from "react-redux";
-import { Redirect } from "react-router-dom";
 
-class Admin extends Component {
+export class Admin extends React.Component {
   state = {
     email: "",
     password: "",
     flash: "",
   };
-  UpdateEmailField = (e) => {
+
+  updateEmailField = (e) => {
     this.setState({
       email: e.target.value,
       flash: "",
     });
   };
-  UpdatePwdField = (e) => {
+
+  updatePwdField = (e) => {
     this.setState({
       password: e.target.value,
       flash: "",
     });
   };
+
   handleLoginSubmit = (e) => {
     e.preventDefault();
+
     const adminData = {
       email: this.state.email,
       password: this.state.password,
@@ -45,14 +49,13 @@ class Admin extends Component {
                 email: "",
               });
         } else if (response.hasOwnProperty("token")) {
-          sessionStorage.setItem("coolwall_admin", response.token);
           this.props.loginSuccess();
+          sessionStorage.setItem("coolwall_admin", response.token);
           this.setState({
             flash: "",
             email: "",
             password: "",
           });
-          console.log(this.props.token);
         }
       })
       .catch((err) => console.log(err.flash));
@@ -75,42 +78,39 @@ class Admin extends Component {
           <div className="admin--right_wrapper">
             <div className="admin--form_wrap">
               <h1 className="admin--headline">Log In</h1>
-              <form
-                className="admin--form"
-                onSubmit={this.handleLoginSubmit}
-                method=""
-              >
-                <div className="admin--flash_wrap">
-                  {this.state.flash.includes("email") ? (
-                    <p className="admin--flash">{this.state.flash}</p>
-                  ) : null}
-                  <div className="form--group">
+              <form className="admin--form" onSubmit={this.handleLoginSubmit}>
+                <div className="form--group">
+                  <div className="admin--flash_wrap">
+                    {this.state.flash.includes("email") ? (
+                      <p className="admin--flash">{this.state.flash}</p>
+                    ) : null}
                     <input
+                      placeholder="mail"
                       type="email"
-                      placeholder="Mail"
                       name="email"
                       className="form--input"
                       value={this.state.email}
-                      onChange={this.UpdateEmailField}
+                      onChange={this.updateEmailField}
+                      data-test="input-email"
                     />
                   </div>
                 </div>
-                <div className="admin--flash_wrap">
-                  {this.state.flash.includes("password") ? (
-                    <p className="admin--flash">{this.state.flash}</p>
-                  ) : null}
-                  <div className="form--group">
+                <div className="form--group">
+                  <div className="admin--flash_wrap">
+                    {this.state.flash.includes("password") ? (
+                      <p className="admin--flash">{this.state.flash}</p>
+                    ) : null}
                     <input
-                      type="text"
                       placeholder="Password"
+                      type="password"
                       name="password"
                       className="form--input"
                       value={this.state.password}
-                      onChange={this.UpdatePwdField}
+                      onChange={this.updatePwdField}
+                      data-test="input-password"
                     />
                   </div>
                 </div>
-
                 <button type="submit" className="button--light_blue">
                   Submit
                 </button>
@@ -128,9 +128,7 @@ const mapStateToProps = (state) => {
     token: state.auth.token,
   };
 };
-
 const mapDispatchToProps = (dispatch) => ({
   loginSuccess: () => dispatch({ type: "CREATE_SESSION", token: true }),
 });
-
 export default connect(mapStateToProps, mapDispatchToProps)(Admin);

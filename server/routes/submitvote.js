@@ -7,7 +7,6 @@ const vote_table = db.vote_table;
  * POST for Vote Submission into vote_table
  */
 router.post("/", function (req, res, next) {
-  console.log(req.body);
   vote_table
     .bulkCreate(req.body, {
       returning: true,

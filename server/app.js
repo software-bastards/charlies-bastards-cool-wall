@@ -7,6 +7,7 @@ const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const db = require("./database/models/index.js");
+require("./auth");
 
 //GET ROUTES
 const indexRouter = require("./routes/index");
@@ -14,12 +15,16 @@ const indexRouter = require("./routes/index");
 //GET routes
 const techlistRouter = require("./routes/techlist");
 const combinedvotesRouter = require("./routes/combinedvotes");
+const dashboardRouter = require("./routes/dashboard");
 
 //POST routes
 const submitvoteRouter = require("./routes/submitvote");
 const adminregisterRouter = require("./routes/admin_register");
 const adminloginRouter = require("./routes/admin_login");
+<<<<<<< HEAD
 const dashboardRouter = require("./routes/dashboard")
+=======
+>>>>>>> b5939a3892d7989a8e01b0074a9c68ec5dca3191
 
 const app = express();
 
@@ -40,8 +45,13 @@ app.use("/techlist", techlistRouter);
 app.use("/combinedvotes", combinedvotesRouter);
 app.use("/submitvote", submitvoteRouter);
 app.use("/admin_register", adminregisterRouter);
+<<<<<<< HEAD
 app.use("/admin_login" , adminloginRouter);
 app.use("/dashboard" , dashboardRouter);
+=======
+app.use("/admin_login", adminloginRouter);
+app.use("/dashboard", dashboardRouter);
+>>>>>>> b5939a3892d7989a8e01b0074a9c68ec5dca3191
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

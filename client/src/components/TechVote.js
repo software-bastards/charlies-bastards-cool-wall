@@ -51,6 +51,7 @@ class TechVote extends Component {
       });
     }
 
+<<<<<<< HEAD
     if(prevState.flash !== this.state.flash) {
       let newState = Object.assign({})
     }
@@ -60,6 +61,13 @@ class TechVote extends Component {
 
   handlePopUpClose = () => {
     this.setState({ flash: "", vote_list: []});
+=======
+    if (prevState.flash !== this.state.flash) {
+      let newState = Object.assign({}, this.state);
+      newState.tech_list.map((item) => (item.borderForSelectedVote = "none"));
+      this.setState(newState);
+    }
+>>>>>>> b5939a3892d7989a8e01b0074a9c68ec5dca3191
   }
 
   handleVoteSubmit = () => {
@@ -70,11 +78,19 @@ class TechVote extends Component {
       .catch((err) => this.setState({ flash: err.flash }));
   };
 
+  handlePopUpClose = () => {
+    this.setState({
+      flash: "",
+      vote_list: [],
+    });
+  };
+
   render() {
     return (
       <div data-test="component-techvote" className="techvote--wrapper">
         <div className="techvote--displayforvote">
           <div className="techvote--displayforvote_shadow"></div>
+<<<<<<< HEAD
           {!this.state.flash ? this.state.tech_list.map((tech) => (
             <div key={tech.id}>
               <DisplayForVote
@@ -88,6 +104,27 @@ class TechVote extends Component {
           </div>
           } 
           
+=======
+          {!this.state.flash ? (
+            this.state.tech_list.map((tech) => (
+              <div key={tech.id}>
+                <DisplayForVote
+                  data-test="displayvote-section"
+                  technology={tech}
+                  storeVote={this.storeVote}
+                />
+              </div>
+            ))
+          ) : (
+            <div
+              className="techvote--popup_wrap"
+              onClick={this.handlePopUpClose}
+            >
+              <p>{this.state.flash}</p>
+              <img className="close--button" src={closeIcon} alt="Close" />
+            </div>
+          )}
+>>>>>>> b5939a3892d7989a8e01b0074a9c68ec5dca3191
         </div>
 
         <div className="techvote--submit">

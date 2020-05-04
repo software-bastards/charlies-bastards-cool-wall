@@ -2,7 +2,7 @@ import reducer from "../reducers/authReducer";
 
 describe("authreducer", () => {
   test("Initial state", () => {
-    expect(reducer(undefined, {})).toEqual({});
+    expect(reducer(undefined, {})).toEqual({ token: false });
   });
   test("Create Session", () => {
     const action = { type: "CREATE_SESSION", token: true };

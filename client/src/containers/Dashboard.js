@@ -12,10 +12,7 @@ export const Dashboard = (props) => {
       dashboard
       <button
         onClick={() => {
-          props.dispatch({
-            type: "END_SESSION",
-            token: false,
-          });
+          props.logoutSuccess();
           sessionStorage.removeItem("jwt");
         }}
       >
@@ -30,5 +27,9 @@ const mapStateToProps = (state) => {
     token: state.auth.token,
   };
 };
+const mapDispatchToProps = (dispatch) => ({
+  logoutSuccess: () => dispatch({ type: "END_SESSION", token: false }),
+  loginSuccess: () => dispatch({ type: "CREATE_SESSION", token: true }),
+});
 
-export default connect(mapStateToProps)(Dashboard);
+export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);

@@ -1,6 +1,8 @@
 import React from "react";
 import { shallow } from "enzyme";
 import { TechVote } from "../components/TechVote";
+// import TechVote from "../components/TechVote";
+// import { mapStateToProps, mapDispatchToProps } from "../components/TechVote";
 import handleFetchTechnologyList from "../helper/handleFetchTechnologyList";
 
 const axios = require("axios");

@@ -15,15 +15,6 @@ export class Admin extends Component {
     flash: "",
   };
 
-  componentDidMount = () => {
-    if (isAdminAuthenticated()) {
-      this.props.dispatch({
-        type: "CREATE_SESSION",
-        token: true,
-      });
-    }
-  };
-
   updateEmailField = (e) => {
     this.setState({
       email: e.target.value,
@@ -54,10 +45,7 @@ export class Admin extends Component {
             email: "",
           });
         } else if (response.hasOwnProperty("token")) {
-          this.props.dispatch({
-            type: "CREATE_SESSION",
-            token: true,
-          });
+          this.props.loginSuccess();
           sessionStorage.setItem("jwt", response.token);
           this.setState({
             flash: "",
@@ -133,5 +121,8 @@ const mapStateToProps = (state) => {
     token: state.auth.token,
   };
 };
+const mapDispatchToProps = (dispatch) => ({
+  loginSuccess: () => dispatch({ type: "CREATE_SESSION", token: true }),
+});
 
-export default connect(mapStateToProps)(Admin);
+export default connect(mapStateToProps, mapDispatchToProps)(Admin);

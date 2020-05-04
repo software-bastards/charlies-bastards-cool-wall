@@ -22,7 +22,6 @@ class Admin extends Component {
     this.setState({ password: e.target.value, flash: "" });
   };
 
-  
   handleLoginSubmit = (e) => {
     e.preventDefault();
     const adminData = {
@@ -43,10 +42,8 @@ class Admin extends Component {
                 email: "",
               });
         } else if (response.hasOwnProperty("token")) {
-          this.props.dispatch({
-            type: "CREATE_SESSION",
-            token: response.token,
-          });
+          this.props.loginSuccess();
+          sessionStorage.setItem("coolwall_admin", response.token);
           this.setState({
             flash: "",
             email: "",
@@ -102,7 +99,7 @@ class Admin extends Component {
                   />
                 </div>
                 {this.state.flash ? <p>{this.state.flash}</p> : null}
-                <button className="admin_submit" type="submit" >
+                <button className="admin_submit" type="submit">
                   Log in
                 </button>
               </form>
@@ -116,8 +113,12 @@ class Admin extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    flash: state.auth.token,
+    token: state.auth.token,
   };
 };
 
-export default connect(mapStateToProps)(Admin);
+const mapDispatchToProps = (dispatch) => ({
+  loginSuccess: () => dispatch({ type: "CREATE_SESSION", token: true }),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Admin);

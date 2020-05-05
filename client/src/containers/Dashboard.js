@@ -2,6 +2,9 @@ import React from "react";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import Logo from "../images/logo.svg";
+import "../stylesheets/Dashboard.scss";
+import "../stylesheets/global.scss";
+import "../stylesheets/CoolWall.scss";
 
 export const DashBoard = (props) => {
   if (!props.token) {
@@ -20,8 +23,10 @@ export const DashBoard = (props) => {
         <div className="coolwall--right_top"></div>
         <div className="coolwall--right_wrapper">
           <p className="right--top_p">Dashboard of the last 30 days!</p>
+
+          <div className="dashboard--top_row"></div>
+          <div className="dashboard--bottom_row"></div>
         </div>
-        <div className="dashboard--top_row"></div>
       </div>
     </div>
   );

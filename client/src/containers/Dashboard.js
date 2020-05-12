@@ -116,7 +116,7 @@ export class DashBoard extends Component {
               <div className="dashboard--bottom_col">
                 <p className="dashboard--top_p">Overview of the trends</p>
                 <div className="dashboard--components_bottom">
-                  <TrendOverview />
+                  <TrendOverview combined_votes={this.props.votes} />
                 </div>
               </div>
               <div className="dashboard--bottom_col">

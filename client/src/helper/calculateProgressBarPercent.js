@@ -6,7 +6,7 @@
 
 const calculateProgressBarPercent = (technology, votetype) => {
   const total =
-    technology.subzero_votes + technology.uncool_votes + technology.cool_votes;
+    parseInt(technology.subzero_votes) + parseInt(technology.uncool_votes) + parseInt(technology.cool_votes);
   return parseInt((votetype * 100) / total);
 };
 

@@ -78,10 +78,13 @@ export class DisplayTrend extends Component {
           />
         </div>
         <div className="displaytrend--row">
-          <SubZero
-            subzero_technology={this.state.subzero_technology}
-            data-test="component-subzero"
-          />
+          {this.props.tech_list ? (
+            <SubZero
+              subzero_technology={this.state.subzero_technology}
+              data-test="component-subzero"
+              svg={this.props.tech_list[5].svg}
+            />
+          ) : null}
         </div>
       </div>
     );
@@ -91,6 +94,7 @@ export class DisplayTrend extends Component {
 const mapStateToProps = (state) => {
   return {
     combined_votes: state.votes.votes,
+    tech_list: state.tech.list,
   };
 };
 

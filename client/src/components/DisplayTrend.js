@@ -5,7 +5,6 @@ import SubZero from "./SubZero";
 import UnCool from "./UnCool";
 import { connect } from "react-redux";
 import "../stylesheets/DisplayTrend.scss";
-import { connect } from "react-redux";
 
 export class DisplayTrend extends Component {
   state = {

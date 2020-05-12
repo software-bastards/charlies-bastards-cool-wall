@@ -1,10 +1,4 @@
 import React from "react";
-<<<<<<< HEAD
-
-export default function TotalSubmissions() {
-  return <div></div>;
-}
-=======
 import "../stylesheets/TotalSubmissions.scss";
 
 function TotalSubmissions({ submission_count }) {
@@ -21,4 +15,3 @@ function TotalSubmissions({ submission_count }) {
 }
 
 export default TotalSubmissions;
->>>>>>> aae8496189779b7bd41e026945e314d79f3d02e3

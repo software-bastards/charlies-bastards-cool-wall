@@ -31,7 +31,10 @@ export class TrendOverview extends Component {
                   name="Cool"
                 />
                 <ProgressBar
-                  percent={calculateProgressBarPercent(data,data.subzero_votes )}
+                  percent={calculateProgressBarPercent(
+                    data,
+                    data.subzero_votes
+                  )}
                   color={blue}
                   name="SubZero"
                 />{" "}

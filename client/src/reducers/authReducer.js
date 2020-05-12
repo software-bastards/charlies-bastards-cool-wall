@@ -1,7 +1,6 @@
 import isAdminAuthenticated from "../helper/isAdminAuthenticated";
-
 const initialState = {
-  token: isAdminAuthenticated(),
+  token: isAdminAuthenticated() ? true : false,
 };
 
 export default function (state = initialState, action) {

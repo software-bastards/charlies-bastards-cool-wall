@@ -1,13 +1,14 @@
-import React from "react";
+import React, { Component } from "react";
 import Logo from "../images/logo.svg";
 import handlePostAdminLogin from "../helper/handlePostAdminLogin";
+import isAdminAuthenticated from "../helper/isAdminAuthenticated";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import "../stylesheets/global.scss";
 import "../stylesheets/CoolWall.scss";
 import "../stylesheets/Admin.scss";
 
-export class Admin extends React.Component {
+export class Admin extends Component {
   state = {
     email: "",
     password: "",
@@ -28,22 +29,18 @@ export class Admin extends React.Component {
       email: this.state.email,
       password: this.state.password,
     };
+
     handlePostAdminLogin(adminData)
       .then((response) => {
         if (response.hasOwnProperty("message")) {
-          response.message.includes("password")
-            ? this.setState({
-                flash: response.message,
-                password: "",
-              })
-            : this.setState({
-                flash: response.message,
-                password: "",
-                email: "",
-              });
+          this.setState({
+            flash: response.message,
+            password: "",
+            email: "",
+          });
         } else if (response.hasOwnProperty("token")) {
           this.props.loginSuccess();
-          sessionStorage.setItem("coolwall_admin", response.token);
+          sessionStorage.setItem("jwt", response.token);
           this.setState({
             flash: "",
             email: "",
@@ -55,7 +52,7 @@ export class Admin extends React.Component {
   };
 
   render() {
-    if (this.props.token) {
+    if (isAdminAuthenticated() && this.props.token) {
       return <Redirect to="/dashboard" />;
     }
     return (
@@ -74,7 +71,7 @@ export class Admin extends React.Component {
               <form className="admin--form" onSubmit={this.handleLoginSubmit}>
                 <div className="form--group">
                   <div className="admin--flash_wrap">
-                    {this.state.flash.includes("email") ? (
+                    {this.state.flash ? (
                       <p className="admin--flash">{this.state.flash}</p>
                     ) : null}
                     <input
@@ -90,9 +87,6 @@ export class Admin extends React.Component {
                 </div>
                 <div className="form--group">
                   <div className="admin--flash_wrap">
-                    {this.state.flash.includes("password") ? (
-                      <p className="admin--flash">{this.state.flash}</p>
-                    ) : null}
                     <input
                       placeholder="Password"
                       type="password"
@@ -121,7 +115,6 @@ const mapStateToProps = (state) => {
     token: state.auth.token,
   };
 };
-
 const mapDispatchToProps = (dispatch) => ({
   loginSuccess: () => dispatch({ type: "CREATE_SESSION", token: true }),
 });

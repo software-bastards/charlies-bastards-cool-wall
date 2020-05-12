@@ -14,7 +14,7 @@ class App extends Component {
             <Route exact path="/">
               <CoolWall data-test="coolwall-component" />
             </Route>
-            <Route path="/admin">
+            <Route exact path="/admin">
               <Admin data-test="admin-component" />
             </Route>
             <Route exact path="/dashboard">

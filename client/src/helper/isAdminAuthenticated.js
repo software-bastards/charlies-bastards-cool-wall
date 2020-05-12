@@ -1,5 +1,5 @@
 const isAdminAuthenticated = () => {
-  return sessionStorage.getItem("coolwall_admin") ? true : false;
+  return sessionStorage.getItem("jwt") ? true : false;
 };
 
 export default isAdminAuthenticated;

@@ -6,6 +6,7 @@ import { connect } from "react-redux";
 import "../stylesheets/global.scss";
 import "../stylesheets/TechVote.scss";
 import closeIcon from "../images/closeIcon.svg";
+import { submitvote } from "../actions/submitvote";
 
 export class TechVote extends Component {
   state = {
@@ -58,7 +59,9 @@ export class TechVote extends Component {
 
     if (prevState.flash !== this.state.flash) {
       let newState = Object.assign({}, this.state);
-      newState.tech_list.map((item) => (item.borderForSelectedVote = "none"));
+      newState.tech_list.map((item) => {
+        item.borderForSelectedVote = "none";
+      });
       this.setState(newState);
     }
   }
@@ -67,11 +70,12 @@ export class TechVote extends Component {
     handlePostVoteData(this.state.vote_list)
       .then((response) => {
         this.setState({ flash: response.data.message });
+        this.props.dispatch(submitvote(this.state.vote_list));
       })
       .catch((err) => this.setState({ flash: err.flash }));
   };
 
-  handlePopUpClose = () => {
+  handleClosePopUp = () => {
     this.setState({
       flash: "",
       vote_list: [],
@@ -99,7 +103,12 @@ export class TechVote extends Component {
               onClick={this.handlePopUpClose}
             >
               <p>{this.state.flash}</p>
-              <img className="close--button" src={closeIcon} alt="Close" />
+              <img
+                className="close--button"
+                src={closeIcon}
+                alt="Close"
+                onClick={this.handleClosePopUp}
+              />
             </div>
           )}
         </div>

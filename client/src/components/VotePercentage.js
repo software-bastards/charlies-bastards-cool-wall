@@ -1,5 +1,6 @@
 import React from "react";
 
+<<<<<<< HEAD
 export default function VotePercentage({ votepercentage }) {
   return (
     <div className="Votepercentage--wrapper">
@@ -9,4 +10,8 @@ export default function VotePercentage({ votepercentage }) {
       <div></div>
     </div>
   );
+=======
+export default function VotePercentage() {
+  return <div></div>;
+>>>>>>> aae8496189779b7bd41e026945e314d79f3d02e3
 }

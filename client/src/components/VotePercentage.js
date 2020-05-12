@@ -1,13 +1,3 @@
-<<<<<<< HEAD
-import React from 'react'
-
-export default function TotalPercentage() {
-    return (
-        <div>
-            
-        </div>
-    )
-=======
 import React from "react";
 import "../stylesheets/VotePercentage.scss";
 import CircleProgressBar from "./CircleProgressBar";
@@ -39,5 +29,4 @@ export default function VotePercentage({ votepercentage }) {
       <div></div>
     </div>
   );
->>>>>>> feature-admin-register
 }

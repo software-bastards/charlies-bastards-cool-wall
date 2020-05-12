@@ -15,34 +15,16 @@ export class Admin extends React.Component {
   };
 
   updateEmailField = (e) => {
-<<<<<<< HEAD
-    this.setState({
-      email: e.target.value,
-      flash: "",
-    });
-  };
-
-  updatePwdField = (e) => {
-    this.setState({
-      password: e.target.value,
-      flash: "",
-    });
-=======
     this.setState({ email: e.target.value, flash: "" });
   };
 
   updatePwdField = (e) => {
     this.setState({ password: e.target.value, flash: "" });
->>>>>>> feature-admin-register
   };
 
   handleLoginSubmit = (e) => {
     e.preventDefault();
-<<<<<<< HEAD
-        const adminData = {
-=======
     const adminData = {
->>>>>>> feature-admin-register
       email: this.state.email,
       password: this.state.password,
     };
@@ -139,16 +121,9 @@ const mapStateToProps = (state) => {
     token: state.auth.token,
   };
 };
-<<<<<<< HEAD
-const mapDispatchToProps = (dispatch) => ({
-  loginSuccess: () => dispatch({ type: "CREATE_SESSION", token: true }),
-});
-export default connect(mapStateToProps, mapDispatchToProps)(Admin);
-=======
 
 const mapDispatchToProps = (dispatch) => ({
   loginSuccess: () => dispatch({ type: "CREATE_SESSION", token: true }),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Admin);
->>>>>>> feature-admin-register

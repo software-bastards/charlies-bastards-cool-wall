@@ -51,8 +51,4 @@ passport.use(
         .catch((jwtErr) => console.error(`JWT Error: ${jwtErr}`));
     }
   )
-<<<<<<< HEAD
 );
-=======
-);
->>>>>>> feature-admin-register

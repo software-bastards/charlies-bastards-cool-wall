@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React from "react";
 import { shallow } from "enzyme";
 import { DashBoard } from "../containers/Dashboard";
@@ -32,5 +31,3 @@ test("renders without error", () => {
   const dashboardComponent = findByTestAttr(wrapper, "component-dashboard");
   expect(dashboardComponent.length).toBe(1);
 });
-=======
->>>>>>> feature-admin-register

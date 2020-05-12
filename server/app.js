@@ -14,6 +14,7 @@ const indexRouter = require("./routes/index");
 
 //GET routes
 const techlistRouter = require("./routes/techlist");
+const totalSubmissions = require("./routes/totalsubmissions");
 const combinedvotesRouter = require("./routes/combinedvotes");
 const dashboardRouter = require("./routes/dashboard");
 
@@ -43,6 +44,7 @@ app.use("/submitvote", submitvoteRouter);
 app.use("/admin_register", adminregisterRouter);
 app.use("/admin_login", adminloginRouter);
 app.use("/dashboard", dashboardRouter);
+app.use("/totalsubmissions", totalSubmissions);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

@@ -1,0 +1,13 @@
+@import "../stylesheets/global.scss";
+
+.totalvotes--h1 {
+  font-size: 6em;
+  font-family: $font-SpaceMono;
+}
+
+.totalvotes--wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}

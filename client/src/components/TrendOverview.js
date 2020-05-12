@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import handleFetchCombinedVotes from "../helper/handleFetchCombinedVotes";
 import ProgressBar from "./ProgressBar";
 import calculateProgressBarPercent from "../helper/calculateProgressBarPercent";
 
@@ -9,8 +8,6 @@ const red = "#ff0013";
 const yellow = "#ffb000";
 
 export class TrendOverview extends Component {
-  
-
   render() {
     return (
       <div>
@@ -34,10 +31,7 @@ export class TrendOverview extends Component {
                   name="Cool"
                 />
                 <ProgressBar
-                  percent={calculateProgressBarPercent(
-                    data,
-                    data.subzero_votes
-                  )}
+                  percent={calculateProgressBarPercent(data,data.subzero_votes )}
                   color={blue}
                   name="SubZero"
                 />{" "}

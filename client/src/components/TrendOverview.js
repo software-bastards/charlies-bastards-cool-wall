@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import ProgressBar from "./ProgressBar";
@@ -54,3 +55,10 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps)(TrendOverview);
+=======
+import React from "react";
+
+export default function TrendOverview() {
+  return <div></div>;
+}
+>>>>>>> feature-admin-register

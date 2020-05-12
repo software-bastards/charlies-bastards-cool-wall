@@ -6,6 +6,10 @@ module.exports = (Sequelize, connector) => {
         type: Sequelize.STRING,
         allowNull: false,
       },
+      svg: {
+        type: Sequelize.STRING,
+        allowNull: true,
+      },
     },
     { freezeTableName: true, timestamps: false }
   );

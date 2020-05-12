@@ -8,4 +8,8 @@ const allReducers = combineReducers({
   votes: combinedVoteReducer,
   tech: techlistReducer,
 });
+<<<<<<< HEAD
 export default allReducers;
+=======
+export default allReducers;
+>>>>>>> feature-admin-register

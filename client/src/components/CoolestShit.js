@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from 'react'
 import {connect} from "react-redux";
 
@@ -30,3 +31,12 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps)(CoolestShit);
+=======
+import React, { Component } from "react";
+
+export default class CoolestShit extends Component {
+  render() {
+    return <div></div>;
+  }
+}
+>>>>>>> feature-admin-register

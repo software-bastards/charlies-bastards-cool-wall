@@ -21,7 +21,11 @@ ReactDOM.render(
       <App />
     </React.StrictMode>
   </Provider>,
+<<<<<<< HEAD
   document.getElementById('root')
+=======
+  document.getElementById("root")
+>>>>>>> feature-admin-register
 );
 
 // If you want your app to work offline and load faster, you can change

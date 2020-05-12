@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from 'react'
 
 export default function TotalVotes() {
@@ -6,4 +7,10 @@ export default function TotalVotes() {
             
         </div>
     )
+=======
+import React from "react";
+
+export default function TotalVotes() {
+  return <div></div>;
+>>>>>>> feature-admin-register
 }

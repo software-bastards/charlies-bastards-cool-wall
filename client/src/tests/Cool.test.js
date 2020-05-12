@@ -38,29 +38,43 @@ const cool_technology = [
     uncool_votes: 1,
   },
 ];
+const tech_list = [
+  {
+    id: 1,
+    name: "Laveral",
+  },
+  {
+    id: 2,
+    name: "React",
+  },
+  {
+    id: 3,
+    name: "Angular",
+  },
+];
 
 test("renders without error", () => {
-  const wrapper = setup({ cool_technology });
+  const wrapper = setup({ cool_technology, tech_list });
   const coolComponent = findByTestAttr(wrapper, "component-cool");
   expect(coolComponent.length).toBe(1);
 });
 test("renders correct number of technologies", () => {
-  const wrapper = setup({ cool_technology });
+  const wrapper = setup({ cool_technology, tech_list });
   const technologySection = findByTestAttr(wrapper, "technology-section");
   expect(technologySection.length).toBe(cool_technology.length);
 });
 test("renders cool votes progressbar", () => {
-  const wrapper = setup({ cool_technology });
+  const wrapper = setup({ cool_technology, tech_list });
   const coolvotesProgressBar = findByTestAttr(wrapper, "cool-progressbar");
   expect(coolvotesProgressBar.length).toBe(cool_technology.length);
 });
 test("renders uncool votes progressbar", () => {
-  const wrapper = setup({ cool_technology });
+  const wrapper = setup({ cool_technology, tech_list });
   const uncoolvotesProgressBar = findByTestAttr(wrapper, "uncool-progressbar");
   expect(uncoolvotesProgressBar.length).toBe(cool_technology.length);
 });
 test("renders subzero votes progressbar", () => {
-  const wrapper = setup({ cool_technology });
+  const wrapper = setup({ cool_technology, tech_list });
   const subzerovotesProgressBar = findByTestAttr(
     wrapper,
     "subzero-progressbar"

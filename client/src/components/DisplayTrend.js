@@ -69,12 +69,14 @@ export class DisplayTrend extends Component {
           <UnCool
             uncool_technology={this.state.uncool_technology}
             data-test="component-uncool"
+            tech_list={this.props.tech_list}
           />
         </div>
         <div className="displaytrend--row">
           <Cool
             cool_technology={this.state.cool_technology}
             data-test="component-cool"
+            tech_list={this.props.tech_list}
           />
         </div>
         <div className="displaytrend--row">
@@ -82,7 +84,7 @@ export class DisplayTrend extends Component {
             <SubZero
               subzero_technology={this.state.subzero_technology}
               data-test="component-subzero"
-              svg={this.props.tech_list[5].svg}
+              tech_list={this.props.tech_list}
             />
           ) : null}
         </div>

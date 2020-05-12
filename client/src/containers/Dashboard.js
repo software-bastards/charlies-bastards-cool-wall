@@ -15,16 +15,8 @@ import handleFetchTotalSubmissions from "../helper/handleFetchTotalSubmissions";
 import calculateTotalVotes from "../helper/calculateTotalVotes";
 import gettingCoolestShit from "../helper/gettingCoolestShit";
 import { calculateVotePercentage } from "../helper/calculateVotePercentage";
-import resolveVote from "../helper/resolveVotes";
 
 export class DashBoard extends Component {
-  state = {
-    combined_votes: [],
-    cool_technology: [],
-    uncool_technology: [],
-    subzero_technology: [],
-  };
-
   componentDidMount = async () => {
     try {
       const results = await handleFetchCombinedVotes();
@@ -32,10 +24,6 @@ export class DashBoard extends Component {
         type: "FETCH_COMBINEDVOTES",
         votes: results,
       });
-      this.setState({
-        combined_votes: [...this.state.combined_votes, ...results],
-      });
-      this.resolveVote(this.state.combined_votes);
     } catch (err) {
       console.error(err);
     }
@@ -116,11 +104,12 @@ export class DashBoard extends Component {
               <div className="dashboard--bottom_col">
                 <p className="dashboard--top_p">Overview of the trends</p>
                 <div className="dashboard--components_bottom">
-                  <TrendOverview />
+                  <TrendOverview combined_votes={this.props.votes} />
                 </div>
               </div>
               <div className="dashboard--bottom_col">
                 <p className="dashboard--top_p">How many people voted for</p>
+
                 <div className="dashboard--components_bottom">
                   {this.props.combined_votes ? (
                     <VotePercentage

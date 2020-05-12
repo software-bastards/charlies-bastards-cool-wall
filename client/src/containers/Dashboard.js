@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import Logo from "../images/logo.svg";
-import "../stylesheets/Dashboard.scss";
+import "../stylesheets/DashBoard.scss";
 import "../stylesheets/global.scss";
 import "../stylesheets/CoolWall.scss";
 import CoolestShit from "../components/CoolestShit";

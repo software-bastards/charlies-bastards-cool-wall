@@ -27,7 +27,7 @@ function SubZero({ subzero_technology, svg }) {
             <div
               className="vue--logo"
               dangerouslySetInnerHTML={{ __html: newImage }}
-            />
+            ></div>
           </div>
           <div className="subzero--technology_flex">
             <h3 className="subzero--technology_name">

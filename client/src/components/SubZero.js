@@ -22,7 +22,7 @@ function SubZero({ subzero_technology }) {
           data-test="technology-section"
           key={index}
         >
-          <div className="subzero--logo_wrap">
+          <div className="subzero--logo-wrap">
             <img className="vue--logo" src={VueLogo} alt="Vue Logo" />
           </div>
           <div className="subzero--technology_flex">

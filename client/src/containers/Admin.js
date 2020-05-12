@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import Logo from "../images/logo.svg";
 import handlePostAdminLogin from "../helper/handlePostAdminLogin";
 import { Redirect } from "react-router-dom";
@@ -30,8 +30,7 @@ export class Admin extends React.Component {
 
   handleLoginSubmit = (e) => {
     e.preventDefault();
-
-    const adminData = {
+        const adminData = {
       email: this.state.email,
       password: this.state.password,
     };

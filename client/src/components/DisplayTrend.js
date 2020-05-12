@@ -4,8 +4,9 @@ import Cool from "./Cool";
 import SubZero from "./SubZero";
 import UnCool from "./UnCool";
 import "../stylesheets/DisplayTrend.scss";
+import {connect} from "react-redux";
 
-class DisplayTrend extends Component {
+export class DisplayTrend extends Component {
   state = {
     combined_votes: [],
     cool_technology: [],
@@ -16,6 +17,11 @@ class DisplayTrend extends Component {
   componentDidMount = async () => {
     try {
       const results = await handleFetchCombinedVotes();
+
+      this.props.dispatch({
+        type: "FETCH_COMBINEDVOTES",
+        votes: results
+      });
       this.setState({
         combined_votes: [...this.state.combined_votes, ...results],
       });
@@ -82,4 +88,14 @@ class DisplayTrend extends Component {
     );
   }
 }
-export default DisplayTrend;
+
+const mapStateToProps = (state) => {
+  return {
+    combined_votes: state.votes.votes,
+  };
+};
+
+
+
+
+export default connect (mapStateToProps)(DisplayTrend);

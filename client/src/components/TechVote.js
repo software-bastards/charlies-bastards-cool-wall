@@ -2,11 +2,12 @@ import React, { Component } from "react";
 import handleFetchTechnologyList from "../helper/handleFetchTechnologyList";
 import handlePostVoteData from "../helper/handlePostVoteData";
 import DisplayForVote from "./DisplayForVote";
+import { connect } from "react-redux";
 import "../stylesheets/global.scss";
 import "../stylesheets/TechVote.scss";
 import closeIcon from "../images/closeIcon.svg";
 
-class TechVote extends Component {
+export class TechVote extends Component {
   state = {
     tech_list: [],
     vote_list: [],
@@ -20,6 +21,10 @@ class TechVote extends Component {
         return { ...item, borderForSelectedVote: "none" };
       });
       this.setState({ tech_list: [...this.state.tech_list, ...newTechList] });
+      this.props.dispatch({
+        type: "FETCH_TECHLIST",
+        list: newTechList,
+      });
     } catch (err) {
       console.error(err);
     }
@@ -51,23 +56,11 @@ class TechVote extends Component {
       });
     }
 
-<<<<<<< HEAD
-    if(prevState.flash !== this.state.flash) {
-      let newState = Object.assign({})
-    }
-  }
-
-  
-
-  handlePopUpClose = () => {
-    this.setState({ flash: "", vote_list: []});
-=======
     if (prevState.flash !== this.state.flash) {
       let newState = Object.assign({}, this.state);
       newState.tech_list.map((item) => (item.borderForSelectedVote = "none"));
       this.setState(newState);
     }
->>>>>>> b5939a3892d7989a8e01b0074a9c68ec5dca3191
   }
 
   handleVoteSubmit = () => {
@@ -90,21 +83,6 @@ class TechVote extends Component {
       <div data-test="component-techvote" className="techvote--wrapper">
         <div className="techvote--displayforvote">
           <div className="techvote--displayforvote_shadow"></div>
-<<<<<<< HEAD
-          {!this.state.flash ? this.state.tech_list.map((tech) => (
-            <div key={tech.id}>
-              <DisplayForVote
-                data-test="displayvote-section"
-                technology={tech}
-                storeVote={this.storeVote}
-              />
-            </div>
-          ))   : <div className=""><p>{this.state.flash} </p> 
-                <img className="close--button" src={closeIcon} alt="Close" />
-          </div>
-          } 
-          
-=======
           {!this.state.flash ? (
             this.state.tech_list.map((tech) => (
               <div key={tech.id}>
@@ -124,7 +102,6 @@ class TechVote extends Component {
               <img className="close--button" src={closeIcon} alt="Close" />
             </div>
           )}
->>>>>>> b5939a3892d7989a8e01b0074a9c68ec5dca3191
         </div>
 
         <div className="techvote--submit">
@@ -140,4 +117,10 @@ class TechVote extends Component {
     );
   }
 }
-export default TechVote;
+const mapStateToProps = (state) => {
+  return {
+    tech_list: state.tech.list,
+  };
+};
+
+export default connect(mapStateToProps)(TechVote);

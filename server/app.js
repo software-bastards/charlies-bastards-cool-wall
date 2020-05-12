@@ -22,9 +22,12 @@ const submitvoteRouter = require("./routes/submitvote");
 const adminregisterRouter = require("./routes/admin_register");
 const adminloginRouter = require("./routes/admin_login");
 <<<<<<< HEAD
+<<<<<<< HEAD
 const dashboardRouter = require("./routes/dashboard")
 =======
 >>>>>>> b5939a3892d7989a8e01b0074a9c68ec5dca3191
+=======
+>>>>>>> 84e23c3bc99cab91838fd5d1b2266d1ca084a553
 
 const app = express();
 
@@ -46,12 +49,17 @@ app.use("/combinedvotes", combinedvotesRouter);
 app.use("/submitvote", submitvoteRouter);
 app.use("/admin_register", adminregisterRouter);
 <<<<<<< HEAD
+<<<<<<< HEAD
 app.use("/admin_login" , adminloginRouter);
 app.use("/dashboard" , dashboardRouter);
 =======
 app.use("/admin_login", adminloginRouter);
 app.use("/dashboard", dashboardRouter);
 >>>>>>> b5939a3892d7989a8e01b0074a9c68ec5dca3191
+=======
+app.use("/admin_login", adminloginRouter);
+app.use("/dashboard", dashboardRouter);
+>>>>>>> 84e23c3bc99cab91838fd5d1b2266d1ca084a553
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

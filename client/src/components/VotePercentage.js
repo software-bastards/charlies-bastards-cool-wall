@@ -4,7 +4,10 @@ import CircleProgressBar from "./CircleProgressBar";
 
 export default function VotePercentage({ votepercentage }) {
   return (
-    <div className="votepercentage--wrapper">
+    <div
+      className="votepercentage--wrapper"
+      data-test="component-votepercentage"
+    >
       <CircleProgressBar
         progress={votepercentage.cool}
         size={50}
@@ -26,7 +29,6 @@ export default function VotePercentage({ votepercentage }) {
         circleOneStroke="blue"
         circleTwoStroke="blue"
       />
-      <div></div>
     </div>
   );
 }

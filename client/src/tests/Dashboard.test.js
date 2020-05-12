@@ -1,6 +1,6 @@
 import React from "react";
 import { shallow } from "enzyme";
-import { Dashboard } from "../containers/Dashboard";
+import { DashBoard } from "../containers/Dashboard";
 //import handlePostAdminLogin from "../helper/handlePostAdminLogin"
 
 /**
@@ -10,8 +10,8 @@ import { Dashboard } from "../containers/Dashboard";
  * @returns {ShallowWrapper}
  */
 
-const setup = (props = {}) => {
-  const wrapper = shallow(<Dashboard {...props} />);
+const setup = (props = {}, state = null) => {
+  const wrapper = shallow(<DashBoard {...props} />);
 
   return wrapper;
 };

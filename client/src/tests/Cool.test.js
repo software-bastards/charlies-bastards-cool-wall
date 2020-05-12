@@ -1,6 +1,7 @@
 import React from "react";
 import { shallow } from "enzyme";
 import Cool from "../components/Cool";
+jest.mock("../helper/gettingTechIcon");
 
 /**
  * Factory function to create a ShallowWrapper for the Cool component.
@@ -55,26 +56,31 @@ const tech_list = [
 
 test("renders without error", () => {
   const wrapper = setup({ cool_technology, tech_list });
+  const gettingTechIcon = jest.fn();
   const coolComponent = findByTestAttr(wrapper, "component-cool");
   expect(coolComponent.length).toBe(1);
 });
 test("renders correct number of technologies", () => {
   const wrapper = setup({ cool_technology, tech_list });
+  const gettingTechIcon = jest.fn();
   const technologySection = findByTestAttr(wrapper, "technology-section");
   expect(technologySection.length).toBe(cool_technology.length);
 });
 test("renders cool votes progressbar", () => {
   const wrapper = setup({ cool_technology, tech_list });
+  const gettingTechIcon = jest.fn();
   const coolvotesProgressBar = findByTestAttr(wrapper, "cool-progressbar");
   expect(coolvotesProgressBar.length).toBe(cool_technology.length);
 });
 test("renders uncool votes progressbar", () => {
   const wrapper = setup({ cool_technology, tech_list });
+  const gettingTechIcon = jest.fn();
   const uncoolvotesProgressBar = findByTestAttr(wrapper, "uncool-progressbar");
   expect(uncoolvotesProgressBar.length).toBe(cool_technology.length);
 });
 test("renders subzero votes progressbar", () => {
   const wrapper = setup({ cool_technology, tech_list });
+  const gettingTechIcon = jest.fn();
   const subzerovotesProgressBar = findByTestAttr(
     wrapper,
     "subzero-progressbar"

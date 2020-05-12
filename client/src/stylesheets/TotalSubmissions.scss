@@ -1,0 +1,13 @@
+@import "../stylesheets/global.scss";
+
+.totalsubmissions--h1 {
+  font-size: 6em;
+  font-family: $font-SpaceMono;
+}
+
+.totalsubmissions--wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}

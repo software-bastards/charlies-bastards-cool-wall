@@ -1,7 +1,6 @@
 import React from "react";
 import { shallow } from "enzyme";
-
-import App from "./App.js";
+import App from "./App";
 
 /**
  * Factory function to create a ShallowWrapper for the App component.

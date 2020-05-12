@@ -6,7 +6,6 @@ import UnCool from "./UnCool";
 import { connect } from "react-redux";
 import "../stylesheets/DisplayTrend.scss";
 
-
 export class DisplayTrend extends Component {
   state = {
     combined_votes: [],

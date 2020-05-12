@@ -15,6 +15,7 @@ import handleFetchTotalSubmissions from "../helper/handleFetchTotalSubmissions";
 import calculateTotalVotes from "../helper/calculateTotalVotes";
 import gettingCoolestShit from "../helper/gettingCoolestShit";
 import resolveVote from "../helper/resolveVotes";
+import { calculateVotePercentage } from "../helper/calculateVotePercentage";
 
 export class DashBoard extends Component {
   state = {
@@ -120,8 +121,15 @@ export class DashBoard extends Component {
               </div>
               <div className="dashboard--bottom_col">
                 <p className="dashboard--top_p">How many people voted for</p>
+
                 <div className="dashboard--components_bottom">
-                  <VotePercentage />
+                  {this.props.combined_votes ? (
+                    <VotePercentage
+                      votepercentage={calculateVotePercentage(
+                        this.props.combined_votes
+                      )}
+                    />
+                  ) : null}
                 </div>
               </div>
             </div>

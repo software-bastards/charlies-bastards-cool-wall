@@ -13,7 +13,7 @@ function UnCool({ uncool_technology }) {
   return (
     <div data-test="component-uncool" className="uncool--wrapper">
       <div className="uncool--head">
-        <img className="uncool--icon" src={UncoolIcon} alt="Logo SubZero" />
+        <img className="uncool--icon" src={UncoolIcon} alt="Logo Uncool" />
         <h1 className="uncool--h1">UnCool</h1>
       </div>
       {uncool_technology.map((technology, index) => (

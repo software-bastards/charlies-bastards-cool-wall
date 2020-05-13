@@ -4,6 +4,7 @@ import calculateProgressBarPercent from "../helper/calculateProgressBarPercent";
 import "../stylesheets/SubZero.scss";
 import "../stylesheets/CoolestShit.scss";
 import VueLogo from "../images/vue.svg";
+import { connect } from "react-redux";
 
 const blue = "#145cc6";
 const red = "#ff0013";
@@ -51,4 +52,10 @@ function CoolestShit({ coolestshit_technology }) {
   );
 }
 
-export default CoolestShit;
+const mapStateToProps = (state) => {
+  return {
+    combined_votes: state.votes.votes,
+  };
+};
+
+export default connect(mapStateToProps)(CoolestShit);

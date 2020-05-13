@@ -1,0 +1,33 @@
+@import "../stylesheets/global.scss";
+
+$dark-grey: #282b39;
+$light-blue: #b7c9f7;
+$dark-blue: #5d6486;
+$light-grey: #f5f6fa;
+$blue: #145cc6;
+$red: #ff0013;
+$yellow: #ffb000;
+
+.trend--progress--bar {
+  position: relative;
+  height: 15px;
+  width: 95%;
+  border-radius: 50px;
+  border: 1px solid $dark-grey;
+  background-color: $dark-grey;
+  margin: $margin-sm;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: left;
+  padding-right: 50px;
+}
+
+.trend--filler {
+  background: $blue;
+  height: 60%;
+  border-radius: inherit;
+
+  //margin-right: 50px;
+}

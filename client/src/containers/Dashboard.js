@@ -69,16 +69,17 @@ export class DashBoard extends Component {
           <div className="coolwall--left_white">
             <img className="coolwall--logo" src={Logo} alt="Logo CoolWall" />
           </div>
-          <div className="coolwall--left_grey"></div>
-          <p className="coolwall--copyright">@softwarebastards</p>
-          <div className="dashboard--submit">
-            <button
-              onClick={this.handleLogOut}
-              data-test="submit-button"
-              className="button--light_blue"
-            >
-              LogOut
-            </button>
+          <div className="coolwall--left_grey">
+            <p className="coolwall--copyright">@softwarebastards</p>
+            <div className="dashboard--submit">
+              <button
+                onClick={this.handleLogOut}
+                data-test="submit-button"
+                className="button--light_blue"
+              >
+                LogOut
+              </button>
+            </div>
           </div>
         </div>
         <div className="coolwall--right">

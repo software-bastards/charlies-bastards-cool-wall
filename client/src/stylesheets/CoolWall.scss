@@ -75,7 +75,9 @@
   font-size: 15px;
   font-family: $font-Roboto;
   color: $light-blue;
-  margin: $margin * 2;
+  margin-left: $margin * 2;
+  margin-top: $margin * 2;
+  margin-bottom: $margin;
 }
 
 .coolwall--right_wrapper {
@@ -104,4 +106,27 @@
 .right--top_p {
   font-family: $font-SpaceMono;
   font-size: 0.8rem;
+}
+
+.coolwall--left_grey {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  height: 75vh;
+}
+
+@media screen and (max-width: 500px) {
+  .coolwall--left_grey {
+    width: 60%;
+    height: 15vh;
+    align-items: flex-start;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .dashboard--submit {
+    margin-left: 20px;
+    margin-bottom: $margin;
+  }
 }

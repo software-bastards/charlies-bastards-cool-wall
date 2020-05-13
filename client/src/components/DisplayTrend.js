@@ -28,7 +28,7 @@ export class DisplayTrend extends Component {
     return (
       <div data-test="component-displaytrend" className="displaytrend--wrapper">
         <div className="displaytrend--row">
-          {this.props.combined_votes ? (
+          {this.props.combined_votes && this.props.tech_list ? (
             <UnCool
               uncool_technology={resolveUnCoolVotes(this.props.combined_votes)}
               tech_list={this.props.tech_list}
@@ -38,7 +38,7 @@ export class DisplayTrend extends Component {
         </div>
         <div className="displaytrend--row">
           {" "}
-          {this.props.combined_votes ? (
+          {this.props.combined_votes && this.props.tech_list ? (
             <Cool
               cool_technology={resolveCoolVotes(this.props.combined_votes)}
               tech_list={this.props.tech_list}
@@ -47,7 +47,7 @@ export class DisplayTrend extends Component {
           ) : null}
         </div>
         <div className="displaytrend--row">
-          {this.props.combined_votes ? (
+          {this.props.combined_votes && this.props.tech_list ? (
             <SubZero
               subzero_technology={resolveSubzeroVotes(
                 this.props.combined_votes

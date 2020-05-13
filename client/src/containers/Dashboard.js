@@ -17,6 +17,14 @@ import gettingCoolestShit from "../helper/gettingCoolestShit";
 import { calculateVotePercentage } from "../helper/calculateVotePercentage";
 
 export class DashBoard extends Component {
+  state = {
+    combined_votes: [],
+    cool_technology: [],
+    uncool_technology: [],
+    subzero_technology: [],
+    navigate: false,
+  };
+
   componentDidMount = async () => {
     try {
       const results = await handleFetchCombinedVotes();
@@ -37,11 +45,24 @@ export class DashBoard extends Component {
       console.error(err);
     }
   };
+  /*
+  handleLogOut = () => {
+    this.props.logOut();
+    sessionStorage.removeItem("coolwall_admin");
+    this.setState({ navigate: true });
+  };
+  */
 
   render() {
     if (!this.props.token) {
       return <Redirect to="/admin" />;
     }
+    /*
+    const { navigate } = this.state;
+    if (navigate) {
+      return <Redirect to="/" push={true} />;
+    }
+    */
     return (
       <div data-test="component-dashboard" className="coolwall--wrapper">
         <div className="coolwall--left">
@@ -50,6 +71,15 @@ export class DashBoard extends Component {
           </div>
           <div className="coolwall--left_grey"></div>
           <p className="coolwall--copyright">@softwarebastards</p>
+          <div className="dashboard--submit">
+            <button
+              onClick={this.handleLogOut}
+              data-test="submit-button"
+              className="button--light_blue"
+            >
+              LogOut
+            </button>
+          </div>
         </div>
         <div className="coolwall--right">
           <div className="coolwall--right_top"></div>
@@ -108,9 +138,8 @@ export class DashBoard extends Component {
                 </div>
               </div>
               <div className="dashboard--bottom_col">
-                <p className="dashboard--top_p">How many people voted for</p>
-
-                <div className="dashboard--components_bottom">
+                <p className="dashboard--top_p">Vote Percentage</p>
+                <div className="dashboard--components_bottom ">
                   {this.props.combined_votes ? (
                     <VotePercentage
                       votepercentage={calculateVotePercentage(
@@ -134,4 +163,10 @@ const mapStateToProps = (state) => {
     total_submissions: state.submissions.submissions,
   };
 };
+/*
+const mapDispatchToProps = (dispatch) => ({
+  logOut: () => dispatch({ type: "END_SESSION", token: false }),
+});
+
+*/
 export default connect(mapStateToProps)(DashBoard);

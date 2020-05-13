@@ -14,6 +14,7 @@ export default function VotePercentage({ votepercentage }) {
         strokeWidth={5}
         circleOneStroke="red"
         circleTwoStroke="red"
+        data-test="cool-progressbar"
       />
       <CircleProgressBar
         progress={votepercentage.uncool}
@@ -21,6 +22,7 @@ export default function VotePercentage({ votepercentage }) {
         strokeWidth={5}
         circleOneStroke="yellow"
         circleTwoStroke="yellow"
+        data-test="uncool-progressbar"
       />
       <CircleProgressBar
         progress={votepercentage.subzero}
@@ -28,6 +30,7 @@ export default function VotePercentage({ votepercentage }) {
         strokeWidth={5}
         circleOneStroke="blue"
         circleTwoStroke="blue"
+        data-test="subzero-progressbar"
       />
     </div>
   );

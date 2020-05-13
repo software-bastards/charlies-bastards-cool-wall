@@ -22,14 +22,16 @@ passport.use(
         .then(async (foundAdmin) => {
           if (!foundAdmin) {
             return done(null, false, {
-              message: "Can't find a user with this email",
+              message: "Email or password incorrect",
             });
           }
 
           const isAdmin = await bcrypt.compare(password, foundAdmin.password);
 
           if (!isAdmin) {
-            return done(null, false, { message: "Incorrect password" });
+            return done(null, false, {
+              message: "Email or password incorrect",
+            });
           }
 
           done(null, foundAdmin.dataValues);
@@ -51,4 +53,12 @@ passport.use(
         .catch((jwtErr) => console.error(`JWT Error: ${jwtErr}`));
     }
   )
+<<<<<<< HEAD
 );
+=======
+<<<<<<< HEAD
+);
+=======
+);
+>>>>>>> fa2dbba8b95e816148177164bc749742093caf34
+>>>>>>> feature-admin-register

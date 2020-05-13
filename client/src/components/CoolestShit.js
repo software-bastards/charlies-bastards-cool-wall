@@ -1,15 +1,14 @@
+<<<<<<< HEAD
 import React, { Component } from "react";
 import { connect } from "react-redux";
+=======
+import React from "react";
+>>>>>>> feature-admin-register
 import ProgressBar from "./ProgressBar";
 import calculateProgressBarPercent from "../helper/calculateProgressBarPercent";
 import "../stylesheets/SubZero.scss";
 import "../stylesheets/CoolestShit.scss";
 import VueLogo from "../images/vue.svg";
-import {
-  calculateProgressBarCoolestShitSubzero,
-  calculateProgressBarCoolestShitCool,
-  calculateProgressBarCoolestShitUncool,
-} from "../helper/calculateProgressBarCoolestShit";
 
 const blue = "#145cc6";
 const red = "#ff0013";
@@ -26,22 +25,27 @@ function CoolestShit({ coolestshit_technology }) {
           {coolestshit_technology.tech_list.name}
         </h3>
         <ProgressBar
-          percent={calculateProgressBarCoolestShitUncool(
-            coolestshit_technology
+          percent={calculateProgressBarPercent(
+            coolestshit_technology,
+            coolestshit_technology.uncool_votes
           )}
           color={yellow}
           name="UnCool"
           data-test="uncool-progressbar"
         />
         <ProgressBar
-          percent={calculateProgressBarCoolestShitCool(coolestshit_technology)}
+          percent={calculateProgressBarPercent(
+            coolestshit_technology,
+            coolestshit_technology.cool_votes
+          )}
           color={red}
           name="Cool"
           data-test="cool-progressbar"
         />
         <ProgressBar
-          percent={calculateProgressBarCoolestShitSubzero(
-            coolestshit_technology
+          percent={calculateProgressBarPercent(
+            coolestshit_technology,
+            coolestshit_technology.subzero_votes
           )}
           color={blue}
           name="SubZero"

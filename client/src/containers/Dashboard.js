@@ -14,7 +14,6 @@ import handleFetchCombinedVotes from "../helper/handleFetchCombinedVotes";
 import handleFetchTotalSubmissions from "../helper/handleFetchTotalSubmissions";
 import calculateTotalVotes from "../helper/calculateTotalVotes";
 import gettingCoolestShit from "../helper/gettingCoolestShit";
-import resolveVote from "../helper/resolveVotes";
 import { calculateVotePercentage } from "../helper/calculateVotePercentage";
 
 export class DashBoard extends Component {
@@ -23,6 +22,7 @@ export class DashBoard extends Component {
     cool_technology: [],
     uncool_technology: [],
     subzero_technology: [],
+    navigate: false,
   };
 
   componentDidMount = async () => {
@@ -32,10 +32,6 @@ export class DashBoard extends Component {
         type: "FETCH_COMBINEDVOTES",
         votes: results,
       });
-      this.setState({
-        combined_votes: [...this.state.combined_votes, ...results],
-      });
-      this.resolveVote(this.state.combined_votes);
     } catch (err) {
       console.error(err);
     }
@@ -50,10 +46,26 @@ export class DashBoard extends Component {
     }
   };
 
+  handleLogOut = () => {
+    sessionStorage.removeItem("coolwall_admin");
+    this.props.dispatch({
+      type: "END_SESSION",
+      token: false,
+    });
+
+    // this.setState({ navigate: true });
+  };
+
   render() {
     if (!this.props.token) {
       return <Redirect to="/admin" />;
     }
+    /*
+    const { navigate } = this.state;
+    if (navigate) {
+      return <Redirect to="/" push={true} />;
+    }
+    */
     return (
       <div data-test="component-dashboard" className="coolwall--wrapper">
         <div className="coolwall--left">
@@ -62,6 +74,15 @@ export class DashBoard extends Component {
           </div>
           <div className="coolwall--left_grey"></div>
           <p className="coolwall--copyright">@softwarebastards</p>
+          <div className="dashboard--submit">
+            <button
+              onClick={this.handleLogOut}
+              data-test="submit-button"
+              className="button--light_blue"
+            >
+              LogOut
+            </button>
+          </div>
         </div>
         <div className="coolwall--right">
           <div className="coolwall--right_top"></div>
@@ -120,9 +141,8 @@ export class DashBoard extends Component {
                 </div>
               </div>
               <div className="dashboard--bottom_col">
-                <p className="dashboard--top_p">How many people voted for</p>
-
-                <div className="dashboard--components_bottom">
+                <p className="dashboard--top_p">Vote Percentage</p>
+                <div className="dashboard--components_bottom ">
                   {this.props.combined_votes ? (
                     <VotePercentage
                       votepercentage={calculateVotePercentage(
@@ -146,4 +166,13 @@ const mapStateToProps = (state) => {
     total_submissions: state.submissions.submissions,
   };
 };
+<<<<<<< HEAD
 export default connect(mapStateToProps)(DashBoard);
+=======
+<<<<<<< HEAD
+export default connect(mapStateToProps)(DashBoard);
+=======
+
+export default connect(mapStateToProps)(DashBoard);
+>>>>>>> fa2dbba8b95e816148177164bc749742093caf34
+>>>>>>> feature-admin-register

@@ -8,11 +8,7 @@ import "../stylesheets/global.scss";
 import "../stylesheets/CoolWall.scss";
 import "../stylesheets/Admin.scss";
 
-<<<<<<< HEAD
-export class Admin extends React.Component {
-=======
 export class Admin extends Component {
->>>>>>> fa2dbba8b95e816148177164bc749742093caf34
   state = {
     email: "",
     password: "",
@@ -119,20 +115,8 @@ const mapStateToProps = (state) => {
     token: state.auth.token,
   };
 };
-<<<<<<< HEAD
-
-=======
->>>>>>> fa2dbba8b95e816148177164bc749742093caf34
 const mapDispatchToProps = (dispatch) => ({
   loginSuccess: () => dispatch({ type: "CREATE_SESSION", token: true }),
 });
 
-<<<<<<< HEAD
 export default connect(mapStateToProps, mapDispatchToProps)(Admin);
-=======
-<<<<<<< HEAD
-export default connect(mapStateToProps, mapDispatchToProps)(Admin);
-=======
-export default connect(mapStateToProps, mapDispatchToProps)(Admin);
->>>>>>> fa2dbba8b95e816148177164bc749742093caf34
->>>>>>> feature-admin-register

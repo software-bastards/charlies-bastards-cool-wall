@@ -166,13 +166,5 @@ const mapStateToProps = (state) => {
     total_submissions: state.submissions.submissions,
   };
 };
-<<<<<<< HEAD
-export default connect(mapStateToProps)(DashBoard);
-=======
-<<<<<<< HEAD
-export default connect(mapStateToProps)(DashBoard);
-=======
 
 export default connect(mapStateToProps)(DashBoard);
->>>>>>> fa2dbba8b95e816148177164bc749742093caf34
->>>>>>> feature-admin-register

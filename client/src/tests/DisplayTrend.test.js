@@ -81,20 +81,28 @@ describe("Renders the 3 components cool, uncool and subzero when props are sent"
       uncool_votes: 6,
     },
   ];
+  const tech_list = [
+    {
+      borderForSelectedVote: "none",
+      id: 1,
+      name: "Laveral",
+      svg: '<svg height="200" width="500"></svg>',
+    },
+  ];
   test("renders cool component", () => {
-    const wrapper = setup({ combined_votes }, null);
+    const wrapper = setup({ combined_votes, tech_list }, null);
     const coolComponent = findByTestAttr(wrapper, "component-cool");
     expect(coolComponent.length).toBe(1);
   });
 
   test("renders uncool component", () => {
-    const wrapper = setup({ combined_votes }, null);
+    const wrapper = setup({ combined_votes, tech_list }, null);
     const uncoolComponent = findByTestAttr(wrapper, "component-uncool");
     expect(uncoolComponent.length).toBe(1);
   });
 
   test("renders subzero component", () => {
-    const wrapper = setup({ combined_votes }, null);
+    const wrapper = setup({ combined_votes, tech_list }, null);
     const subzeroComponent = findByTestAttr(wrapper, "component-subzero");
     expect(subzeroComponent.length).toBe(1);
   });

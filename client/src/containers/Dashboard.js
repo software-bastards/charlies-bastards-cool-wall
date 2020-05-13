@@ -45,13 +45,16 @@ export class DashBoard extends Component {
       console.error(err);
     }
   };
-  /*
+
   handleLogOut = () => {
-    this.props.logOut();
     sessionStorage.removeItem("coolwall_admin");
-    this.setState({ navigate: true });
+    this.props.dispatch({
+      type: "END_SESSION",
+      token: false,
+    });
+
+    // this.setState({ navigate: true });
   };
-  */
 
   render() {
     if (!this.props.token) {
@@ -163,10 +166,5 @@ const mapStateToProps = (state) => {
     total_submissions: state.submissions.submissions,
   };
 };
-/*
-const mapDispatchToProps = (dispatch) => ({
-  logOut: () => dispatch({ type: "END_SESSION", token: false }),
-});
 
-*/
 export default connect(mapStateToProps)(DashBoard);

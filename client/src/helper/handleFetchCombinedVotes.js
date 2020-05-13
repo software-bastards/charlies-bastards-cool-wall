@@ -3,7 +3,7 @@ import Axios from "axios";
 /**
  * @method handleFetchCombinedVotes - fetches all the votes from the database
  * @param {}
- * @returns {Array<{id: Number, tech_name: String, vote_type: String}>} - returns the array of Votes
+ * @returns {Array<{subzero_votes: Number, cool_votes: Number, uncool_votes: Number, tech_list: {name: String}}>} - returns the array of Votes
  */
 
 const handleFetchCombinedVotes = async () => {

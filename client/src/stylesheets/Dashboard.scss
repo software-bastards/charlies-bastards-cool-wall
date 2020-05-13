@@ -5,7 +5,12 @@
   justify-content: center;
   align-items: center;
   flex-direction: row;
-  flex-grow: 1;
+}
+
+@media screen and (max-width: 500px) {
+  .dashboard--top_row {
+    flex-direction: column;
+  }
 }
 
 .dashboard--bottom_row {
@@ -18,10 +23,9 @@
 }
 
 .dashboard--top_col {
-  flex-grow: 1;
   width: calc(100% / 3);
   box-shadow: $box-shadow-dark-blue;
-  background-color: white;
+  background-color: $light-grey;
   border-radius: $border-radius;
   margin-top: 2%;
   margin-bottom: 2%;
@@ -39,6 +43,12 @@
   }
 }
 
+@media screen and (max-width: 500px) {
+  .dashboard--top_col {
+    width: 100%;
+  }
+}
+
 .dashboard--coolestShit_component {
   border-radius: 10px;
   box-shadow: 0px 4px 0px $dark-blue;
@@ -49,35 +59,69 @@
   margin-top: 25px;
 }
 .dashboard--top_p {
-  font-size: 0.8rem;
+  font-size: 11px;
   font-weight: 700;
   margin-left: 4%;
+  margin-top: 30px;
 }
 
 .dashboard--top_span {
-  font-size: 0.8rem;
+  font-size: 11px;
   margin-left: 4%;
 }
 
 .dashboard--bottom_col {
   box-shadow: $box-shadow-dark-blue;
-  background-color: white;
+  background-color: $light-grey;
   border-radius: $border-radius;
   margin-top: 2%;
   margin-bottom: 2%;
   height: 100%;
   line-height: 0.3;
+  flex-grow: 1;
   &:nth-child(1) {
     margin-left: 0%;
     margin-right: 1%;
-    flex-grow: 21;
+    width: calc((100% / 3) * 2);
   }
   &:nth-child(2) {
     margin-left: 1%;
     margin-right: 0%;
-    flex-grow: 1;
+    width: calc(97% / 3);
   }
 }
-.dashboard--components_bottom {
-  height: 100%;
+
+@media screen and (max-width: 500px) {
+  .dashboard--bottom_row {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .dashboard--bottom_col {
+    width: 100%;
+    &:nth-child(1) {
+      width: 100%;
+    }
+    &:nth-child(2) {
+      width: 100%;
+    }
+  }
+}
+
+.dashboard--flex {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: calc(100% / 3);
+}
+
+.dashboard--coolestShit_component {
+  background-color: white;
+}
+
+@media screen and (max-width: 500px) {
+  .dashboard--coolestShit_component {
+    margin-bottom: 40px;
+  }
 }

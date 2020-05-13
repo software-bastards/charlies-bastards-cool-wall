@@ -18,4 +18,8 @@ router.get("/", passport.authenticate("jwt", { session: false }), function (
   res.send(secureAdmin);
 });
 
+<<<<<<< HEAD
 module.exports = router;
+=======
+module.exports = router;
+>>>>>>> fa2dbba8b95e816148177164bc749742093caf34

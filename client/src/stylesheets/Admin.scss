@@ -61,8 +61,8 @@ input::placeholder {
   padding: 2%;
   border-radius: 10px;
   position: absolute;
-  top: -55px;
-  width: 150px;
+  top: -70px;
+  width: 200px;
   right: 0;
   &::after {
     content: "";
@@ -70,9 +70,21 @@ input::placeholder {
     height: 20px;
     background-color: $dark-blue;
     top: 200px;
+    // content: "";
+    // position: absolute;
+    // top: 100%;
+    // left: 50%;
+    // margin-left: -5px;
+    // border-width: 5px;
+    // border-style: solid;
+    // border-color: #555 transparent transparent transparent;
   }
 }
 
 .admin--flash_wrap {
   position: relative;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> fa2dbba8b95e816148177164bc749742093caf34

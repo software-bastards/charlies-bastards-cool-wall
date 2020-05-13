@@ -1,18 +1,30 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
-import CoolestShit from "../components/CoolestShit";
 import Logo from "../images/logo.svg";
 import "../stylesheets/Dashboard.scss";
+import "../stylesheets/global.scss";
+import "../stylesheets/CoolWall.scss";
+import CoolestShit from "../components/CoolestShit";
 import TotalSubmissions from "../components/TotalSubmissions";
 import TotalVotes from "../components/TotalVotes";
-import VotePercentage from "../components/VotePercentage";
 import TrendOverview from "../components/TrendOverview";
+import VotePercentage from "../components/VotePercentage";
 import handleFetchCombinedVotes from "../helper/handleFetchCombinedVotes";
-import { gettingCoolestShit } from "../helper/gettingCoolestShit";
+import handleFetchTotalSubmissions from "../helper/handleFetchTotalSubmissions";
+import calculateTotalVotes from "../helper/calculateTotalVotes";
+import gettingCoolestShit from "../helper/gettingCoolestShit";
 import { calculateVotePercentage } from "../helper/calculateVotePercentage";
 
 export class DashBoard extends Component {
+  state = {
+    combined_votes: [],
+    cool_technology: [],
+    uncool_technology: [],
+    subzero_technology: [],
+    navigate: false,
+  };
+
   componentDidMount = async () => {
     try {
       const results = await handleFetchCombinedVotes();
@@ -23,12 +35,37 @@ export class DashBoard extends Component {
     } catch (err) {
       console.error(err);
     }
+    try {
+      const results = await handleFetchTotalSubmissions();
+      this.props.dispatch({
+        type: "FETCH_TOTALSUBMISSIONS",
+        submissions: results,
+      });
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  handleLogOut = () => {
+    sessionStorage.removeItem("coolwall_admin");
+    this.props.dispatch({
+      type: "END_SESSION",
+      token: false,
+    });
+
+    // this.setState({ navigate: true });
   };
 
   render() {
     if (!this.props.token) {
       return <Redirect to="/admin" />;
     }
+    /*
+    const { navigate } = this.state;
+    if (navigate) {
+      return <Redirect to="/" push={true} />;
+    }
+    */
     return (
       <div data-test="component-dashboard" className="coolwall--wrapper">
         <div className="coolwall--left">
@@ -37,6 +74,15 @@ export class DashBoard extends Component {
           </div>
           <div className="coolwall--left_grey"></div>
           <p className="coolwall--copyright">@softwarebastards</p>
+          <div className="dashboard--submit">
+            <button
+              onClick={this.handleLogOut}
+              data-test="submit-button"
+              className="button--light_blue"
+            >
+              LogOut
+            </button>
+          </div>
         </div>
         <div className="coolwall--right">
           <div className="coolwall--right_top"></div>
@@ -45,12 +91,15 @@ export class DashBoard extends Component {
 
             <div className="dashboard--top_row">
               <div className="dashboard--top_col">
-                <p className="dashboard--top_p">The Coolest Shit</p>
-                <span className="dashboard--top_span">The Winner is</span>
+                <p className="dashboard--top_p">The Coolest Shit!</p>
+                <span className="dashboard--top_span">the winner is</span>
                 <div className="dashboard--coolestShit_component">
-                  {this.props.votes ? (
+                  {this.props.combined_votes ? (
                     <CoolestShit
-                      coolestShit={gettingCoolestShit(this.props.votes)}
+                      coolestshit_technology={gettingCoolestShit(
+                        this.props.combined_votes
+                      )}
+                      data-test="component-coolestshit"
                     />
                   ) : null}
                 </div>
@@ -61,7 +110,11 @@ export class DashBoard extends Component {
                   of trends in technology
                 </span>
                 <div className="dashboard--coolestShit_component">
-                  <TotalSubmissions />
+                  {this.props.total_submissions ? (
+                    <TotalSubmissions
+                      submission_count={this.props.total_submissions}
+                    />
+                  ) : null}
                 </div>
               </div>
               <div className="dashboard--top_col">
@@ -70,25 +123,31 @@ export class DashBoard extends Component {
                   of trends in technology
                 </span>
                 <div className="dashboard--coolestShit_component">
-                  <TotalVotes />
+                  {this.props.combined_votes ? (
+                    <TotalVotes
+                      total_votes={calculateTotalVotes(
+                        this.props.combined_votes
+                      )}
+                    />
+                  ) : null}
                 </div>
               </div>
             </div>
             <div className="dashboard--bottom_row">
               <div className="dashboard--bottom_col">
                 <p className="dashboard--top_p">Overview of the trends</p>
-
                 <div className="dashboard--components_bottom">
-                  <TrendOverview />
+                  <TrendOverview combined_votes={this.props.votes} />
                 </div>
               </div>
               <div className="dashboard--bottom_col">
-                <p className="dashboard--top_p">How many people voted for</p>
-
-                <div className="dashboard--components_bottom">
-                  {this.props.votes ? (
+                <p className="dashboard--top_p">Vote Percentage</p>
+                <div className="dashboard--components_bottom ">
+                  {this.props.combined_votes ? (
                     <VotePercentage
-                      votepercentage={calculateVotePercentage(this.props.votes)}
+                      votepercentage={calculateVotePercentage(
+                        this.props.combined_votes
+                      )}
                     />
                   ) : null}
                 </div>
@@ -103,7 +162,13 @@ export class DashBoard extends Component {
 const mapStateToProps = (state) => {
   return {
     token: state.auth.token,
-    votes: state.votes.votes,
+    combined_votes: state.votes.votes,
+    total_submissions: state.submissions.submissions,
   };
 };
+<<<<<<< HEAD
 export default connect(mapStateToProps)(DashBoard);
+=======
+
+export default connect(mapStateToProps)(DashBoard);
+>>>>>>> fa2dbba8b95e816148177164bc749742093caf34

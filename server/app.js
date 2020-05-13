@@ -14,6 +14,7 @@ const indexRouter = require("./routes/index");
 
 //GET routes
 const techlistRouter = require("./routes/techlist");
+const totalSubmissions = require("./routes/totalsubmissions");
 const combinedvotesRouter = require("./routes/combinedvotes");
 const dashboardRouter = require("./routes/dashboard");
 
@@ -28,7 +29,6 @@ const app = express();
 db.connector.sync();
 
 app.set("views", path.join(__dirname, "views"));
-
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -43,6 +43,10 @@ app.use("/submitvote", submitvoteRouter);
 app.use("/admin_register", adminregisterRouter);
 app.use("/admin_login", adminloginRouter);
 app.use("/dashboard", dashboardRouter);
+<<<<<<< HEAD
+=======
+app.use("/totalsubmissions", totalSubmissions);
+>>>>>>> fa2dbba8b95e816148177164bc749742093caf34
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

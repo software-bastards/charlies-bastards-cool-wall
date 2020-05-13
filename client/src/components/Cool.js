@@ -2,14 +2,14 @@ import React from "react";
 import ProgressBar from "./ProgressBar";
 import calculateProgressBarPercent from "../helper/calculateProgressBarPercent";
 import CoolIcon from "../images/cool.svg";
+import { gettingTechIcon } from "../helper/gettingTechIcon";
 import "../stylesheets/Cool.scss";
-import VueLogo from "../images/vue.svg";
 
 const blue = "#145cc6";
 const red = "#ff0013";
 const yellow = "#ffb000";
 
-function Cool({ cool_technology }) {
+function Cool({ cool_technology, tech_list }) {
   return (
     <div data-test="component-cool" className="cool-wrapper">
       <div className="cool--head">
@@ -23,7 +23,12 @@ function Cool({ cool_technology }) {
           key={index}
         >
           <div className="cool--logo_wrap">
-            <img className="vue--logo" src={VueLogo} alt="Vue Logo" />
+            <div
+              className="vue--logo"
+              dangerouslySetInnerHTML={{
+                __html: gettingTechIcon(tech_list, technology.tech_list.name),
+              }}
+            ></div>
           </div>
           <div className="cool--technology_flex">
             <h3 className="cool--technology_name">

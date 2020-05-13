@@ -129,6 +129,7 @@ export class TechVote extends Component {
 const mapStateToProps = (state) => {
   return {
     tech_list: state.tech.list,
+    
   };
 };
 

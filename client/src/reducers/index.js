@@ -10,12 +10,4 @@ const allReducers = combineReducers({
   tech: techlistReducer,
   submissions: totalsubmissionsReducer,
 });
-<<<<<<< HEAD
 export default allReducers;
-=======
-<<<<<<< HEAD
-export default allReducers;
-=======
-export default allReducers;
->>>>>>> fa2dbba8b95e816148177164bc749742093caf34
->>>>>>> feature-admin-register

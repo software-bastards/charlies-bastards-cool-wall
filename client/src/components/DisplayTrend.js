@@ -65,6 +65,7 @@ export class DisplayTrend extends Component {
 const mapStateToProps = (state) => {
   return {
     combined_votes: state.votes.votes,
+    tech_list: state.tech.list,
 };
 }
 

@@ -23,7 +23,7 @@ function SubZero({ subzero_technology, svg }) {
           data-test="technology-section"
           key={index}
         >
-          <div className="subzero--logo-wrap">
+          <div className="subzero--logo_wrap">
             <div
               className="vue--logo"
               dangerouslySetInnerHTML={{ __html: newImage }}

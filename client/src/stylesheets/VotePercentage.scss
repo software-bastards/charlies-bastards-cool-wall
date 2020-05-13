@@ -1,5 +1,60 @@
+@import "../stylesheets/global.scss";
+
 .votepercentage--wrapper {
   height: 100%;
   display: flex;
   flex-direction: column;
+  font-weight: 700;
+}
+
+.votepercentage--descricption_wrap p {
+  font-size: 11px;
+  margin-left: $margin;
+  padding-bottom: 2px;
+  &:nth-child(1) {
+    color: $yellow;
+    position: relative;
+    &::after {
+      content: "";
+      width: 30px;
+      height: 8px;
+      background-color: $yellow;
+      position: absolute;
+      bottom: -2px;
+      border-radius: 5px;
+      margin-left: 30px;
+    }
+  }
+  &:nth-child(2) {
+    color: $red;
+    position: relative;
+    &::after {
+      content: "";
+      width: 30px;
+      height: 8px;
+      background-color: $red;
+      position: absolute;
+      bottom: -2px;
+      border-radius: 5px;
+      margin-left: 45px;
+    }
+  }
+  &:nth-child(3) {
+    color: $blue;
+    position: relative;
+    &::after {
+      content: "";
+      width: 30px;
+      height: 8px;
+      background-color: $blue;
+      position: absolute;
+      bottom: -2px;
+      border-radius: 5px;
+      margin-left: 23px;
+    }
+  }
+}
+
+.votepercentage--circle_wrap {
+  margin-top: 12%;
 }

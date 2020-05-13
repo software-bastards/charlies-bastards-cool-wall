@@ -1,10 +1,6 @@
 import isAdminAuthenticated from "../helper/isAdminAuthenticated";
 const initialState = {
-<<<<<<< HEAD
-  token: isAdminAuthenticated(),
-=======
   token: isAdminAuthenticated() ? true : false,
->>>>>>> fa2dbba8b95e816148177164bc749742093caf34
 };
 
 export default function (state = initialState, action) {
@@ -16,12 +12,4 @@ export default function (state = initialState, action) {
     default:
       return state;
   }
-<<<<<<< HEAD
 }
-=======
-<<<<<<< HEAD
-}
-=======
-}
->>>>>>> fa2dbba8b95e816148177164bc749742093caf34
->>>>>>> feature-admin-register

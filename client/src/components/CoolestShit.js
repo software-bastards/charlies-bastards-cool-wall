@@ -1,9 +1,4 @@
-<<<<<<< HEAD
-import React, { Component } from "react";
-import { connect } from "react-redux";
-=======
 import React from "react";
->>>>>>> feature-admin-register
 import ProgressBar from "./ProgressBar";
 import calculateProgressBarPercent from "../helper/calculateProgressBarPercent";
 import "../stylesheets/SubZero.scss";

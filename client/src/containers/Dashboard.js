@@ -15,6 +15,9 @@ import handleFetchTotalSubmissions from "../helper/handleFetchTotalSubmissions";
 import calculateTotalVotes from "../helper/calculateTotalVotes";
 import gettingCoolestShit from "../helper/gettingCoolestShit";
 import { calculateVotePercentage } from "../helper/calculateVotePercentage";
+import Cool from "../images/cool.svg";
+import UnCool from "../images/uncool.svg";
+import SubZero from "../images/subzero.svg";
 
 export class DashBoard extends Component {
   state = {
@@ -45,13 +48,16 @@ export class DashBoard extends Component {
       console.error(err);
     }
   };
-  /*
+
   handleLogOut = () => {
-    this.props.logOut();
     sessionStorage.removeItem("coolwall_admin");
-    this.setState({ navigate: true });
+    this.props.dispatch({
+      type: "END_SESSION",
+      token: false,
+    });
+
+    // this.setState({ navigate: true });
   };
-  */
 
   render() {
     if (!this.props.token) {
@@ -65,6 +71,27 @@ export class DashBoard extends Component {
     */
     return (
       <div data-test="component-dashboard" className="coolwall--wrapper">
+        <div className="coolwall--animation_wrap">
+          <div className="coolwall--icons_wrap">
+            <div className="coolwall--icon_col">
+              <img
+                className="coolwall--icon_img"
+                src={UnCool}
+                alt="uncool logo"
+              />
+            </div>
+            <div className="coolwall--icon_col">
+              <img className="coolwall--icon_img" src={Cool} alt="cool logo" />
+            </div>
+            <div className="coolwall--icon_col">
+              <img
+                className="coolwall--icon_img"
+                src={SubZero}
+                alt="subzero logo"
+              />
+            </div>
+          </div>
+        </div>
         <div className="coolwall--left">
           <div className="coolwall--left_white">
             <img className="coolwall--logo" src={Logo} alt="Logo CoolWall" />
@@ -164,10 +191,5 @@ const mapStateToProps = (state) => {
     total_submissions: state.submissions.submissions,
   };
 };
-/*
-const mapDispatchToProps = (dispatch) => ({
-  logOut: () => dispatch({ type: "END_SESSION", token: false }),
-});
 
-*/
 export default connect(mapStateToProps)(DashBoard);

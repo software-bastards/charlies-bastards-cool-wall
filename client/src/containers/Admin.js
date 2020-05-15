@@ -40,7 +40,7 @@ export class Admin extends Component {
           });
         } else if (response.hasOwnProperty("token")) {
           this.props.loginSuccess();
-          sessionStorage.setItem("jwt", response.token);
+          sessionStorage.setItem("coolwall_admin", response.token);
           this.setState({
             flash: "",
             email: "",

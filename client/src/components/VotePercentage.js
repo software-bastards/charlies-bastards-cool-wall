@@ -9,7 +9,10 @@ const lightblue = "#b7c9f7";
 
 export default function VotePercentage({ votepercentage }) {
   return (
-    <div className="votepercentage--wrapper">
+    <div
+      className="votepercentage--wrapper"
+      data-test="component-votepercentage"
+    >
       <div className="votepercentage--descricption_wrap">
         <p className="votepercentage--descricption_span">UnCool</p>
         <p className="votepercentage--descricption_span">Cool</p>
@@ -17,6 +20,7 @@ export default function VotePercentage({ votepercentage }) {
       </div>
       <div className="votepercentage--circle_wrap">
         <CircleProgressBar
+          data-test="cool-progressbar"
           progress={votepercentage.cool}
           size={100}
           strokeWidth={5}
@@ -24,6 +28,7 @@ export default function VotePercentage({ votepercentage }) {
           circleTwoStroke={lightblue}
         />
         <CircleProgressBar
+          data-test="uncool-progressbar"
           progress={votepercentage.uncool}
           progress2={100}
           size={100}
@@ -32,6 +37,7 @@ export default function VotePercentage({ votepercentage }) {
           circleTwoStroke={lightblue}
         />
         <CircleProgressBar
+          data-test="subzero-progressbar"
           progress={votepercentage.subzero}
           size={100}
           strokeWidth={5}

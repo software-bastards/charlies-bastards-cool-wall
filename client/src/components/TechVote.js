@@ -67,12 +67,14 @@ export class TechVote extends Component {
   }
 
   handleVoteSubmit = () => {
-    handlePostVoteData(this.state.vote_list)
-      .then((response) => {
-        this.setState({ flash: response.data.message });
-        this.props.dispatch(submitvote(this.state.vote_list));
-      })
-      .catch((err) => this.setState({ flash: err.flash }));
+    if (this.state.vote_list.length > 0) {
+      handlePostVoteData(this.state.vote_list)
+        .then((response) => {
+          this.setState({ flash: response.data.message });
+          this.props.dispatch(submitvote(this.state.vote_list));
+        })
+        .catch((err) => this.setState({ flash: err.flash }));
+    }
   };
 
   handleClosePopUp = () => {

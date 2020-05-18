@@ -19,6 +19,7 @@ const dashboardRouter = require("./routes/dashboard");
 const submitvoteRouter = require("./routes/submitvote");
 const adminregisterRouter = require("./routes/admin_register");
 const adminloginRouter = require("./routes/admin_login");
+const addSvgImageRouter = require("./routes/addSvgImage");
 
 const app = express();
 
@@ -39,6 +40,7 @@ app.use("/admin_register", adminregisterRouter);
 app.use("/admin_login", adminloginRouter);
 app.use("/dashboard", dashboardRouter);
 app.use("/totalsubmissions", totalSubmissions);
+app.use("/upload_svg", addSvgImageRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

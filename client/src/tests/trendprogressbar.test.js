@@ -4,7 +4,7 @@ import TrendProgressBar from "../components/TrendProgressBar";
 
 
 /**
- * Factory function to create a ShallowWrapper for the ProgressBar component.
+ * Factory function to create a ShallowWrapper for the TrendProgressBar component.
  * @function setup
  * @param {object} props - component props specific to this setup.
 

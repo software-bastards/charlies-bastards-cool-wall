@@ -30,7 +30,7 @@ router.put("/", passport.authenticate("jwt", { session: false }), function (
   res
 ) {
   /* Hashing incoming password */
-  console.log(req.body);
+
   bcrypt
     .hash(req.body.password, 10)
     .then((hashedPassword) => {
@@ -42,7 +42,7 @@ router.put("/", passport.authenticate("jwt", { session: false }), function (
         .then(() =>
           res
             .status(200)
-            .send({ message: "You've successfully changed the pssword!" })
+            .send({ message: "You've successfully changed the password!" })
         )
         .catch((userErr) => console.error(`User error: ${userErr}`));
     })

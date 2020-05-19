@@ -30,7 +30,7 @@ router.put("/", passport.authenticate("jwt", { session: false }), function (
   res
 ) {
   /* Hashing incoming password */
-
+  console.log(req.body);
   bcrypt
     .hash(req.body.password, 10)
     .then((hashedPassword) => {

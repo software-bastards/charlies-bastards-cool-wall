@@ -52,7 +52,7 @@ class ChangePwd extends Component {
 
   render() {
     return (
-      <div data-test="component-admin" className="coolwall--wrapper">
+      <div data-test="component-changepwd" className="coolwall--wrapper">
         <div className="coolwall--right">
           <div className="admin--right_wrapper">
             <div className="admin--form_wrap">
@@ -83,7 +83,7 @@ class ChangePwd extends Component {
                       className="form--input"
                       value={this.state.confirmpassword}
                       onChange={this.updateConfirmPwdField}
-                      data-test="input-password"
+                      data-test="input-confirmpassword"
                     />
                   </div>
                   <button type="submit" className="button--light_blue">

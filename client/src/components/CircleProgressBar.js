@@ -23,7 +23,7 @@ export default function CircleProgressBar(props) {
   const offsetSecondCircle = 100 * circumference;
 
   return (
-    <div>
+    <div data-test="component-circleprogressbar">
       <svg className="svg" width={size} height={size}>
         <circle
           className="svg-circle"

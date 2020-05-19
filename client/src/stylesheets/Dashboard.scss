@@ -10,6 +10,7 @@
 @media screen and (max-width: 500px) {
   .dashboard--top_row {
     flex-direction: column;
+    height: initial;
   }
 }
 
@@ -19,6 +20,13 @@
   justify-content: center;
   align-items: center;
   flex-direction: row;
+  height: 60vh;
+}
+
+@media screen and (max-width: 500px) {
+  .dashboard--bottom_row {
+    height: 100vh;
+  }
 }
 
 .dashboard--top_col {
@@ -58,7 +66,7 @@
   margin-top: 25px;
 }
 .dashboard--top_p {
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 700;
   margin-left: 4%;
   margin-top: 30px;

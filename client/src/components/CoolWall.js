@@ -37,8 +37,23 @@ class CoolWall extends Component {
           <div className="coolwall--left_white">
             <img className="coolwall--logo" src={Logo} alt="Logo CoolWall" />
           </div>
-          <div className="coolwall--left_grey"></div>
-          <p className="coolwall--copyright">@softwarebastards</p>
+          <div className="coolwall--left_grey">
+            <div className="coolwall--credentials">
+              <p className="coolwall--copyright">@softwarebastards</p>
+              <div className="coolwall--author">
+                <p className="coolwall--author_p">Created by</p>
+                <a className="coolwall--author_a" href="">
+                  Elsabeth Desta
+                </a>
+                <a className="coolwall--author_a" href="">
+                  Anuradhav Sivasubramanian
+                </a>
+                <a className="coolwall--author_a" href="">
+                  Birte Spreuer
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
         <div className="coolwall--right">
           <div className="coolwall--right_top"></div>

@@ -24,6 +24,9 @@
 }
 
 @keyframes circlefill {
+  99% {
+    stroke-dashoffset: 0;
+  }
   to {
     stroke-dashoffset: 0;
   }

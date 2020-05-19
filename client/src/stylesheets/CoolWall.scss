@@ -9,7 +9,7 @@
   flex-direction: row;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 769px) {
   .coolwall--wrapper {
     flex-direction: column;
   }
@@ -21,9 +21,11 @@
   background-color: $dark-grey;
   display: flex;
   flex-direction: column;
+  box-shadow: 12px -1px 16px rgba(93, 100, 134, 0.3);
+  z-index: 100;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 769px) {
   .coolwall--left {
     flex-direction: row;
     width: 100%;
@@ -38,7 +40,7 @@
   flex-direction: column;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 769px) {
   .coolwall--right {
     width: 100%;
   }
@@ -48,9 +50,10 @@
   background-color: white;
   height: 25vh;
   position: relative;
+  padding: 2%;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 769px) {
   .coolwall--left_white {
     width: 40%;
     height: 15vh;
@@ -58,26 +61,24 @@
 }
 
 .coolwall--logo {
-  width: 140px;
+  width: 170px;
   position: absolute;
   right: 10px;
   top: 10px;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 769px) {
   .coolwall--logo {
-    width: 100px;
-    left: 10px;
+    width: 160px;
+    left: 20px;
   }
 }
 
-.coolwall--copyright {
-  font-size: 15px;
-  font-family: $font-Roboto;
-  color: $light-blue;
-  margin-left: $margin * 2;
-  margin-top: $margin * 2;
-  margin-bottom: $margin;
+@media screen and (max-width: 414px) {
+  .coolwall--logo {
+    width: 90px;
+    left: 20px;
+  }
 }
 
 .coolwall--right_wrapper {
@@ -105,29 +106,25 @@
 
 .right--top_p {
   font-family: $font-SpaceMono;
-  font-size: 0.8rem;
+  font-size: 1rem;
+  padding-bottom: 1rem;
 }
 
 .coolwall--left_grey {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   flex-direction: column;
   height: 75vh;
+  justify-content: flex-end;
+  margin-bottom: 20%;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 769px) {
   .coolwall--left_grey {
     width: 60%;
     height: 15vh;
-    align-items: flex-start;
-  }
-}
-
-@media screen and (max-width: 500px) {
-  .dashboard--submit {
-    margin-left: 20px;
-    margin-bottom: $margin;
+    justify-content: center;
+    margin-bottom: 0;
   }
 }
 
@@ -138,7 +135,7 @@
   width: 100%;
   height: 100%;
   position: absolute;
-  z-index: 100;
+  z-index: 1000;
   animation: FadeIn forwards 1s ease-out;
   animation-delay: 1s;
   pointer-events: none;
@@ -178,4 +175,48 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.coolwall--author {
+  display: flex;
+  flex-direction: column;
+  font-family: $font-SpaceMono;
+}
+
+.coolwall--credentials {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  font-size: 12px;
+  color: $dark-blue;
+  padding: $margin;
+  padding-right: 20px;
+  padding-bottom: 20px;
+}
+
+@media screen and (max-width: 769px) {
+  .coolwall--credentials {
+    display: none;
+  }
+}
+
+.coolwall--author_a {
+  color: $dark-blue;
+  text-decoration: none;
+  &:hover {
+    color: $blue;
+    transition: 1s;
+  }
+}
+
+.coolwall--author_p {
+  color: $yellow;
+}
+
+.coolwall--copyright {
+  font-size: 15px;
+  font-family: $font-Roboto;
+  color: $dark-blue;
+  margin-top: $margin * 2;
+  margin-bottom: $margin;
 }

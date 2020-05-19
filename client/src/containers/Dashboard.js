@@ -97,7 +97,6 @@ export class DashBoard extends Component {
             <img className="coolwall--logo" src={Logo} alt="Logo CoolWall" />
           </div>
           <div className="coolwall--left_grey">
-            <p className="coolwall--copyright">@softwarebastards</p>
             <div className="dashboard--submit">
               <button
                 onClick={this.handleLogOut}

@@ -102,15 +102,10 @@ export class TechVote extends Component {
           ) : (
             <div
               className="techvote--popup_wrap"
-              onClick={this.handlePopUpClose}
+              onClick={this.handleClosePopUp}
             >
               <p>{this.state.flash}</p>
-              <img
-                className="close--button"
-                src={closeIcon}
-                alt="Close"
-                onClick={this.handleClosePopUp}
-              />
+              <img className="close--button" src={closeIcon} alt="Close" />
             </div>
           )}
         </div>

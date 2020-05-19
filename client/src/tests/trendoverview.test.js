@@ -1,37 +1,27 @@
-// import React from "react";
-// import { shallow } from "enzyme";
-// import TrendOverview from "../components/TrendOverview";
+import React from 'react';
+import { shallow } from 'enzyme';
+import { Provider } from 'react-redux';
+import configureStore from 'redux-mock-store';
+import TrendOverview from "../components/TrendOverview";
 
-// import { Provider } from 'react-redux';
-// import renderer from 'react-test-renderer';
-// import configureStore from 'redux-mock-store';
-// /**
-//  * Factory function to create a ShallowWrapper for the TrendOverview component.
-//  * @function setup
-//  * @param {object} props - component props specific to this setup.
+const mockStore = configureStore();
+const store = mockStore({
 
-//  * @returns {ShallowWrapper}
-//  */
-// const setup = (props = {}) => {
-//   const wrapper = shallow(<TrendOverview {...props} />);
+    subzero_votes:10, 
+    cool_votes: 5, 
+    uncool_votes: 3, 
+    tech_list: {name: "Express"}
+});
 
-//   return wrapper;
-// };
+const props = {};
 
-// /**
-//  * Return ShallowWrapper containing node(s) with the given data-test value.
-//  * @param {ShallowWrapper} wrapper - Enzyme shallow wrapper to search within.
-//  * @param {string} val - Value of data-test for search.
-//  * @returns {ShallowWrapper}
-//  */
-
-// const findByTestAttr = (wrapper, val) => {
-//   return wrapper.find(`[data-test="${val}"]`);
-// };
-
-
-// test("renders without error", () => {
-//   const wrapper = setup();
-//   const trendOverviewComponent = findByTestAttr(wrapper, "component-trendoverivew");
-//   expect(trendOverviewComponent.length).toBe(1);
-// });
+describe('component-trendoverview', () => {
+    it('should render correctly with default props and redux store', () => {
+        const wrapper = shallow(
+            <Provider store={store}>
+                <TrendOverview {...props} />
+            </Provider>
+        );
+        expect(wrapper).toMatchSnapshot();
+    });
+});

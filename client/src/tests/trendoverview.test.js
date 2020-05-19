@@ -13,10 +13,13 @@ const store = mockStore({
     tech_list: {name: "Express"}
 });
 
-const props = {};
+const props = {subzero_votes:10, 
+    cool_votes: 5, 
+    uncool_votes: 3, 
+    tech_list: {name: "Express"}};
 
 describe('component-trendoverview', () => {
-    it('should render correctly with default props and redux store', () => {
+    it('should render correctly with props and redux store', () => {
         const wrapper = shallow(
             <Provider store={store}>
                 <TrendOverview {...props} />

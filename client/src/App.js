@@ -5,7 +5,11 @@ import Admin from "./containers/Admin";
 import Dashboard from "./containers/Dashboard";
 import "./stylesheets/global.scss";
 
-class App extends Component {
+
+
+
+
+export default class App extends Component {
   render() {
     return (
       <BrowserRouter>
@@ -27,4 +31,3 @@ class App extends Component {
   }
 }
 
-export default App;

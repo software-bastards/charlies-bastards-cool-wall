@@ -17,14 +17,6 @@ import gettingCoolestShit from "../helper/gettingCoolestShit";
 import { calculateVotePercentage } from "../helper/calculateVotePercentage";
 
 export class DashBoard extends Component {
-  state = {
-    combined_votes: [],
-    cool_technology: [],
-    uncool_technology: [],
-    subzero_technology: [],
-    navigate: false,
-  };
-
   componentDidMount = async () => {
     try {
       const results = await handleFetchCombinedVotes();
@@ -52,20 +44,13 @@ export class DashBoard extends Component {
       type: "END_SESSION",
       token: false,
     });
-
-    // this.setState({ navigate: true });
   };
 
   render() {
     if (!this.props.token) {
       return <Redirect to="/admin" />;
     }
-    /*
-    const { navigate } = this.state;
-    if (navigate) {
-      return <Redirect to="/" push={true} />;
-    }
-    */
+
     return (
       <div data-test="component-dashboard" className="coolwall--wrapper">
         <div className="coolwall--left">

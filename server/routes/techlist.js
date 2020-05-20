@@ -22,7 +22,7 @@ router.get("/", function (req, res, next) {
       const updatedTech = technologies.map((item) => {
         return {
           ...item,
-          svgpath: `http://localhost:5000/svgImage-1589634400701-581861273.svg`,
+          svgpath: `http://localhost:5000/vue.png`,
         };
       });
       res.send(updatedTech);

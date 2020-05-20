@@ -30,7 +30,7 @@ function Cool({ cool_technology, tech_list }) {
               }}
             ></div> */}
             <div className="vue--logo">
-              <img src={tech_list[0].svgpath} />
+              <img src={tech_list[0].svgpath} alt="logo" />
             </div>
           </div>
           <div className="cool--technology_flex">

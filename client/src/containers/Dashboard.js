@@ -14,17 +14,13 @@ import handleFetchCombinedVotes from "../helper/handleFetchCombinedVotes";
 import handleFetchTotalSubmissions from "../helper/handleFetchTotalSubmissions";
 import calculateTotalVotes from "../helper/calculateTotalVotes";
 import gettingCoolestShit from "../helper/gettingCoolestShit";
+import ChangePwd from "../components/ChangePwd";
 import { calculateVotePercentage } from "../helper/calculateVotePercentage";
 
 export class DashBoard extends Component {
   state = {
-    combined_votes: [],
-    cool_technology: [],
-    uncool_technology: [],
-    subzero_technology: [],
-    navigate: false,
+    changePwdMounted: false,
   };
-
   componentDidMount = async () => {
     try {
       const results = await handleFetchCombinedVotes();
@@ -48,24 +44,22 @@ export class DashBoard extends Component {
 
   handleLogOut = () => {
     sessionStorage.removeItem("coolwall_admin");
+    sessionStorage.removeItem("coolwall_admin_email");
     this.props.dispatch({
       type: "END_SESSION",
       token: false,
+      email: "",
     });
-
-    // this.setState({ navigate: true });
+  };
+  toggleChangePwd = () => {
+    this.setState({ changePwdMounted: !this.state.changePwdMounted });
   };
 
   render() {
     if (!this.props.token) {
       return <Redirect to="/admin" />;
     }
-    /*
-    const { navigate } = this.state;
-    if (navigate) {
-      return <Redirect to="/" push={true} />;
-    }
-    */
+
     return (
       <div data-test="component-dashboard" className="coolwall--wrapper">
         <div className="coolwall--left">
@@ -82,78 +76,102 @@ export class DashBoard extends Component {
             >
               LogOut
             </button>
+            {!this.state.changePwdMounted ? (
+              <button
+                onClick={this.toggleChangePwd}
+                data-test="submit-button"
+                className="button--light_blue"
+              >
+                Change Password
+              </button>
+            ) : (
+              <button
+                onClick={this.toggleChangePwd}
+                data-test="submit-button"
+                className="button--light_blue"
+              >
+                Back
+              </button>
+            )}
           </div>
         </div>
         <div className="coolwall--right">
           <div className="coolwall--right_top"></div>
-          <div className="coolwall--right_wrapper">
-            <p className="right--top_p">Dashboard of the last 30 days!</p>
+          {this.state.changePwdMounted ? (
+            <ChangePwd
+              email={this.props.email}
+              handleChangePwdClose={this.handleLogOut}
+            />
+          ) : (
+            <div className="coolwall--right_wrapper">
+              <p className="right--top_p">Dashboard of the last 30 days!</p>
 
-            <div className="dashboard--top_row">
-              <div className="dashboard--top_col">
-                <p className="dashboard--top_p">The Coolest Shit!</p>
-                <span className="dashboard--top_span">the winner is</span>
-                <div className="dashboard--coolestShit_component">
-                  {this.props.combined_votes ? (
-                    <CoolestShit
-                      coolestshit_technology={gettingCoolestShit(
-                        this.props.combined_votes
-                      )}
-                      data-test="component-coolestshit"
-                    />
-                  ) : null}
+              <div className="dashboard--top_row">
+                <div className="dashboard--top_col">
+                  <p className="dashboard--top_p">The Coolest Shit!</p>
+                  <span className="dashboard--top_span">the winner is</span>
+                  <div className="dashboard--coolestShit_component">
+                    {this.props.combined_votes ? (
+                      <CoolestShit
+                        coolestshit_technology={gettingCoolestShit(
+                          this.props.combined_votes
+                        )}
+                        data-test="component-coolestshit"
+                      />
+                    ) : null}
+                  </div>
+                </div>
+                <div className="dashboard--top_col">
+                  <p className="dashboard--top_p">Submissions in total</p>
+                  <span className="dashboard--top_span">
+                    of trends in technology
+                  </span>
+                  <div className="dashboard--coolestShit_component">
+                    {this.props.total_submissions ? (
+                      <TotalSubmissions
+                        submission_count={this.props.total_submissions}
+                      />
+                    ) : null}
+                  </div>
+                </div>
+                <div className="dashboard--top_col">
+                  <p className="dashboard--top_p">Votes in total</p>
+                  <span className="dashboard--top_span">
+                    of trends in technology
+                  </span>
+                  <div className="dashboard--coolestShit_component">
+                    {this.props.combined_votes ? (
+                      <TotalVotes
+                        total_votes={calculateTotalVotes(
+                          this.props.combined_votes
+                        )}
+                      />
+                    ) : null}
+                  </div>
                 </div>
               </div>
-              <div className="dashboard--top_col">
-                <p className="dashboard--top_p">Submissions in total</p>
-                <span className="dashboard--top_span">
-                  of trends in technology
-                </span>
-                <div className="dashboard--coolestShit_component">
-                  {this.props.total_submissions ? (
-                    <TotalSubmissions
-                      submission_count={this.props.total_submissions}
-                    />
-                  ) : null}
+              <div className="dashboard--bottom_row">
+                <div className="dashboard--bottom_col">
+                  <p className="dashboard--top_p">Overview of the trends</p>
+                  <div className="dashboard--components_bottom">
+                    <TrendOverview combined_votes={this.props.votes} />
+                  </div>
                 </div>
-              </div>
-              <div className="dashboard--top_col">
-                <p className="dashboard--top_p">Votes in total</p>
-                <span className="dashboard--top_span">
-                  of trends in technology
-                </span>
-                <div className="dashboard--coolestShit_component">
-                  {this.props.combined_votes ? (
-                    <TotalVotes
-                      total_votes={calculateTotalVotes(
-                        this.props.combined_votes
-                      )}
-                    />
-                  ) : null}
+                <div className="dashboard--bottom_col">
+                  <p className="dashboard--top_p">Vote Percentage</p>
+                  <div className="dashboard--components_bottom ">
+                    {this.props.combined_votes ? (
+                      <VotePercentage
+                        votepercentage={calculateVotePercentage(
+                          this.props.combined_votes
+                        )}
+                      />
+                    ) : null}
+                  </div>
                 </div>
               </div>
             </div>
-            <div className="dashboard--bottom_row">
-              <div className="dashboard--bottom_col">
-                <p className="dashboard--top_p">Overview of the trends</p>
-                <div className="dashboard--components_bottom">
-                  <TrendOverview combined_votes={this.props.votes} />
-                </div>
-              </div>
-              <div className="dashboard--bottom_col">
-                <p className="dashboard--top_p">Vote Percentage</p>
-                <div className="dashboard--components_bottom ">
-                  {this.props.combined_votes ? (
-                    <VotePercentage
-                      votepercentage={calculateVotePercentage(
-                        this.props.combined_votes
-                      )}
-                    />
-                  ) : null}
-                </div>
-              </div>
-            </div>
-          </div>
+          )}
         </div>
       </div>
     );
@@ -162,13 +180,19 @@ export class DashBoard extends Component {
 const mapStateToProps = (state) => {
   return {
     token: state.auth.token,
+    email: state.auth.email,
     combined_votes: state.votes.votes,
     total_submissions: state.submissions.submissions,
   };
 };
+<<<<<<< HEAD
 <<<<<<< HEAD
 export default connect(mapStateToProps)(DashBoard);
 =======
 
 export default connect(mapStateToProps)(DashBoard);
 >>>>>>> fa2dbba8b95e816148177164bc749742093caf34
+=======
+
+export default connect(mapStateToProps)(DashBoard);
+>>>>>>> 3b0c55bb2da436bcb4aa6793b3f1cdaf7795464a

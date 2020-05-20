@@ -9,9 +9,6 @@ const logger = require("morgan");
 const db = require("./database/models/index.js");
 require("./auth");
 
-//GET ROUTES
-const indexRouter = require("./routes/index");
-
 //GET routes
 const techlistRouter = require("./routes/techlist");
 const totalSubmissions = require("./routes/totalsubmissions");
@@ -35,8 +32,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
-app.use("/", indexRouter);
-
 app.use("/techlist", techlistRouter);
 app.use("/combinedvotes", combinedvotesRouter);
 app.use("/submitvote", submitvoteRouter);
@@ -44,9 +39,13 @@ app.use("/admin_register", adminregisterRouter);
 app.use("/admin_login", adminloginRouter);
 app.use("/dashboard", dashboardRouter);
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 app.use("/totalsubmissions", totalSubmissions);
 >>>>>>> fa2dbba8b95e816148177164bc749742093caf34
+=======
+app.use("/totalsubmissions", totalSubmissions);
+>>>>>>> 3b0c55bb2da436bcb4aa6793b3f1cdaf7795464a
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

@@ -7,6 +7,7 @@
 export function submitvote(vote_list) {
   return function (dispatch, getState) {
     const state = getState();
+
     let updatedCombinedVotes = state.votes.votes;
 
     vote_list.forEach((newVote) => {

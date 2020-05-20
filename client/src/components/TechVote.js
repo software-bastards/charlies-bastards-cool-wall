@@ -13,6 +13,7 @@ export class TechVote extends Component {
     tech_list: [],
     vote_list: [],
     flash: "",
+    submit_empty_votelist: false,
   };
 
   componentDidMount = async () => {
@@ -42,6 +43,7 @@ export class TechVote extends Component {
           vote_type: vote_type,
         },
       ],
+      submit_empty_votelist: false,
     });
   };
 
@@ -67,14 +69,15 @@ export class TechVote extends Component {
   }
 
   handleVoteSubmit = () => {
-    if (this.state.vote_list.length > 0) {
+    if (this.state.vote_list.length === 0) {
+      this.setState({ submit_empty_votelist: true });
+    } else
       handlePostVoteData(this.state.vote_list)
         .then((response) => {
           this.setState({ flash: response.data.message });
           this.props.dispatch(submitvote(this.state.vote_list));
         })
         .catch((err) => this.setState({ flash: err.flash }));
-    }
   };
 
   handleClosePopUp = () => {
@@ -84,28 +87,49 @@ export class TechVote extends Component {
     });
   };
 
+  handleCloseEmptySubmit = () => {
+    this.setState({
+      submit_empty_votelist: false,
+    });
+  };
+
   render() {
     return (
       <div data-test="component-techvote" className="techvote--wrapper">
         <div className="techvote--displayforvote">
           <div className="techvote--displayforvote_shadow"></div>
-          {!this.state.flash ? (
-            this.state.tech_list.map((tech) => (
-              <div key={tech.id}>
-                <DisplayForVote
-                  data-test="displayvote-section"
-                  technology={tech}
-                  storeVote={this.storeVote}
-                />
+          {!this.state.submit_empty_votelist ? (
+            !this.state.flash ? (
+              this.state.tech_list.map((tech) => (
+                <div key={tech.id}>
+                  <DisplayForVote
+                    data-test="displayvote-section"
+                    technology={tech}
+                    storeVote={this.storeVote}
+                  />
+                </div>
+              ))
+            ) : (
+              <div
+                className="techvote--popup_wrap"
+                onClick={this.handleClosePopUp}
+              >
+                <p>{this.state.flash}</p>
+                <img className="close--button" src={closeIcon} alt="Close" />
               </div>
-            ))
+            )
           ) : (
             <div
               className="techvote--popup_wrap"
-              onClick={this.handleClosePopUp}
+              onClick={this.handleCloseEmptySubmit}
             >
-              <p>{this.state.flash}</p>
-              <img className="close--button" src={closeIcon} alt="Close" />
+              <p>Please cast a vote!</p>
+              <img
+                className="close--button"
+                src={closeIcon}
+                alt="Close"
+                onClick={this.handleCloseEmptySubmit}
+              />
             </div>
           )}
         </div>

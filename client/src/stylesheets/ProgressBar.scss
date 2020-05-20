@@ -28,6 +28,9 @@ $yellow: #ffb000;
   height: 60%;
   border-radius: inherit;
   margin-left: 55px;
+  animation: progressbarfiller 2s reverse;
+  animation-delay: 2s;
+  animation-timing-function: ease-in;
 }
 
 .progress--bar_name {
@@ -36,4 +39,10 @@ $yellow: #ffb000;
   width: calc(100% / 3);
   margin-left: $margin-sm;
   position: absolute;
+}
+
+@keyframes progressbarfiller {
+  to {
+    width: 0;
+  }
 }

@@ -23,15 +23,14 @@ function Cool({ cool_technology, tech_list }) {
           key={index}
         >
           <div className="cool--logo_wrap">
-            {/* <div
+            <img
               className="vue--logo"
-              dangerouslySetInnerHTML={{
-                __html: gettingTechIcon(tech_list, technology.tech_list.name),
-              }}
-            ></div> */}
-            <div className="vue--logo">
-              <img src={tech_list[0].svgpath} alt="logo" />
-            </div>
+              src={`http://localhost:5000/${gettingTechIcon(
+                tech_list,
+                technology.tech_list.name
+              )}`}
+              alt="logo"
+            />
           </div>
           <div className="cool--technology_flex">
             <h3 className="cool--technology_name">

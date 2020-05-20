@@ -23,12 +23,14 @@ function SubZero({ subzero_technology, tech_list }) {
           key={index}
         >
           <div className="subzero--logo_wrap">
-            <div
+            <img
               className="vue--logo"
-              dangerouslySetInnerHTML={{
-                __html: gettingTechIcon(tech_list, technology.tech_list.name),
-              }}
-            ></div>
+              src={`http://localhost:5000/${gettingTechIcon(
+                tech_list,
+                technology.tech_list.name
+              )}`}
+              alt="logo"
+            />
           </div>
           <div className="subzero--technology_flex">
             <h3 className="subzero--technology_name">

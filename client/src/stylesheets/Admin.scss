@@ -24,9 +24,10 @@
 .admin--headline {
   font-size: 2.4rem;
   font-family: $font-SpaceMono;
+  margin-bottom: 3rem;
 }
 .form--group {
-  margin: 3% 0 3% 0;
+  margin: 3% 0 5% 0;
 }
 
 input[type="text"]:not(.browser-default):focus:not([readonly]),
@@ -34,18 +35,43 @@ input[type="email"]:not(.browser-default):focus:not([readonly]),
 input[type="password"]:not(.browser-default):focus:not([readonly]),
 textarea.materialize-textarea:focus:not([readonly]) {
   border-color: $dark-blue;
-  box-shadow: $dark-blue;
+  box-shadow: $box-shadow-blue;
+  color: $dark-blue !important;
+  margin-left: 10px;
+  font-size: 14px;
+}
+
+.form--input {
+  color: $dark-blue !important;
 }
 
 input {
-  height: 30px;
+  color: $dark-blue !important;
+  font-size: 14px;
+  position: relative;
+  appearance: none;
+  background: white;
+  width: 350px;
+  height: 50px;
+  border: 0.5px solid $blue;
+  cursor: pointer;
+  outline: none;
+  overflow: hidden;
   border-radius: $border-radius;
-  width: 90%;
-  font-size: $Roboto-bold;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+  box-shadow: 0px 4px 4px $light-grey inset;
   &::placeholder {
+    padding-left: 10px !important;
     color: $dark-blue;
-    margin-left: 10px;
-    font-size: 700;
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  input {
+    width: 90%;
   }
 }
 
@@ -58,27 +84,46 @@ input::placeholder {
 .admin--flash {
   color: white;
   background-color: #5d6486;
-  padding: 2%;
-  border-radius: 10px;
+  padding: 15px;
+  top: -79px;
+  width: 250px;
+  right: 74px;
+  font-size: 14px;
+  z-index: 10;
+  margin-top: 40px;
+  border-radius: $border-radius;
   position: absolute;
-  top: -70px;
-  width: 200px;
-  right: 0;
   &::after {
     content: "";
     width: 20px;
     height: 20px;
-    background-color: $dark-blue;
-    top: 200px;
-    // content: "";
-    // position: absolute;
-    // top: 100%;
-    // left: 50%;
-    // margin-left: -5px;
-    // border-width: 5px;
-    // border-style: solid;
-    // border-color: #555 transparent transparent transparent;
+    background-color: #5d6486;
+    top: 35px;
+    position: absolute;
+    transform: rotate(45deg);
   }
+}
+
+@media screen and (max-width: 769px) {
+  .admin--flash {
+    right: -46px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .admin--flash {
+    right: -8px;
+  }
+}
+
+input[type]:focus {
+  padding-left: 20px !important;
+  color: $dark-blue !important;
+}
+
+input[type] {
+  padding-left: 20px !important;
+  color: $dark-blue !important;
 }
 
 .admin--flash_wrap {

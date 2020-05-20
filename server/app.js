@@ -7,7 +7,6 @@ const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const db = require("./database/models/index.js");
-require("./auth");
 
 //GET routes
 const techlistRouter = require("./routes/techlist");
@@ -26,12 +25,12 @@ const app = express();
 db.connector.sync();
 
 app.set("views", path.join(__dirname, "views"));
-app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, "public")));
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+app.use(express.static(path.join("public")));
 
 app.use("/techlist", techlistRouter);
 app.use("/combinedvotes", combinedvotesRouter);
@@ -39,6 +38,9 @@ app.use("/submitvote", submitvoteRouter);
 app.use("/admin_register", adminregisterRouter);
 app.use("/admin_login", adminloginRouter);
 app.use("/dashboard", dashboardRouter);
+
+app.use("/totalsubmissions", totalSubmissions);
+
 app.use("/totalsubmissions", totalSubmissions);
 
 

@@ -4,7 +4,7 @@ const bcrypt = require("bcrypt");
 const db = require("../database/models");
 const passport = require("passport");
 const Admin = db.admin_login;
-const passport = require("passport");
+
 
 router.post("/", (req, res) => {
   /* Hashing incoming password */

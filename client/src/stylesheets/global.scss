@@ -32,6 +32,19 @@ $margin: 10px;
 $margin-sm: 5px;
 
 /* BODY */
+html {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: inherit;
+  &:before,
+  &:after {
+    box-sizing: inherit;
+  }
+}
+
 body {
   background-color: $light-grey;
   color: $dark-blue;
@@ -46,23 +59,41 @@ body {
 }
 
 /* BUTTONS */
+
 .button--light_blue {
-  width: 100px;
-  height: 40px;
-  background-color: $light-blue;
+  position: relative;
+  appearance: none;
+  background: white;
+  width: 150px;
+  height: 50px;
+  border: $border;
   color: $dark-blue;
-  box-shadow: $box-shadow-dark-blue;
-  font-size: 12px;
-  display: flex;
-  align-items: center;
-  text-align: center;
+  font-size: 14px;
+  cursor: pointer;
+  outline: none;
+  overflow: hidden;
   border-radius: $border-radius;
-  justify-content: center;
-  &:hover {
-    color: $light-blue;
-    background-color: $dark-blue;
-    transition: 0.5s;
-  }
+  moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
 }
 
-/* RADIO BUTTONS */
+.button--light_blue:hover {
+  background-position: 100% 0;
+  moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+  background-image: linear-gradient(to left, #ffffff, #fff, #ffffff);
+  box-shadow: $box-shadow-blue;
+  border: $border;
+  border-color: $blue;
+}
+
+@media screen and (max-width: 500px) {
+  .button--light_blue {
+    width: 100px;
+    height: 45px;
+  }
+}

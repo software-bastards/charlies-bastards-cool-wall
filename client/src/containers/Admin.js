@@ -66,7 +66,6 @@ export class Admin extends Component {
             <img className="coolwall--logo" src={Logo} alt="Logo CoolWall" />
           </div>
           <div className="coolwall--left_grey"></div>
-          <p className="coolwall--copyright">@softwarebastards</p>
         </div>
         <div className="coolwall--right">
           <div className="admin--right_wrapper">
@@ -79,7 +78,7 @@ export class Admin extends Component {
                       <p className="admin--flash">{this.state.flash}</p>
                     ) : null}
                     <input
-                      placeholder="mail"
+                      placeholder="Your Mail"
                       type="email"
                       name="email"
                       className="form--input"
@@ -92,7 +91,7 @@ export class Admin extends Component {
                 <div className="form--group">
                   <div className="admin--flash_wrap">
                     <input
-                      placeholder="Password"
+                      placeholder="Your Password"
                       type="password"
                       name="password"
                       className="form--input"

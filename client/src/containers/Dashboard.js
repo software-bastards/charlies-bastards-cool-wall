@@ -16,6 +16,9 @@ import calculateTotalVotes from "../helper/calculateTotalVotes";
 import gettingCoolestShit from "../helper/gettingCoolestShit";
 import ChangePwd from "../components/ChangePwd";
 import { calculateVotePercentage } from "../helper/calculateVotePercentage";
+import Cool from "../images/cool.svg";
+import UnCool from "../images/uncool.svg";
+import SubZero from "../images/subzero.svg";
 
 export class DashBoard extends Component {
   state = {
@@ -62,37 +65,58 @@ export class DashBoard extends Component {
 
     return (
       <div data-test="component-dashboard" className="coolwall--wrapper">
+        <div className="coolwall--animation_wrap">
+          <div className="coolwall--icons_wrap">
+            <div className="coolwall--icon_col">
+              <img
+                className="coolwall--icon_img"
+                src={UnCool}
+                alt="uncool logo"
+              />
+            </div>
+            <div className="coolwall--icon_col">
+              <img className="coolwall--icon_img" src={Cool} alt="cool logo" />
+            </div>
+            <div className="coolwall--icon_col">
+              <img
+                className="coolwall--icon_img"
+                src={SubZero}
+                alt="subzero logo"
+              />
+            </div>
+          </div>
+        </div>
         <div className="coolwall--left">
           <div className="coolwall--left_white">
             <img className="coolwall--logo" src={Logo} alt="Logo CoolWall" />
           </div>
-          <div className="coolwall--left_grey"></div>
-          <p className="coolwall--copyright">@softwarebastards</p>
-          <div className="dashboard--submit">
-            <button
-              onClick={this.handleLogOut}
-              data-test="submit-button"
-              className="button--light_blue"
-            >
-              LogOut
-            </button>
-            {!this.state.changePwdMounted ? (
+          <div className="coolwall--left_grey">
+            <div className="dashboard--submit">
               <button
-                onClick={this.toggleChangePwd}
+                onClick={this.handleLogOut}
                 data-test="submit-button"
                 className="button--light_blue"
               >
-                Change Password
+                LogOut
               </button>
-            ) : (
-              <button
-                onClick={this.toggleChangePwd}
-                data-test="submit-button"
-                className="button--light_blue"
-              >
-                Back
-              </button>
-            )}
+              {!this.state.changePwdMounted ? (
+                <button
+                  onClick={this.toggleChangePwd}
+                  data-test="submit-button"
+                  className="button--light_blue"
+                >
+                  Change Password
+                </button>
+              ) : (
+                <button
+                  onClick={this.toggleChangePwd}
+                  data-test="submit-button"
+                  className="button--light_blue"
+                >
+                  Back
+                </button>
+              )}
+            </div>
           </div>
         </div>
         <div className="coolwall--right">

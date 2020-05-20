@@ -65,10 +65,7 @@ const mapStateToProps = (state) => {
   return {
     combined_votes: state.votes.votes,
     tech_list: state.tech.list,
-<<<<<<< HEAD
-=======
   };
->>>>>>> feature-admin-register
 };
 
 export default connect(mapStateToProps)(DisplayTrend);

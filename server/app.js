@@ -38,18 +38,8 @@ app.use("/submitvote", submitvoteRouter);
 app.use("/admin_register", adminregisterRouter);
 app.use("/admin_login", adminloginRouter);
 app.use("/dashboard", dashboardRouter);
-<<<<<<< HEAD
 app.use("/totalsubmissions", totalSubmissions);
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-app.use("/totalsubmissions", totalSubmissions);
->>>>>>> fa2dbba8b95e816148177164bc749742093caf34
-=======
-app.use("/totalsubmissions", totalSubmissions);
->>>>>>> 3b0c55bb2da436bcb4aa6793b3f1cdaf7795464a
->>>>>>> feature-admin-register
+
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

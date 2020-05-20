@@ -18,12 +18,9 @@ import ChangePwd from "../components/ChangePwd";
 import { calculateVotePercentage } from "../helper/calculateVotePercentage";
 
 export class DashBoard extends Component {
-<<<<<<< HEAD
-=======
   state = {
     changePwdMounted: false,
   };
->>>>>>> feature-admin-register
   componentDidMount = async () => {
     try {
       const results = await handleFetchCombinedVotes();
@@ -53,12 +50,9 @@ export class DashBoard extends Component {
       token: false,
       email: "",
     });
-<<<<<<< HEAD
-=======
   };
   toggleChangePwd = () => {
     this.setState({ changePwdMounted: !this.state.changePwdMounted });
->>>>>>> feature-admin-register
   };
 
   render() {
@@ -191,19 +185,7 @@ const mapStateToProps = (state) => {
     total_submissions: state.submissions.submissions,
   };
 };
-<<<<<<< HEAD
+
 
 export default connect(mapStateToProps)(DashBoard);
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-export default connect(mapStateToProps)(DashBoard);
-=======
 
-export default connect(mapStateToProps)(DashBoard);
->>>>>>> fa2dbba8b95e816148177164bc749742093caf34
-=======
-
-export default connect(mapStateToProps)(DashBoard);
->>>>>>> 3b0c55bb2da436bcb4aa6793b3f1cdaf7795464a
->>>>>>> feature-admin-register

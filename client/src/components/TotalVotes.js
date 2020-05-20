@@ -36,8 +36,4 @@ class TotalVotes extends React.Component {
     );
   }
 }
-<<<<<<< HEAD
 export default TotalVotes;
-=======
-export default TotalVotes;
->>>>>>> feature-admin-register

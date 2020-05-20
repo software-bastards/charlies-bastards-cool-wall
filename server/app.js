@@ -9,9 +9,6 @@ const logger = require("morgan");
 const db = require("./database/models/index.js");
 require("./auth");
 
-//GET ROUTES
-const indexRouter = require("./routes/index");
-
 //GET routes
 const techlistRouter = require("./routes/techlist");
 const totalSubmissions = require("./routes/totalsubmissions");
@@ -33,9 +30,8 @@ app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, "public")));
-
-app.use("/", indexRouter);
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+app.use(express.static(path.join("public")));
 
 app.use("/techlist", techlistRouter);
 app.use("/combinedvotes", combinedvotesRouter);

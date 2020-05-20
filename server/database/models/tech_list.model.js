@@ -6,7 +6,7 @@ module.exports = (Sequelize, connector) => {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      svg: {
+      imagepath: {
         type: Sequelize.STRING,
         allowNull: true,
       },

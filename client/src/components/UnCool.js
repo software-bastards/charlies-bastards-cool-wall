@@ -23,12 +23,14 @@ function UnCool({ uncool_technology, tech_list }) {
           key={index}
         >
           <div className="uncool--logo_wrap">
-            <div
+            <img
               className="vue--logo"
-              dangerouslySetInnerHTML={{
-                __html: gettingTechIcon(tech_list, technology.tech_list.name),
-              }}
-            ></div>
+              src={`http://localhost:5000/${gettingTechIcon(
+                tech_list,
+                technology.tech_list.name
+              )}`}
+              alt="logo"
+            />
           </div>
           <div className="uncool--technology_flex">
             <h3 className="uncool--technology_name">

@@ -27,14 +27,6 @@ class TotalVotes extends React.Component {
       counter: this.state.counter + 1,
     });
     if (this.state.counter < this.props.total_votes) {
-      setTimeout(this.counter2, this.state.stepTime);
-    }
-  };
-  counter2 = () => {
-    this.setState({
-      counter: this.state.counter + 1,
-    });
-    if (this.state.counter < this.props.total_votes) {
       setTimeout(this.counter1, this.state.stepTime);
     }
   };

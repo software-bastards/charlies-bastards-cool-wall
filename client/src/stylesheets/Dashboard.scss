@@ -41,36 +41,18 @@
   &:nth-child(1) {
     margin-left: 0%;
   }
-
-  .dashboard--bottom_row {
-    margin-top: 2%;
-    flex-grow: 3;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
+  &:nth-child(2) {
+    margin-left: 2%;
+    margin-right: 2%;
   }
+  &:nth-child(3) {
+    margin-right: 0%;
+  }
+}
 
+@media screen and (max-width: 500px) {
   .dashboard--top_col {
-    flex-grow: 1;
-    width: calc(100% / 3);
-    box-shadow: $box-shadow-dark-blue;
-    background-color: white;
-    border-radius: $border-radius;
-    margin-top: 2%;
-    margin-bottom: 2%;
-    height: 100%;
-    line-height: 0.3;
-    &:nth-child(1) {
-      margin-left: 0%;
-    }
-    &:nth-child(2) {
-      margin-left: 2%;
-      margin-right: 2%;
-    }
-    &:nth-child(3) {
-      margin-right: 0%;
-    }
+    width: 100%;
   }
 }
 
@@ -109,34 +91,44 @@
     margin-right: 1%;
     width: calc((100% / 3) * 2);
   }
-}
-.dashboard--top_p {
-  font-size: 0.8rem;
-  font-weight: 700;
-  margin-left: 4%;
-}
-
-.dashboard--top_span {
-  font-size: 0.8rem;
-  margin-left: 4%;
-}
-
-.dashboard--bottom_col {
-  box-shadow: $box-shadow-dark-blue;
-  background-color: white;
-  border-radius: $border-radius;
-  margin-top: 2%;
-  margin-bottom: 2%;
-  height: 100%;
-  line-height: 0.3;
-  &:nth-child(1) {
-    margin-left: 0%;
-    margin-right: 1%;
-    flex-grow: 21;
-  }
   &:nth-child(2) {
     margin-left: 1%;
     margin-right: 0%;
-    flex-grow: 1;
+    width: calc(97% / 3);
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .dashboard--bottom_row {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .dashboard--bottom_col {
+    width: 100%;
+    &:nth-child(1) {
+      width: 100%;
+    }
+    &:nth-child(2) {
+      width: 100%;
+    }
+  }
+}
+
+.dashboard--flex {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: calc(100% / 3);
+}
+
+.dashboard--coolestShit_component {
+  background-color: white;
+}
+
+@media screen and (max-width: 500px) {
+  .dashboard--coolestShit_component {
+    margin-bottom: 40px;
   }
 }

@@ -1,7 +1,6 @@
 import React from "react";
 import { shallow } from "enzyme";
 import { Admin } from "../containers/Admin";
-import { Redirect } from "react-router-dom";
 
 /**
  * Factory function to create a ShallowWrapper for the Admin component.
@@ -31,17 +30,6 @@ test("renders without error", () => {
   const wrapper = setup();
   const adminComponent = findByTestAttr(wrapper, "component-admin");
   expect(adminComponent.length).toBe(1);
-});
-
-describe("Redirects when authenticated", () => {
-  test("redirects when authenticated", () => {
-    const wrapper = setup({ token: true });
-    expect(wrapper.find(Redirect)).toHaveLength(1);
-  });
-  test("does not redirect when not authenticated", () => {
-    const wrapper = setup({ token: false });
-    expect(wrapper.find(Redirect)).toHaveLength(0);
-  });
 });
 
 describe("State controlled input fields", () => {

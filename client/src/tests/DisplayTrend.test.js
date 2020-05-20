@@ -1,10 +1,8 @@
 import React from "react";
 import { shallow } from "enzyme";
-import DisplayTrend from "../components/DisplayTrend";
+import { DisplayTrend } from "../components/DisplayTrend";
 import handleFetchCombinedVotes from "../helper/handleFetchCombinedVotes";
-
-const axios = require("axios");
-jest.mock("axios");
+jest.mock("../helper/handleFetchCombinedVotes");
 
 /**
  * Factory function to create a ShallowWrapper for the DisplayTrend component.
@@ -38,8 +36,32 @@ test("renders without error", () => {
   expect(displaytrendComponent.length).toBe(1);
 });
 
-describe("componentDidMount calls the axios handler and sets state ", () => {
-  const mock_votes = [
+test("axios handler is called when the component mounts", async () => {
+  const wrapper = setup();
+  expect(handleFetchCombinedVotes).toHaveBeenCalled();
+});
+describe("Does not render the 3 components cool, uncool and subzero when props is empty", () => {
+  test("renders cool component", () => {
+    const wrapper = setup();
+    const coolComponent = findByTestAttr(wrapper, "component-cool");
+    expect(coolComponent.length).toBe(0);
+  });
+
+  test("renders uncool component", () => {
+    const wrapper = setup();
+    const uncoolComponent = findByTestAttr(wrapper, "component-uncool");
+    expect(uncoolComponent.length).toBe(0);
+  });
+
+  test("renders subzero component", () => {
+    const wrapper = setup();
+    const subzeroComponent = findByTestAttr(wrapper, "component-subzero");
+    expect(subzeroComponent.length).toBe(0);
+  });
+});
+
+describe("Renders the 3 components cool, uncool and subzero when props are sent", () => {
+  const combined_votes = [
     {
       cool_votes: 4,
       subzero_votes: 7,
@@ -59,89 +81,29 @@ describe("componentDidMount calls the axios handler and sets state ", () => {
       uncool_votes: 6,
     },
   ];
-  beforeEach(() => {
-    axios.get.mockReset();
+  const tech_list = [
+    {
+      borderForSelectedVote: "none",
+      id: 1,
+      name: "Laveral",
+      svg: '<svg height="200" width="500"></svg>',
+    },
+  ];
+  test("renders cool component", () => {
+    const wrapper = setup({ combined_votes, tech_list }, null);
+    const coolComponent = findByTestAttr(wrapper, "component-cool");
+    expect(coolComponent.length).toBe(1);
   });
 
-  afterEach(() => {
-    jest.clearAllTimers();
+  test("renders uncool component", () => {
+    const wrapper = setup({ combined_votes, tech_list }, null);
+    const uncoolComponent = findByTestAttr(wrapper, "component-uncool");
+    expect(uncoolComponent.length).toBe(1);
   });
 
-  test("axios handler returns data and combined Votes state is updated", async () => {
-    axios.get.mockResolvedValue({
-      data: [
-        {
-          cool_votes: 4,
-          subzero_votes: 7,
-          tech_list: { name: "Express" },
-          uncool_votes: 6,
-        },
-        {
-          cool_votes: 7,
-          subzero_votes: 5,
-          tech_list: { name: "React" },
-          uncool_votes: 1,
-        },
-        {
-          cool_votes: 5,
-          subzero_votes: 5,
-          tech_list: { name: "JQuery" },
-          uncool_votes: 6,
-        },
-      ],
-    });
-
-    const wrapper = shallow(<DisplayTrend />);
-    await handleFetchCombinedVotes();
-    expect(wrapper.state("combined_votes")).toStrictEqual(mock_votes);
+  test("renders subzero component", () => {
+    const wrapper = setup({ combined_votes, tech_list }, null);
+    const subzeroComponent = findByTestAttr(wrapper, "component-subzero");
+    expect(subzeroComponent.length).toBe(1);
   });
-
-  test("componentDidMount calls resolveVotes and state is updated", async () => {
-    axios.get.mockResolvedValue({
-      data: [
-        {
-          cool_votes: 4,
-          subzero_votes: 7,
-          tech_list: { name: "Express" },
-          uncool_votes: 6,
-        },
-        {
-          cool_votes: 7,
-          subzero_votes: 5,
-          tech_list: { name: "React" },
-          uncool_votes: 1,
-        },
-        {
-          cool_votes: 5,
-          subzero_votes: 5,
-          tech_list: { name: "JQuery" },
-          uncool_votes: 6,
-        },
-      ],
-    });
-
-    const wrapper = shallow(<DisplayTrend />);
-    await handleFetchCombinedVotes();
-    expect(wrapper.state("cool_technology")).toBeTruthy();
-    expect(wrapper.state("uncool_technology")).toBeTruthy();
-    expect(wrapper.state("subzero_technology")).toBeTruthy();
-  });
-});
-
-test("renders cool component", () => {
-  const wrapper = setup();
-  const coolComponent = findByTestAttr(wrapper, "component-cool");
-  expect(coolComponent.length).toBe(1);
-});
-
-test("renders uncool component", () => {
-  const wrapper = setup();
-  const uncoolComponent = findByTestAttr(wrapper, "component-uncool");
-  expect(uncoolComponent.length).toBe(1);
-});
-
-test("renders subzero component", () => {
-  const wrapper = setup();
-  const subzeroComponent = findByTestAttr(wrapper, "component-subzero");
-  expect(subzeroComponent.length).toBe(1);
 });

@@ -37,3 +37,26 @@ test("renders without error", () => {
   );
   expect(displayForVoteComponent.length).toBe(1);
 });
+describe("Clicking on the vote calls the function to store the vote", () => {
+  test("onClick on the cool image icon calls the parent function to store the vote", () => {
+    const storeVote = jest.fn();
+    const wrapper = setup({ technology, storeVote });
+    const coolButton = findByTestAttr(wrapper, "cool-icon");
+    coolButton.simulate("click", { preventDefault() {} });
+    expect(storeVote).toHaveBeenCalledWith(technology, "cool");
+  });
+  test("onClick on the uncool image icon calls the parent function to store the vote", () => {
+    const storeVote = jest.fn();
+    const wrapper = setup({ technology, storeVote });
+    const uncoolButton = findByTestAttr(wrapper, "uncool-icon");
+    uncoolButton.simulate("click", { preventDefault() {} });
+    expect(storeVote).toHaveBeenCalledWith(technology, "uncool");
+  });
+  test("onClick on the subzero image icon calls the parent function to store the vote", () => {
+    const storeVote = jest.fn();
+    const wrapper = setup({ technology, storeVote });
+    const subzeroButton = findByTestAttr(wrapper, "subzero-icon");
+    subzeroButton.simulate("click", { preventDefault() {} });
+    expect(storeVote).toHaveBeenCalledWith(technology, "subzero");
+  });
+});

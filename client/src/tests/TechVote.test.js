@@ -1,6 +1,6 @@
 import React from "react";
 import { shallow } from "enzyme";
-import TechVote from "../components/TechVote";
+import { TechVote } from "../components/TechVote";
 import handleFetchTechnologyList from "../helper/handleFetchTechnologyList";
 
 const axios = require("axios");
@@ -45,6 +45,7 @@ describe("componentDidMount calls the axios handler and sets state", () => {
   });
 
   test("axios handler returns data and state is updated", async () => {
+    expect.assertions(1);
     const tech_list = [
       { borderForSelectedVote: "none", id: 1, name: "Laveral" },
       { borderForSelectedVote: "none", id: 2, name: "React" },

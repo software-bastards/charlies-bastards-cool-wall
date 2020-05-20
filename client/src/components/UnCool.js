@@ -1,15 +1,15 @@
 import React from "react";
 import ProgressBar from "./ProgressBar";
 import calculateProgressBarPercent from "../helper/calculateProgressBarPercent";
+import { gettingTechIcon } from "../helper/gettingTechIcon";
 import "../stylesheets/UnCool.scss";
 import UncoolIcon from "../images/uncool.svg";
-import VueLogo from "../images/vue.svg";
 
 const blue = "#145cc6";
 const red = "#ff0013";
 const yellow = "#ffb000";
 
-function UnCool({ uncool_technology }) {
+function UnCool({ uncool_technology, tech_list }) {
   return (
     <div data-test="component-uncool" className="uncool--wrapper">
       <div className="uncool--head">
@@ -23,7 +23,14 @@ function UnCool({ uncool_technology }) {
           key={index}
         >
           <div className="uncool--logo_wrap">
-            <img className="vue--logo" src={VueLogo} alt="Vue Logo" />
+            <img
+              className="vue--logo"
+              src={`http://localhost:5000/${gettingTechIcon(
+                tech_list,
+                technology.tech_list.name
+              )}`}
+              alt="logo"
+            />
           </div>
           <div className="uncool--technology_flex">
             <h3 className="uncool--technology_name">

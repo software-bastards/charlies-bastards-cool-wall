@@ -8,7 +8,19 @@ import "../stylesheets/global.scss";
 import "../stylesheets/CoolWall.scss";
 import "../stylesheets/Admin.scss";
 
+<<<<<<< HEAD
 export class Admin extends Component {
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+export class Admin extends React.Component {
+=======
+export class Admin extends Component {
+>>>>>>> fa2dbba8b95e816148177164bc749742093caf34
+=======
+export class Admin extends Component {
+>>>>>>> 3b0c55bb2da436bcb4aa6793b3f1cdaf7795464a
+>>>>>>> feature-admin-register
   state = {
     email: "",
     password: "",
@@ -39,8 +51,12 @@ export class Admin extends Component {
             email: "",
           });
         } else if (response.hasOwnProperty("token")) {
-          this.props.loginSuccess();
+          this.props.loginSuccess(response.secureAdmin.email);
           sessionStorage.setItem("coolwall_admin", response.token);
+          sessionStorage.setItem(
+            "coolwall_admin_email",
+            response.secureAdmin.email
+          );
           this.setState({
             flash: "",
             email: "",
@@ -115,8 +131,31 @@ const mapStateToProps = (state) => {
     token: state.auth.token,
   };
 };
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+=======
+>>>>>>> fa2dbba8b95e816148177164bc749742093caf34
+=======
+>>>>>>> 3b0c55bb2da436bcb4aa6793b3f1cdaf7795464a
+>>>>>>> feature-admin-register
 const mapDispatchToProps = (dispatch) => ({
-  loginSuccess: () => dispatch({ type: "CREATE_SESSION", token: true }),
+  loginSuccess: (email) =>
+    dispatch({ type: "CREATE_SESSION", token: true, email: email }),
 });
 
+<<<<<<< HEAD
 export default connect(mapStateToProps, mapDispatchToProps)(Admin);
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+export default connect(mapStateToProps, mapDispatchToProps)(Admin);
+=======
+export default connect(mapStateToProps, mapDispatchToProps)(Admin);
+>>>>>>> fa2dbba8b95e816148177164bc749742093caf34
+=======
+export default connect(mapStateToProps, mapDispatchToProps)(Admin);
+>>>>>>> 3b0c55bb2da436bcb4aa6793b3f1cdaf7795464a
+>>>>>>> feature-admin-register

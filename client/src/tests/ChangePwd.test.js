@@ -1,9 +1,9 @@
 import React from "react";
 import { shallow } from "enzyme";
-import { Admin } from "../containers/Admin";
+import ChangePwd from "../components/ChangePwd";
 
 /**
- * Factory function to create a ShallowWrapper for the Admin component.
+ * Factory function to create a ShallowWrapper for the ChangePwd component.
  * @function setup
  * @param {object} props - component props specific to this setup.
  * @param {object} state - initial state for setup.
@@ -11,7 +11,7 @@ import { Admin } from "../containers/Admin";
  */
 
 const setup = (props = {}, state = null) => {
-  const wrapper = shallow(<Admin {...props} />);
+  const wrapper = shallow(<ChangePwd {...props} />);
   if (state) wrapper.setState(state);
   return wrapper;
 };
@@ -28,40 +28,44 @@ const findByTestAttr = (wrapper, val) => {
 
 test("renders without error", () => {
   const wrapper = setup();
-  const adminComponent = findByTestAttr(wrapper, "component-admin");
-  expect(adminComponent.length).toBe(1);
+  const changePwdComponent = findByTestAttr(wrapper, "component-changepwd");
+  expect(changePwdComponent.length).toBe(1);
 });
 
 describe("State controlled input fields", () => {
   let wrapper;
-  const email = "";
   const password = "";
+  const confirmpassword = "";
   const flash = "";
+  const successflash = "";
 
   beforeEach(() => {
-    wrapper = setup(null, { email, password, flash });
-  });
-
-  test("State updates with the value of input email box upon change", () => {
-    const inputEmail = findByTestAttr(wrapper, "input-email");
-    const mockEvent = { target: { value: "abc@test.com" } };
-    inputEmail.simulate("change", mockEvent);
-    expect(wrapper.state("email")).toEqual("abc@test.com");
+    wrapper = setup(null, { password, confirmpassword, flash, successflash });
   });
 
   test("State updates with the value of input password box upon change", () => {
     const inputPassword = findByTestAttr(wrapper, "input-password");
-    const mockEvent = { target: { value: "abc" } };
+    const mockEvent = { target: { value: "test" } };
     inputPassword.simulate("change", mockEvent);
-    expect(wrapper.state("password")).toEqual("abc");
+    expect(wrapper.state("password")).toEqual("test");
+  });
+
+  test("State updates with the value of input confirmpassword box upon change", () => {
+    const inputConfirmPassword = findByTestAttr(
+      wrapper,
+      "input-confirmpassword"
+    );
+    const mockEvent = { target: { value: "abc" } };
+    inputConfirmPassword.simulate("change", mockEvent);
+    expect(wrapper.state("confirmpassword")).toEqual("abc");
   });
 });
 
-test("Submit button calls the post function that posts into the database ", async () => {
+test("Submit button calls the putt function that updates the database ", async () => {
   const wrapper = setup();
   const resolvePromise = () => Promise.resolve("success");
-  wrapper.handlePostAdminLogin = jest.fn(resolvePromise);
+  wrapper.handlePostAdminPwdChange = jest.fn(resolvePromise);
   wrapper.instance().handleLoginSubmit({ preventDefault() {} });
-  await wrapper.handlePostAdminLogin();
-  expect(wrapper.handlePostAdminLogin).toHaveBeenCalledTimes(1);
+  await wrapper.handlePostAdminPwdChange();
+  expect(wrapper.handlePostAdminPwdChange).toHaveBeenCalledTimes(1);
 });

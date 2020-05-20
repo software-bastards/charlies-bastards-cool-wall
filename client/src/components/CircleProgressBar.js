@@ -1,5 +1,5 @@
 import "../stylesheets/CircleProgressBar.scss";
-import React, { Component } from "react";
+import React from "react";
 
 export default function CircleProgressBar(props) {
   const svgTextStyling = {
@@ -18,13 +18,12 @@ export default function CircleProgressBar(props) {
   } = props;
   const center = size / 2;
   const radius = size / 2 - strokeWidth / 2;
-
   const circumference = 2 * Math.PI * radius;
   const offset = ((100 - progress) / 100) * circumference;
   const offsetSecondCircle = 100 * circumference;
 
   return (
-    <div>
+    <div data-test="component-circleprogressbar">
       <svg className="svg" width={size} height={size}>
         <circle
           className="svg-circle"

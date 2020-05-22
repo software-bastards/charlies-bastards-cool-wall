@@ -19,6 +19,7 @@ import { calculateVotePercentage } from "../helper/calculateVotePercentage";
 import Cool from "../images/cool.svg";
 import UnCool from "../images/uncool.svg";
 import SubZero from "../images/subzero.svg";
+import handleFetchTechnologyList from "../helper/handleFetchTechnologyList";
 
 export class DashBoard extends Component {
   state = {
@@ -39,6 +40,15 @@ export class DashBoard extends Component {
       this.props.dispatch({
         type: "FETCH_TOTALSUBMISSIONS",
         submissions: results,
+      });
+    } catch (err) {
+      console.error(err);
+    }
+    try {
+      const results = await handleFetchTechnologyList();
+      this.props.dispatch({
+        type: "FETCH_TECHLIST",
+        list: results,
       });
     } catch (err) {
       console.error(err);
@@ -140,6 +150,7 @@ export class DashBoard extends Component {
                         coolestshit_technology={gettingCoolestShit(
                           this.props.combined_votes
                         )}
+                        tech_list={this.props.tech_list}
                         data-test="component-coolestshit"
                       />
                     ) : null}
@@ -207,6 +218,7 @@ const mapStateToProps = (state) => {
     email: state.auth.email,
     combined_votes: state.votes.votes,
     total_submissions: state.submissions.submissions,
+    tech_list: state.tech.list,
   };
 };
 

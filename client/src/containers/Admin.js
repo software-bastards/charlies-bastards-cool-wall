@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Logo from "../images/logo.svg";
 import handlePostAdminLogin from "../helper/handlePostAdminLogin";
 import isAdminAuthenticated from "../helper/isAdminAuthenticated";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import { connect } from "react-redux";
 import "../stylesheets/global.scss";
 import "../stylesheets/CoolWall.scss";
@@ -75,7 +75,9 @@ export class Admin extends Component {
       <div data-test="component-admin" className="coolwall--wrapper">
         <div className="coolwall--left">
           <div className="coolwall--left_white">
-            <img className="coolwall--logo" src={Logo} alt="Logo CoolWall" />
+            <Link to="/">
+              <img className="coolwall--logo" src={Logo} alt="Logo CoolWall" />
+            </Link>
           </div>
           <div className="coolwall--left_grey"></div>
         </div>

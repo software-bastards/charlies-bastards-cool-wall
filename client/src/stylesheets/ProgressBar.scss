@@ -20,25 +20,29 @@ $yellow: #ffb000;
   flex-direction: row;
   flex-wrap: nowrap;
   align-items: center;
-  justify-content: flex-start;
 }
 
 .filler {
   background: $blue;
   height: 60%;
   border-radius: inherit;
-  margin-left: 55px;
+
   animation: progressbarfiller 2s reverse;
   animation-delay: 2s;
   animation-timing-function: ease-in;
 }
-
+.progress--bar_filler {
+  border-radius: inherit;
+  width: 70%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
 .progress--bar_name {
   font-size: 8px;
   font-weight: $Roboto-bold;
-  width: calc(100% / 3);
+  width: 30%;
   margin-left: $margin-sm;
-  position: absolute;
 }
 
 @keyframes progressbarfiller {

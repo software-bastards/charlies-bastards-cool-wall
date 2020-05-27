@@ -14,10 +14,10 @@ class App extends Component {
             <Route exact path="/">
               <CoolWall data-test="coolwall-component" />
             </Route>
-            <Route exact path="/admin">
+            <Route path="/admin">
               <Admin data-test="admin-component" />
             </Route>
-            <Route exact path="/dashboard">
+            <Route path="/dashboard">
               <Dashboard data-test="dashboard-component" />
             </Route>
           </Switch>

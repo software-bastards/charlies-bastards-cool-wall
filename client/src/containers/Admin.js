@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Logo from "../images/logo.svg";
 import handlePostAdminLogin from "../helper/handlePostAdminLogin";
 import isAdminAuthenticated from "../helper/isAdminAuthenticated";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import { connect } from "react-redux";
 import "../stylesheets/global.scss";
 import "../stylesheets/CoolWall.scss";
@@ -23,14 +23,26 @@ export class Admin extends Component {
     flash: "",
   };
 
+  /**
+   * @method updateEmailField - An onChange function for the email input field
+   * @param {MouseEvent} e
+   */
   updateEmailField = (e) => {
     this.setState({ email: e.target.value, flash: "" });
   };
 
+  /**
+   * @method updatePwdField - An onChange function for the password input field
+   * @param {MouseEvent} e
+   */
   updatePwdField = (e) => {
     this.setState({ password: e.target.value, flash: "" });
   };
 
+  /**
+   * @method handleLoginSubmit - An onSubmit function for the login form that sends login data to server for authentication
+   * @param {MouseEvent} e
+   */
   handleLoginSubmit = (e) => {
     e.preventDefault();
     const adminData = {
@@ -71,7 +83,9 @@ export class Admin extends Component {
       <div data-test="component-admin" className="coolwall--wrapper">
         <div className="coolwall--left">
           <div className="coolwall--left_white">
-            <img className="coolwall--logo" src={Logo} alt="Logo CoolWall" />
+            <Link to="/">
+              <img className="coolwall--logo" src={Logo} alt="Logo CoolWall" />
+            </Link>
           </div>
           <div className="coolwall--left_grey"></div>
         </div>

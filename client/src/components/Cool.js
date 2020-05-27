@@ -25,7 +25,7 @@ function Cool({ cool_technology, tech_list }) {
           <div className="cool--logo_wrap">
             <img
               className="vue--logo"
-              src={`http://localhost:5000/${gettingTechIcon(
+              src={`./${gettingTechIcon(
                 tech_list,
                 technology.tech_list.name
               )}`}

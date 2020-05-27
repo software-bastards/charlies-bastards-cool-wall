@@ -39,16 +39,34 @@ class CoolWall extends Component {
           </div>
           <div className="coolwall--left_grey">
             <div className="coolwall--credentials">
-              <p className="coolwall--copyright">@softwarebastards</p>
+              <a
+                target="blank"
+                href="https://softwarebastards.nl/"
+                className="coolwall--copyright"
+              >
+                @softwarebastards
+              </a>
               <div className="coolwall--author">
                 <p className="coolwall--author_p">Created by</p>
-                <a className="coolwall--author_a" href="">
+                <a
+                  className="coolwall--author_a"
+                  target="blank"
+                  href="https://www.linkedin.com/in/elsabethdesta/"
+                >
                   Elsabeth Desta
                 </a>
-                <a className="coolwall--author_a" href="">
-                  Anuradhav Sivasubramanian
+                <a
+                  className="coolwall--author_a"
+                  target="blank"
+                  href="https://www.linkedin.com/in/anuradha-sivasubramanian/"
+                >
+                  Anu Sivasubramanian
                 </a>
-                <a className="coolwall--author_a" href="">
+                <a
+                  className="coolwall--author_a"
+                  target="blank"
+                  href="https://www.linkedin.com/in/birte-spreuer/"
+                >
                   Birte Spreuer
                 </a>
               </div>

@@ -64,9 +64,10 @@ body {
   position: relative;
   appearance: none;
   background: white;
+  box-shadow: $box-shadow-yellow;
+  border: 0.5px solid $yellow;
   width: 150px;
   height: 50px;
-  border: $border;
   color: $dark-blue;
   font-size: 14px;
   cursor: pointer;

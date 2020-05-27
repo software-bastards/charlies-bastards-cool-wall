@@ -205,7 +205,7 @@
   text-decoration: none;
   &:hover {
     color: $blue;
-    transition: 1s;
+    transition: 1s ease-in-out;
   }
 }
 
@@ -219,4 +219,9 @@
   color: $dark-blue;
   margin-top: $margin * 2;
   margin-bottom: $margin;
+  text-decoration: none;
+  &:hover {
+    color: $red;
+    transition: 1s ease-in-out;
+  }
 }

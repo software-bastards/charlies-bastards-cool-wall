@@ -7,10 +7,12 @@ const ProgressBar = (props) => {
       <div className="progress--bar_name" style={{ color: `${props.color}` }}>
         {props.name}
       </div>
-      <div
-        className="filler"
-        style={{ width: `${props.percent}%`, background: `${props.color}` }}
-      />
+      <div className="progress--bar_filler">
+        <div
+          className="filler"
+          style={{ width: `${props.percent}%`, background: `${props.color}` }}
+        />
+      </div>
     </div>
   );
 };

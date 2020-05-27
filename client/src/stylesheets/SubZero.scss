@@ -1,7 +1,7 @@
 @import "../stylesheets/global.scss";
 
 .subzero--icon {
-  width: 2.5rem;
+  width: 3.5rem;
   padding: 0 3% 0 3%;
 }
 
@@ -29,11 +29,11 @@
   margin: $margin;
   border: $border;
   display: flex;
-}                            
+}
 
 .subzero--technology_name {
   font-size: 0.7rem;
-  color: $dark-blue;
+  color: $blue;
   margin-left: 5px;
 }
 

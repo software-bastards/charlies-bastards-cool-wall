@@ -1,9 +1,12 @@
 import isAdminAuthenticated from "../helper/isAdminAuthenticated";
 const initialState = {
+
   token: isAdminAuthenticated() ? true : false,
+
   email: isAdminAuthenticated()
     ? sessionStorage.getItem("coolwall_admin_email")
     : "",
+
 };
 
 export default function (state = initialState, action) {
@@ -15,4 +18,6 @@ export default function (state = initialState, action) {
     default:
       return state;
   }
+
 }
+

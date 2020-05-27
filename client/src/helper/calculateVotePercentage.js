@@ -11,9 +11,9 @@ export const calculateVotePercentage = (votes) => {
   }, 0);
   let total = coolVotes + uncoolVotes + subzeroVotes;
   let votePercentage = {
-    cool: Math.floor((coolVotes * 100) / total),
-    uncool: Math.floor((uncoolVotes * 100) / total),
-    subzero: Math.floor((subzeroVotes * 100) / total),
+    cool: ((coolVotes * 100) / total).toFixed(1),
+    uncool: ((uncoolVotes * 100) / total).toFixed(1),
+    subzero: ((subzeroVotes * 100) / total).toFixed(1),
   };
 
   return votePercentage;

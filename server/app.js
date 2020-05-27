@@ -7,7 +7,6 @@ const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const db = require("./database/models/index.js");
-require("./auth");
 
 //GET routes
 const techlistRouter = require("./routes/techlist");
@@ -39,7 +38,11 @@ app.use("/submitvote", submitvoteRouter);
 app.use("/admin_register", adminregisterRouter);
 app.use("/admin_login", adminloginRouter);
 app.use("/dashboard", dashboardRouter);
+
 app.use("/totalsubmissions", totalSubmissions);
+
+app.use("/totalsubmissions", totalSubmissions);
+
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

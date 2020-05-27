@@ -7,8 +7,10 @@
 
 const calculateProgressBarPercent = (technology, votetype) => {
   const total =
-    parseInt(technology.subzero_votes) + parseInt(technology.uncool_votes) + parseInt(technology.cool_votes);
-  return parseInt((votetype * 100) / total);
+    parseInt(technology.subzero_votes) +
+    parseInt(technology.uncool_votes) +
+    parseInt(technology.cool_votes);
+  return ((votetype * 100) / total).toFixed(1);
 };
 
 export default calculateProgressBarPercent;

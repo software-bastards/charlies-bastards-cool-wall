@@ -5,6 +5,7 @@ const db = require("../database/models");
 const passport = require("passport");
 const Admin = db.admin_login;
 
+
 router.post("/", (req, res) => {
   /* Hashing incoming password */
   bcrypt
@@ -25,28 +26,21 @@ router.post("/", (req, res) => {
     .catch((hashErr) => console.error(`Hashing gave errors: ${hashErr}`));
 });
 
-router.put("/", passport.authenticate("jwt", { session: false }), function (
-  req,
-  res
-) {
+router.put("/", passport.authenticate("jwt", { session: false }), function(req, res) {
   /* Hashing incoming password */
-  console.log(req.body);
   bcrypt
     .hash(req.body.password, 10)
     .then((hashedPassword) => {
       /* Add the new user to the database table with hashedPassword. */
-      Admin.update(
-        { password: hashedPassword },
-        { where: { email: req.body.email } }
-      )
+      Admin.update({ password: hashedPassword }, { where: { email: req.body.email } })
         .then(() =>
-          res
-            .status(200)
-            .send({ message: "You've successfully changed the password!" })
+          res.status(200).send({ message: "You've successfully changed your password!" })
         )
         .catch((userErr) => console.error(`User error: ${userErr}`));
     })
     .catch((hashErr) => console.error(`Hashing gave errors: ${hashErr}`));
 });
+
+
 
 module.exports = router;

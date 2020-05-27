@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import { connect } from "react-redux";
 import Logo from "../images/logo.svg";
 import "../stylesheets/Dashboard.scss";
@@ -98,7 +98,9 @@ export class DashBoard extends Component {
         </div>
         <div className="coolwall--left">
           <div className="coolwall--left_white">
-            <img className="coolwall--logo" src={Logo} alt="Logo CoolWall" />
+            <Link to="/">
+              <img className="coolwall--logo" src={Logo} alt="Logo CoolWall" />
+            </Link>
           </div>
           <div className="coolwall--left_grey">
             <div className="dashboard--submit">
@@ -222,4 +224,6 @@ const mapStateToProps = (state) => {
   };
 };
 
+
 export default connect(mapStateToProps)(DashBoard);
+

@@ -18,4 +18,5 @@ router.get("/", passport.authenticate("jwt", { session: false }), function (
   res.send(secureAdmin);
 });
 
+
 module.exports = router;

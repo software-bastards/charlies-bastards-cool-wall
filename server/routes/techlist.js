@@ -3,6 +3,7 @@ const router = express.Router();
 const db = require("../database/models");
 const tech_list = db.tech_list;
 const multer = require("multer");
+const path = require("path");
 
 /**
  * GET for fetching the vote list
@@ -26,11 +27,14 @@ let storage = multer.diskStorage({
   },
   filename: function (req, file, cb) {
     let uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 3);
-    cb(null, file.fieldname + "-" + uniqueSuffix + ".png");
+    cb(
+      null,
+      file.fieldname + "-" + uniqueSuffix + path.extname(file.originalname)
+    );
   },
 });
 
-let upload = multer({ storage: storage }).single("pngImage");
+let upload = multer({ storage: storage }).single("image");
 
 /**
  * post for posting new technologies with icon as a png file.

@@ -7,7 +7,8 @@ import calculateProgressBarPercent from "../helper/calculateProgressBarPercent";
 export class TrendOverview extends Component {
   render() {
     return (
-      <div className="trendBar--wrapper">
+      <div className="trendBar--wrapper" data-test="component-trendoverview">
+        
         {this.props.combined_votes
           ? this.props.combined_votes.map((data, index) => (
               <div key={index} className="trendBar--content_wrapper">

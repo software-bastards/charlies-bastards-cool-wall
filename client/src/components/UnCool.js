@@ -25,10 +25,7 @@ function UnCool({ uncool_technology, tech_list }) {
           <div className="uncool--logo_wrap">
             <img
               className="vue--logo"
-              src={`http://localhost:5000/${gettingTechIcon(
-                tech_list,
-                technology.tech_list.name
-              )}`}
+              src={`./${gettingTechIcon(tech_list, technology.tech_list.name)}`}
               alt="logo"
             />
           </div>

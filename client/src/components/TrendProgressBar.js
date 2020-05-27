@@ -8,7 +8,7 @@ const yellow = "#ffb000";
 
 const TrendProgressBar = (props) => {
   return (
-    <div className="trend--progress--bar" data-test="component-progressbar">
+    <div className="trend--progress--bar" data-test="component-trendprogressbar">
       
       <div
         className="trend--filler"

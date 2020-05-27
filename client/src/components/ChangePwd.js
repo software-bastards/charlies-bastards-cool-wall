@@ -13,9 +13,18 @@ class ChangePwd extends Component {
     successflash: "",
   };
 
+  /**
+   * @method updatePwdField - An onChange function for the password input field
+   * @param {MouseEvent} e
+   */
   updatePwdField = (e) => {
     this.setState({ password: e.target.value, flash: "", successflash: "" });
   };
+
+  /**
+   * @method updateConfirmPwdField - An onChange function for the confirm password input field
+   * @param {MouseEvent} e
+   */
   updateConfirmPwdField = (e) => {
     this.setState({
       confirmpassword: e.target.value,
@@ -24,6 +33,10 @@ class ChangePwd extends Component {
     });
   };
 
+  /**
+   * @method handleLoginSubmit - An onSubmit function for the change password form that updates the db with new password
+   * @param {MouseEvent} e
+   */
   handleLoginSubmit = (e) => {
     e.preventDefault();
     if (!this.state.password || !this.state.confirmpassword) {

@@ -2,14 +2,14 @@ import React from "react";
 import ProgressBar from "./ProgressBar";
 import calculateProgressBarPercent from "../helper/calculateProgressBarPercent";
 import SubZeroIcon from "../images/subzero.svg";
+import { gettingTechIcon } from "../helper/gettingTechIcon";
 import "../stylesheets/SubZero.scss";
-import VueLogo from "../images/vue.svg";
 
 const blue = "#145cc6";
 const red = "#ff0013";
 const yellow = "#ffb000";
 
-function SubZero({ subzero_technology }) {
+function SubZero({ subzero_technology, tech_list }) {
   return (
     <div data-test="component-subzero" className="subzero--wrapper">
       <div className="subzero--head">
@@ -23,7 +23,14 @@ function SubZero({ subzero_technology }) {
           key={index}
         >
           <div className="subzero--logo_wrap">
-            <img className="vue--logo" src={VueLogo} alt="Vue Logo" />
+            <img
+              className="vue--logo"
+              src={`http://localhost:5000/${gettingTechIcon(
+                tech_list,
+                technology.tech_list.name
+              )}`}
+              alt="logo"
+            />
           </div>
           <div className="subzero--technology_flex">
             <h3 className="subzero--technology_name">

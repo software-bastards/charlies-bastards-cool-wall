@@ -9,7 +9,7 @@
   flex-direction: row;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 769px) {
   .coolwall--wrapper {
     flex-direction: column;
   }
@@ -21,9 +21,11 @@
   background-color: $dark-grey;
   display: flex;
   flex-direction: column;
+  box-shadow: 12px -1px 16px rgba(93, 100, 134, 0.3);
+  z-index: 100;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 769px) {
   .coolwall--left {
     flex-direction: row;
     width: 100%;
@@ -38,7 +40,7 @@
   flex-direction: column;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 769px) {
   .coolwall--right {
     width: 100%;
   }
@@ -48,9 +50,10 @@
   background-color: white;
   height: 25vh;
   position: relative;
+  padding: 2%;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 769px) {
   .coolwall--left_white {
     width: 40%;
     height: 15vh;
@@ -58,24 +61,24 @@
 }
 
 .coolwall--logo {
-  width: 140px;
+  width: 170px;
   position: absolute;
   right: 10px;
   top: 10px;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 769px) {
   .coolwall--logo {
-    width: 100px;
-    left: 10px;
+    width: 160px;
+    left: 20px;
   }
 }
 
-.coolwall--copyright {
-  font-size: 11px;
-  font-family: $font-SpaceMono;
-  color: $light-blue;
-  margin: $margin * 2;
+@media screen and (max-width: 414px) {
+  .coolwall--logo {
+    width: 90px;
+    left: 20px;
+  }
 }
 
 .coolwall--right_wrapper {
@@ -103,5 +106,122 @@
 
 .right--top_p {
   font-family: $font-SpaceMono;
-  font-size: 0.8rem;
+  font-size: 1rem;
+  padding-bottom: 1rem;
+}
+
+.coolwall--left_grey {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 75vh;
+  justify-content: flex-end;
+  margin-bottom: 20%;
+}
+
+@media screen and (max-width: 769px) {
+  .coolwall--left_grey {
+    width: 60%;
+    height: 15vh;
+    justify-content: center;
+    margin-bottom: 0;
+  }
+}
+
+/* ANIMATION */
+
+.coolwall--animation_wrap {
+  background-color: $dark-blue;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 1000;
+  animation: FadeIn forwards 1s ease-out;
+  animation-delay: 1s;
+  pointer-events: none;
+}
+
+.FadeIn {
+  opacity: 1;
+}
+
+@keyframes FadeIn {
+  100% {
+    transform: scale(1.03);
+    opacity: 0;
+  }
+}
+
+.coolwall--icons_wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.coolwall--icon_img {
+  width: 150px;
+  padding: $margin;
+}
+
+@media screen and (max-width: 500px) {
+  .coolwall--icon_img {
+    width: 80px;
+  }
+}
+
+.coolwall--icon_col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.coolwall--author {
+  display: flex;
+  flex-direction: column;
+  font-family: $font-SpaceMono;
+}
+
+.coolwall--credentials {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  font-size: 12px;
+  color: $dark-blue;
+  padding: $margin;
+  padding-right: 20px;
+  padding-bottom: 20px;
+}
+
+@media screen and (max-width: 769px) {
+  .coolwall--credentials {
+    display: none;
+  }
+}
+
+.coolwall--author_a {
+  color: $dark-blue;
+  text-decoration: none;
+  &:hover {
+    color: $blue;
+    transition: 1s ease-in-out;
+  }
+}
+
+.coolwall--author_p {
+  color: $yellow;
+}
+
+.coolwall--copyright {
+  font-size: 15px;
+  font-family: $font-Roboto;
+  color: $dark-blue;
+  margin-top: $margin * 2;
+  margin-bottom: $margin;
+  text-decoration: none;
+  &:hover {
+    color: $red;
+    transition: 1s ease-in-out;
+  }
 }

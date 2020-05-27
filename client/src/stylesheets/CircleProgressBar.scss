@@ -1,0 +1,33 @@
+@import "../stylesheets/global.scss";
+
+.svg {
+  display: block;
+  margin: 20px auto;
+  max-width: 100%;
+}
+
+.svg-circle-bg {
+  fill: none;
+  animation: circlefill 2.5s reverse;
+  animation-timing-function: ease-in;
+  animation-delay: 3s;
+}
+
+.svg-circle {
+  fill: none;
+}
+.svg-circle-text {
+  font-size: 1rem;
+  text-anchor: middle;
+  font-weight: bold;
+  color: $dark-blue !important;
+}
+
+@keyframes circlefill {
+  99% {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}

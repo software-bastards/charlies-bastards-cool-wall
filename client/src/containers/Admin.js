@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import Logo from "../images/logo.svg";
 import handlePostAdminLogin from "../helper/handlePostAdminLogin";
+import isAdminAuthenticated from "../helper/isAdminAuthenticated";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import "../stylesheets/global.scss";
 import "../stylesheets/CoolWall.scss";
 import "../stylesheets/Admin.scss";
 
-export class Admin extends React.Component {
+export class Admin extends Component {
   state = {
     email: "",
     password: "",
@@ -15,42 +16,35 @@ export class Admin extends React.Component {
   };
 
   updateEmailField = (e) => {
-    this.setState({
-      email: e.target.value,
-      flash: "",
-    });
+    this.setState({ email: e.target.value, flash: "" });
   };
 
   updatePwdField = (e) => {
-    this.setState({
-      password: e.target.value,
-      flash: "",
-    });
+    this.setState({ password: e.target.value, flash: "" });
   };
 
   handleLoginSubmit = (e) => {
     e.preventDefault();
-
     const adminData = {
       email: this.state.email,
       password: this.state.password,
     };
+
     handlePostAdminLogin(adminData)
       .then((response) => {
         if (response.hasOwnProperty("message")) {
-          response.message.includes("password")
-            ? this.setState({
-                flash: response.message,
-                password: "",
-              })
-            : this.setState({
-                flash: response.message,
-                password: "",
-                email: "",
-              });
+          this.setState({
+            flash: response.message,
+            password: "",
+            email: "",
+          });
         } else if (response.hasOwnProperty("token")) {
-          this.props.loginSuccess();
+          this.props.loginSuccess(response.secureAdmin.email);
           sessionStorage.setItem("coolwall_admin", response.token);
+          sessionStorage.setItem(
+            "coolwall_admin_email",
+            response.secureAdmin.email
+          );
           this.setState({
             flash: "",
             email: "",
@@ -62,7 +56,7 @@ export class Admin extends React.Component {
   };
 
   render() {
-    if (this.props.token) {
+    if (isAdminAuthenticated() && this.props.token) {
       return <Redirect to="/dashboard" />;
     }
     return (
@@ -72,7 +66,6 @@ export class Admin extends React.Component {
             <img className="coolwall--logo" src={Logo} alt="Logo CoolWall" />
           </div>
           <div className="coolwall--left_grey"></div>
-          <p className="coolwall--copyright">@softwarebastards</p>
         </div>
         <div className="coolwall--right">
           <div className="admin--right_wrapper">
@@ -81,11 +74,11 @@ export class Admin extends React.Component {
               <form className="admin--form" onSubmit={this.handleLoginSubmit}>
                 <div className="form--group">
                   <div className="admin--flash_wrap">
-                    {this.state.flash.includes("email") ? (
+                    {this.state.flash ? (
                       <p className="admin--flash">{this.state.flash}</p>
                     ) : null}
                     <input
-                      placeholder="mail"
+                      placeholder="Your Mail"
                       type="email"
                       name="email"
                       className="form--input"
@@ -97,11 +90,8 @@ export class Admin extends React.Component {
                 </div>
                 <div className="form--group">
                   <div className="admin--flash_wrap">
-                    {this.state.flash.includes("password") ? (
-                      <p className="admin--flash">{this.state.flash}</p>
-                    ) : null}
                     <input
-                      placeholder="Password"
+                      placeholder="Your Password"
                       type="password"
                       name="password"
                       className="form--input"
@@ -129,6 +119,8 @@ const mapStateToProps = (state) => {
   };
 };
 const mapDispatchToProps = (dispatch) => ({
-  loginSuccess: () => dispatch({ type: "CREATE_SESSION", token: true }),
+  loginSuccess: (email) =>
+    dispatch({ type: "CREATE_SESSION", token: true, email: email }),
 });
+
 export default connect(mapStateToProps, mapDispatchToProps)(Admin);

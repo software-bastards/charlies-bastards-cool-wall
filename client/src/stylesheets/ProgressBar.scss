@@ -10,7 +10,7 @@ $yellow: #ffb000;
 
 .progress--bar {
   position: relative;
-  height: 15px;
+  height: 12px;
   width: 95%;
   border-radius: 50px;
   border: 1px solid $dark-grey;
@@ -23,13 +23,14 @@ $yellow: #ffb000;
   justify-content: flex-start;
 }
 
-
-
 .filler {
   background: $blue;
   height: 60%;
   border-radius: inherit;
   margin-left: 55px;
+  animation: progressbarfiller 2s reverse;
+  animation-delay: 2s;
+  animation-timing-function: ease-in;
 }
 
 .progress--bar_name {
@@ -38,4 +39,10 @@ $yellow: #ffb000;
   width: calc(100% / 3);
   margin-left: $margin-sm;
   position: absolute;
+}
+
+@keyframes progressbarfiller {
+  to {
+    width: 0;
+  }
 }

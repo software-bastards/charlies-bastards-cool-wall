@@ -1,0 +1,29 @@
+@import "../stylesheets/global.scss";
+.trendBar--wrapper {
+  font-size: 13px;
+  width: 100%;
+  margin-top: 4%;
+  margin-bottom: 4%;
+}
+
+.trendBar--content_wrapper {
+  padding: 2px;
+  width: 94%;
+  flex-direction: row;
+  display: flex;
+  box-shadow: $box-shadow-dark-blue;
+  border-radius: $border-radius;
+  align-items: center;
+  margin: $margin;
+}
+
+.trendBar--content_name {
+  width: 20%;
+  display: flex;
+  padding-left: 4%;
+}
+
+.trendBar--progressbar {
+  width: 80%;
+  display: flex;
+}

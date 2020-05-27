@@ -1,8 +1,10 @@
 export default function (state = {}, action) {
-    switch (action.type) {
-      case "FETCH_VOTES":
-        return { ...state, combined_votes: action.combined_votes };
-      default:
-        return state;
-    }
+  switch (action.type) {
+    case "FETCH_COMBINEDVOTES":
+      return { ...state, votes: action.votes };
+    case "SUBMIT_COMBINEDVOTES":
+      return { ...state, votes: action.votes };
+    default:
+      return state;
   }
+}

@@ -10,7 +10,7 @@ import { DashBoard } from "../containers/Dashboard";
  * @returns {ShallowWrapper}
  */
 
-const setup = (props = {}) => {
+const setup = (props = {}, state = null) => {
   const wrapper = shallow(<DashBoard {...props} />);
 
   return wrapper;

@@ -3,83 +3,69 @@ import handleFetchCombinedVotes from "../helper/handleFetchCombinedVotes";
 import Cool from "./Cool";
 import SubZero from "./SubZero";
 import UnCool from "./UnCool";
+import { connect } from "react-redux";
 import "../stylesheets/DisplayTrend.scss";
+import {
+  resolveCoolVotes,
+  resolveUnCoolVotes,
+  resolveSubzeroVotes,
+} from "../helper/resolveVotes";
 
-class DisplayTrend extends Component {
-  state = {
-    combined_votes: [],
-    cool_technology: [],
-    uncool_technology: [],
-    subzero_technology: [],
-  };
-
+export class DisplayTrend extends Component {
   componentDidMount = async () => {
     try {
       const results = await handleFetchCombinedVotes();
-      this.setState({
-        combined_votes: [...this.state.combined_votes, ...results],
+      this.props.dispatch({
+        type: "FETCH_COMBINEDVOTES",
+        votes: results,
       });
-      this.resolveVote(this.state.combined_votes);
     } catch (err) {
       console.error(err);
     }
-  };
-
-  resolveVote = (combined_votes) => {
-    combined_votes.forEach((vote) => {
-      vote.cool_votes = parseInt(vote.cool_votes);
-      vote.uncool_votes = parseInt(vote.uncool_votes);
-      vote.subzero_votes = parseInt(vote.subzero_votes);
-      if (
-        vote.cool_votes >= vote.uncool_votes &&
-        vote.cool_votes > vote.subzero_votes
-      ) {
-        this.setState({
-          cool_technology: [...this.state.cool_technology, vote],
-        });
-      }
-      if (
-        vote.uncool_votes > vote.cool_votes &&
-        vote.uncool_votes > vote.subzero_votes
-      ) {
-        this.setState({
-          uncool_technology: [...this.state.uncool_technology, vote],
-        });
-      }
-      if (
-        vote.subzero_votes >= vote.uncool_votes &&
-        vote.subzero_votes >= vote.cool_votes
-      ) {
-        this.setState({
-          subzero_technology: [...this.state.subzero_technology, vote],
-        });
-      }
-    });
   };
 
   render() {
     return (
       <div data-test="component-displaytrend" className="displaytrend--wrapper">
         <div className="displaytrend--row">
-          <UnCool
-            uncool_technology={this.state.uncool_technology}
-            data-test="component-uncool"
-          />
+          {this.props.combined_votes && this.props.tech_list ? (
+            <UnCool
+              uncool_technology={resolveUnCoolVotes(this.props.combined_votes)}
+              tech_list={this.props.tech_list}
+              data-test="component-uncool"
+            />
+          ) : null}
         </div>
         <div className="displaytrend--row">
-          <Cool
-            cool_technology={this.state.cool_technology}
-            data-test="component-cool"
-          />
+          {this.props.combined_votes && this.props.tech_list ? (
+            <Cool
+              cool_technology={resolveCoolVotes(this.props.combined_votes)}
+              tech_list={this.props.tech_list}
+              data-test="component-cool"
+            />
+          ) : null}
         </div>
         <div className="displaytrend--row">
-          <SubZero
-            subzero_technology={this.state.subzero_technology}
-            data-test="component-subzero"
-          />
+          {this.props.combined_votes && this.props.tech_list ? (
+            <SubZero
+              subzero_technology={resolveSubzeroVotes(
+                this.props.combined_votes
+              )}
+              tech_list={this.props.tech_list}
+              data-test="component-subzero"
+            />
+          ) : null}
         </div>
       </div>
     );
   }
 }
-export default DisplayTrend;
+
+const mapStateToProps = (state) => {
+  return {
+    combined_votes: state.votes.votes,
+    tech_list: state.tech.list,
+  };
+};
+
+export default connect(mapStateToProps)(DisplayTrend);

@@ -1,0 +1,58 @@
+html {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+* {
+  box-sizing: inherit;
+}
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+body {
+  background-color: #f5f6fa;
+  color: #5d6486;
+  height: 100vh;
+}
+#root {
+  height: 100vh;
+}
+.app--wrapper {
+  height: 100vh;
+}
+.button--light_blue {
+  position: relative;
+  appearance: none;
+  background: white;
+  box-shadow: 0px 4px 0px #ffb000;
+  border: 0.5px solid #ffb000;
+  width: 150px;
+  height: 50px;
+  color: #5d6486;
+  font-size: 14px;
+  cursor: pointer;
+  outline: none;
+  overflow: hidden;
+  border-radius: 10px;
+  moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+.button--light_blue:hover {
+  background-position: 100% 0;
+  moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+  background-image: linear-gradient(to left, #fff, #fff, #fff);
+  box-shadow: 0px 4px 0px #145cc6;
+  border: 0.5px solid #b7c9f7;
+  border-color: #145cc6;
+}
+@media screen and (max-width: 500px) {
+  .button--light_blue {
+    width: 100px;
+    height: 45px;
+  }
+}

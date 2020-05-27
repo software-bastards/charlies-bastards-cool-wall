@@ -1,3 +1,6 @@
+require("dotenv").config();
+require("./auth/index");
+
 const createError = require("http-errors");
 const express = require("express");
 const path = require("path");
@@ -6,11 +9,9 @@ const logger = require("morgan");
 const db = require("./database/models/index.js");
 require("./auth");
 
-//GET ROUTES
-const indexRouter = require("./routes/index");
-
 //GET routes
 const techlistRouter = require("./routes/techlist");
+const totalSubmissions = require("./routes/totalsubmissions");
 const combinedvotesRouter = require("./routes/combinedvotes");
 const dashboardRouter = require("./routes/dashboard");
 
@@ -25,14 +26,12 @@ const app = express();
 db.connector.sync();
 
 app.set("views", path.join(__dirname, "views"));
-
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, "public")));
-
-app.use("/", indexRouter);
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+app.use(express.static(path.join("public")));
 
 app.use("/techlist", techlistRouter);
 app.use("/combinedvotes", combinedvotesRouter);
@@ -40,6 +39,7 @@ app.use("/submitvote", submitvoteRouter);
 app.use("/admin_register", adminregisterRouter);
 app.use("/admin_login", adminloginRouter);
 app.use("/dashboard", dashboardRouter);
+app.use("/totalsubmissions", totalSubmissions);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

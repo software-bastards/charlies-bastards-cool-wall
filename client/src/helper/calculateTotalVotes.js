@@ -1,6 +1,6 @@
 /**
  * @method calculateTotalVotes - calculates total votes
- * @param {subzero_votes: Number, cool_votes: Number, uncool_votes: Number, tech_list: {name: String}>, Number}  technology  vote_type
+ * @param {subzero_votes: Number, cool_votes: Number, uncool_votes: Number, tech_list: {name: String}>, Number}  combined_votes
  * @returns {Number} - returns the total votes
  */
 

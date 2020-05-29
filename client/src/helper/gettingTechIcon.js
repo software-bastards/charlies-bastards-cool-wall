@@ -1,5 +1,5 @@
 /**
- * @method gettingTechIcon - gives back the svg for the technology in string form
+ * @method gettingTechIcon - gives back the corrected path for the image
  * @param {Array<{id: Number, name: String}>}  tech_list
  * @param {Number} tech_id
  * @returns {string} - returns a string

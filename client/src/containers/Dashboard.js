@@ -14,7 +14,7 @@ import handleFetchCombinedVotes from "../helper/handleFetchCombinedVotes";
 import handleFetchTotalSubmissions from "../helper/handleFetchTotalSubmissions";
 import calculateTotalVotes from "../helper/calculateTotalVotes";
 import gettingCoolestShit from "../helper/gettingCoolestShit";
-import ChangePwd from "../components/ChangePwd";
+import Settings from "../components/Settings";
 import { calculateVotePercentage } from "../helper/calculateVotePercentage";
 import Cool from "../images/cool.svg";
 import UnCool from "../images/uncool.svg";
@@ -24,6 +24,7 @@ import handleFetchTechnologyList from "../helper/handleFetchTechnologyList";
 export class DashBoard extends Component {
   state = {
     changePwdMounted: false,
+    settingsMounted: false,
   };
   componentDidMount = async () => {
     try {
@@ -64,8 +65,9 @@ export class DashBoard extends Component {
       email: "",
     });
   };
-  toggleChangePwd = () => {
-    this.setState({ changePwdMounted: !this.state.changePwdMounted });
+
+  toggleSettings = () => {
+    this.setState({ settingsMounted: !this.state.settingsMounted });
   };
 
   render() {
@@ -111,17 +113,17 @@ export class DashBoard extends Component {
               >
                 LogOut
               </button>
-              {!this.state.changePwdMounted ? (
+              {!this.state.settingsMounted ? (
                 <div
-                  onClick={this.toggleChangePwd}
+                  onClick={this.toggleSettings}
                   data-test="submit-button"
                   className="button--password"
                 >
-                  Change Password
+                  Settings
                 </div>
               ) : (
                 <div
-                  onClick={this.toggleChangePwd}
+                  onClick={this.toggleSettings}
                   data-test="submit-button"
                   className="button--password"
                 >
@@ -133,11 +135,13 @@ export class DashBoard extends Component {
         </div>
         <div className="coolwall--right">
           <div className="coolwall--right_top"></div>
-          {this.state.changePwdMounted ? (
+          {/* {this.state.changePwdMounted ? (
             <ChangePwd
               email={this.props.email}
               handleChangePwdClose={this.handleLogOut}
-            />
+            /> */}
+          {this.state.settingsMounted ? (
+            <Settings />
           ) : (
             <div className="coolwall--right_wrapper">
               <p className="right--top_p">Dashboard of the last 30 days!</p>

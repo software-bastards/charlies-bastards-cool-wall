@@ -1,3 +1,8 @@
+/**
+ * @method calculateVotePercentage - calculates vote percentage
+ *  @param {subzero_votes: Number, cool_votes: Number, uncool_votes: Number, tech_list: {name: String}>, Number}  votes
+ * @returns {Number} - returns the vote percentage
+ */
 export const calculateVotePercentage = (votes) => {
   let coolVotes = votes.reduce((total, obj) => {
     return parseInt(obj.cool_votes) + total;

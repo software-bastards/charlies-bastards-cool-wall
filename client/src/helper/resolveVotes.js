@@ -1,3 +1,9 @@
+/**
+ * @method resolveCoolVotes - gives back the array with technologies having maximum cool votes
+ * @param {subzero_votes: Number, cool_votes: Number, uncool_votes: Number, tech_list: {name: String}>, Number}  combined_votes
+ * @returns {Object} - returns an array of technologies with highest cool votes
+ */
+
 export const resolveCoolVotes = (combined_votes) => {
   let cool_technology = [];
   combined_votes.forEach((vote) => {
@@ -15,6 +21,11 @@ export const resolveCoolVotes = (combined_votes) => {
   return cool_technology;
 };
 
+/**
+ * @method resolveUnCoolVotes - gives back the array with technologies having maximum uncool votes
+ * @param {subzero_votes: Number, cool_votes: Number, uncool_votes: Number, tech_list: {name: String}>, Number}  combined_votes
+ * @returns {Object} - returns an array of technologies with highest uncool votes
+ */
 export const resolveUnCoolVotes = (combined_votes) => {
   let uncool_technology = [];
   combined_votes.forEach((vote) => {
@@ -32,6 +43,11 @@ export const resolveUnCoolVotes = (combined_votes) => {
   return uncool_technology;
 };
 
+/**
+ * @method resolveSubZeroVotes - gives back the array with technologies having maximum subzero votes
+ * @param {subzero_votes: Number, cool_votes: Number, uncool_votes: Number, tech_list: {name: String}>, Number}  combined_votes
+ * @returns {Object} - returns an array of technologies with highest subzero votes
+ */
 export const resolveSubzeroVotes = (combined_votes) => {
   let subzero_technology = [];
   combined_votes.forEach((vote) => {

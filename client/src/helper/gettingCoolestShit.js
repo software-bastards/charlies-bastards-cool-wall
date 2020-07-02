@@ -1,7 +1,7 @@
 /**
  * @method gettingCoolestShit - gives back the Object with the highest subzero_votes
  * @param {subzero_votes: Number, cool_votes: Number, uncool_votes: Number, tech_list: {name: String}>, Number}  combined_votes
- * @returns {Object} - returns the percentage value
+ * @returns {Object} - returns one combined vote object
  */
 import { resolveSubzeroVotes } from "../helper/resolveVotes";
 

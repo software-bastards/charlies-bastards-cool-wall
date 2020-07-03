@@ -12,8 +12,8 @@ export class TrendOverview extends Component {
           ? this.props.combined_votes.map((data, index) => (
               <div key={index} className="trendBar--content_wrapper">
                 <div className="trendBar--content_name">
-                  {" "}
-                  {data.tech_list.name}{" "}
+                  
+                  {data.tech_list.name}
                 </div>
                 <div className="trendBar--progressbar">
                   <TrendProgressBar

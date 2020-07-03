@@ -1,13 +1,13 @@
 require("dotenv").config();
 require("./auth/index");
-
+require("./auth");
 const createError = require("http-errors");
 const express = require("express");
 const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const db = require("./database/models/index.js");
-require("./auth");
+
 
 //GET routes
 const techlistRouter = require("./routes/techlist");
@@ -26,6 +26,7 @@ const app = express();
 db.connector.sync();
 
 app.set("views", path.join(__dirname, "views"));
+//app.set('view engine', 'jade');
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -39,14 +40,9 @@ app.use("/submitvote", submitvoteRouter);
 app.use("/admin_register", adminregisterRouter);
 app.use("/admin_login", adminloginRouter);
 app.use("/dashboard", dashboardRouter);
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
+
 app.use("/totalsubmissions", totalSubmissions);
->>>>>>> fa2dbba8b95e816148177164bc749742093caf34
-=======
-app.use("/totalsubmissions", totalSubmissions);
->>>>>>> 3b0c55bb2da436bcb4aa6793b3f1cdaf7795464a
+
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -61,7 +57,7 @@ app.use(function (err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render("error");
+  res.send("error");
 });
 
 module.exports = app;

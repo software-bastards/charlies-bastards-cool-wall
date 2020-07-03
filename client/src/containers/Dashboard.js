@@ -23,8 +23,7 @@ import handleFetchTechnologyList from "../helper/handleFetchTechnologyList";
 
 export class DashBoard extends Component {
   state = {
-    changePwdMounted: false,
-  };
+    changePwdMounted: false,};
   componentDidMount = async () => {
     try {
       const results = await handleFetchCombinedVotes();

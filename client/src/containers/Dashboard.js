@@ -64,8 +64,8 @@ export class DashBoard extends Component {
       email: "",
     });
   };
-  toggleChangePwd = () => {
-    this.setState({ changePwdMounted: !this.state.changePwdMounted });
+  toggleSetting = () => {
+    this.setState({ settingsMounted: !this.state.toggleSetting });
   };
 
   render() {
@@ -111,17 +111,17 @@ export class DashBoard extends Component {
               >
                 LogOut
               </button>
-              {!this.state.changePwdMounted ? (
+              {!this.state.settingsMounted ? (
                 <div
-                  onClick={this.toggleChangePwd}
+                  onClick={this.toggleSetting}
                   data-test="submit-button"
                   className="button--password"
                 >
-                  Change Password
+                  Settings
                 </div>
               ) : (
                 <div
-                  onClick={this.toggleChangePwd}
+                  onClick={this.toggleSetting}
                   data-test="submit-button"
                   className="button--password"
                 >
@@ -223,14 +223,8 @@ const mapStateToProps = (state) => {
     tech_list: state.tech.list,
   };
 };
-<<<<<<< HEAD
-<<<<<<< HEAD
-export default connect(mapStateToProps)(DashBoard);
-=======
 
 export default connect(mapStateToProps)(DashBoard);
->>>>>>> fa2dbba8b95e816148177164bc749742093caf34
-=======
 
-export default connect(mapStateToProps)(DashBoard);
->>>>>>> 3b0c55bb2da436bcb4aa6793b3f1cdaf7795464a
+
+
